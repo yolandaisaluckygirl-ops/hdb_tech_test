@@ -43,6 +43,10 @@ DQC_RESULT_COLUMNS = [
     "flat_type",
     "flat_model",
     "storey_range",
+    "floor_area_sqm",
+    "remaining_lease",
+    "remaining_lease_decade",
+    "price_per_sqm",
     "resale_price",
 ]
 logger = logging.getLogger(__name__)
@@ -255,17 +259,23 @@ def build_rare_value_dqc(df: pd.DataFrame, rare_count_threshold: int = 1) -> pd.
 
 
 def flag_price_anomalies(df: pd.DataFrame) -> pd.Series:
-    """Flag conservative 3x-IQR price outliers within month/town/flat_type groups."""
-    prices = pd.to_numeric(df["resale_price"], errors="coerce")
+    """Flag 3x-IQR outliers using price per sqm within comparable lease-decade groups."""
+    working = df.copy()
+    working["price_per_sqm"] = _price_per_sqm(working)
+    working["remaining_lease_decade"] = _remaining_lease_decade(working)
+
     anomaly = pd.Series(False, index=df.index)
-    for _, index in df.groupby(["month", "town", "flat_type"], dropna=False).groups.items():
-        group_prices = prices.loc[index]
+    group_columns = ["month", "town", "flat_type", "remaining_lease_decade"]
+    for _, index in working.groupby(group_columns, dropna=False).groups.items():
+        group_prices = working.loc[index, "price_per_sqm"].dropna()
         if len(group_prices) < 8:
             continue
         q1 = group_prices.quantile(0.25)
         q3 = group_prices.quantile(0.75)
         iqr = q3 - q1
-        anomaly.loc[index] = (group_prices < max(0, q1 - 3 * iqr)) | (group_prices > q3 + 3 * iqr)
+        lower_bound = max(0, q1 - 3 * iqr)
+        upper_bound = q3 + 3 * iqr
+        anomaly.loc[group_prices.index] = (group_prices < lower_bound) | (group_prices > upper_bound)
     return anomaly
 
 
@@ -274,14 +284,30 @@ def build_price_anomaly_dqc(df: pd.DataFrame) -> pd.DataFrame:
     if anomalies.empty:
         return pd.DataFrame(columns=DQC_RESULT_COLUMNS)
 
+    anomalies["remaining_lease_decade"] = _remaining_lease_decade(anomalies)
+    anomalies["price_per_sqm"] = _price_per_sqm(anomalies).round(2)
     anomalies["dqc_category"] = "anomaly resale price"
-    anomalies["dqc_field"] = "resale_price"
-    anomalies["dqc_value"] = anomalies["resale_price"].astype(str)
+    anomalies["dqc_field"] = "price_per_sqm"
+    anomalies["dqc_value"] = anomalies["price_per_sqm"].astype(str)
     anomalies["record_count"] = ""
     anomalies["frequency_pct"] = ""
-    anomalies["dqc_rule"] = "3x IQR outlier within month + town + flat_type"
+    anomalies["dqc_rule"] = "3x IQR outlier on price_per_sqm within month + town + flat_type + remaining_lease_decade"
     logger.info("Price anomaly DQC complete: rows=%s", len(anomalies))
     return anomalies
+
+
+def _price_per_sqm(df: pd.DataFrame) -> pd.Series:
+    price = pd.to_numeric(df["resale_price"], errors="coerce")
+    area = pd.to_numeric(df["floor_area_sqm"], errors="coerce")
+    return price / area.where(area.gt(0))
+
+
+def _remaining_lease_decade(df: pd.DataFrame) -> pd.Series:
+    if "remaining_lease" not in df.columns:
+        return pd.Series(pd.NA, index=df.index, dtype="object")
+    years = pd.to_numeric(df["remaining_lease"].astype(str).str.extract(r"(\d+)\s+years", expand=False), errors="coerce")
+    decade_start = (years // 10 * 10).astype("Int64")
+    return decade_start.astype(str) + "-" + (decade_start + 9).astype(str) + " years"
 
 
 def _combine_failed_records(frames: list[pd.DataFrame]) -> pd.DataFrame:

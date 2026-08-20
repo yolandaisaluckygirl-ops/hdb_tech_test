@@ -104,14 +104,20 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(len(rare_town), 1)
         self.assertEqual(rare_town.iloc[0]["dqc_category"], "rare value")
 
-    def test_price_anomaly_dqc_flags_iqr_outlier_for_review(self) -> None:
-        rows = [_row(resale_price=str(price), source_row_number=i) for i, price in enumerate([300000] * 8 + [9999999], start=2)]
+    def test_price_anomaly_dqc_flags_price_per_sqm_outlier_for_review(self) -> None:
+        rows = [
+            _row(resale_price=str(price), remaining_lease="46 years 4 months", source_row_number=i)
+            for i, price in enumerate([300000] * 8 + [9999999], start=2)
+        ]
         df = pd.DataFrame(rows)
 
         dqc_result = build_price_anomaly_dqc(df)
 
         self.assertEqual(len(dqc_result), 1)
         self.assertEqual(dqc_result.iloc[0]["dqc_category"], "anomaly resale price")
+        self.assertEqual(dqc_result.iloc[0]["dqc_field"], "price_per_sqm")
+        self.assertEqual(dqc_result.iloc[0]["remaining_lease_decade"], "40-49 years")
+        self.assertIn("remaining_lease_decade", dqc_result.iloc[0]["dqc_rule"])
 
     def test_resale_identifier_and_hash_are_created(self) -> None:
         cleaned = pd.DataFrame([_row(block="19A", resale_price=230000), _row(block="7", resale_price=230000)])

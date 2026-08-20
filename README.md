@@ -74,7 +74,7 @@ hdb_resale_tech_test/
 | Validate date, town, flat type, flat model, storey range | Apply deterministic validation and statistical DQC checks | `src/hdb_resale_etl/quality.py` |
 | Recompute remaining lease | Recalculate 99-year lease balance as of run date | `recompute_remaining_lease()` in `quality.py` |
 | Handle duplicate composite keys | Use all columns except resale price as the key; keep higher resale price | `split_duplicate_keys()` in `quality.py` |
-| Identify anomalous resale prices | 3x IQR rule within `month + town + flat_type` groups | `build_price_anomaly_dqc()` in `quality.py` |
+| Identify anomalous resale prices | 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups | `build_price_anomaly_dqc()` in `quality.py` |
 | Create Resale Identifier | Apply assignment formula using block, group average price, month, and town | `add_resale_identifier()` in `transform.py` |
 | Hash identifier irreversibly | SHA-256 hash using identifier plus natural key to preserve uniqueness | `add_hashed_identifier()` in `transform.py` |
 | Produce output groups | Write raw, cleaned, transformed, failed, hashed, DQC, and profile outputs | `src/hdb_resale_etl/pipeline.py` |
@@ -110,7 +110,7 @@ data/dqc_result/dqc_result.csv
 | DQC category | Method | Why it is review-only |
 | --- | --- | --- |
 | `rare value` | Frequency check across non-price fields; values appearing once are flagged | Rare does not always mean wrong |
-| `anomaly resale price` | 3x IQR outlier rule within `month + town + flat_type` groups | High or low price can still be genuine |
+| `anomaly resale price` | 3x IQR outlier rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups | High or low price can still be genuine |
 
 DQC records remain in the cleaned dataset unless a future manual review process rejects them. See `docs/data_quality_notes.md` for the proposed review decision loop.
 
