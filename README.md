@@ -126,61 +126,6 @@ resale_identifier + cleaned transaction natural key
 
 using SHA-256. This produces a 64-character irreversible hash in `hashed_resale_identifier`.
 
-## How To Run
-
-Install dependencies:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-Run tests:
-
-```bash
-python -m unittest discover -s tests -q
-```
-
-Run the pipeline using existing raw files:
-
-```bash
-python run_pipeline.py
-```
-
-Download from data.gov.sg before running:
-
-```bash
-python run_pipeline.py --download
-```
-
-Enable debug logging:
-
-```bash
-python run_pipeline.py --log-level DEBUG
-```
-
-## Output Files
-
-```text
-data/raw/*.csv
-data/cleaned/cleaned_resale_flat_prices.csv
-data/transformed/transformed_resale_flat_prices.csv
-data/failed/failed_resale_flat_prices.csv
-data/hashed/hashed_resale_flat_prices.csv
-data/dqc_result/dqc_result.csv
-data/profile/master_profile.json
-```
-
-Current generated counts:
-
-```text
-Raw rows: 459007
-Cleaned rows: 90944
-Transformed rows: 90944
-Failed rows: 368063
-Hashed rows: 90944
-DQC result rows: 518
-```
-
 ## Architecture Deliverables
 
 ```text
