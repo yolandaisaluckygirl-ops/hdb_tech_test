@@ -1,0 +1,246 @@
+{
+  "row_count": 459007,
+  "columns": {
+    "month": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 204,
+      "sample_values": [
+        "2012-03",
+        "2012-04",
+        "2012-05",
+        "2012-06",
+        "2012-07",
+        "2012-08",
+        "2012-09",
+        "2012-10",
+        "2012-11",
+        "2012-12"
+      ]
+    },
+    "town": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 26,
+      "sample_values": [
+        "ANG MO KIO",
+        "BEDOK",
+        "BISHAN",
+        "BUKIT BATOK",
+        "BUKIT MERAH",
+        "BUKIT PANJANG",
+        "BUKIT TIMAH",
+        "CENTRAL AREA",
+        "CHOA CHU KANG",
+        "CLEMENTI"
+      ]
+    },
+    "flat_type": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 7,
+      "sample_values": [
+        "2 ROOM",
+        "3 ROOM",
+        "4 ROOM",
+        "5 ROOM",
+        "EXECUTIVE",
+        "MULTI-GENERATION",
+        "1 ROOM"
+      ]
+    },
+    "block": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 2139,
+      "sample_values": [
+        "172",
+        "510",
+        "610",
+        "474",
+        "604",
+        "154",
+        "110",
+        "445",
+        "476",
+        "631"
+      ],
+      "numeric": {
+        "min": 1.0,
+        "max": 980.0,
+        "mean": 354.7506428011238
+      }
+    },
+    "street_name": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 531,
+      "sample_values": [
+        "ANG MO KIO AVE 4",
+        "ANG MO KIO AVE 8",
+        "ANG MO KIO AVE 10",
+        "ANG MO KIO AVE 5",
+        "ANG MO KIO AVE 3",
+        "ANG MO KIO AVE 1",
+        "ANG MO KIO AVE 9",
+        "ANG MO KIO AVE 6",
+        "ANG MO KIO ST 32",
+        "ANG MO KIO ST 52"
+      ]
+    },
+    "storey_range": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 25,
+      "sample_values": [
+        "06 TO 10",
+        "01 TO 05",
+        "11 TO 15",
+        "16 TO 20",
+        "21 TO 25",
+        "26 TO 30",
+        "36 TO 40",
+        "31 TO 35",
+        "04 TO 06",
+        "01 TO 03"
+      ]
+    },
+    "floor_area_sqm": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 191,
+      "sample_values": [
+        "45",
+        "44",
+        "68",
+        "67",
+        "73",
+        "69",
+        "74",
+        "82",
+        "83",
+        "81"
+      ],
+      "numeric": {
+        "min": 28.0,
+        "max": 297.0,
+        "mean": 96.57779794207931
+      }
+    },
+    "flat_model": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 20,
+      "sample_values": [
+        "Improved",
+        "New Generation",
+        "Standard",
+        "Model A",
+        "Simplified",
+        "Premium Apartment",
+        "Maisonette",
+        "Model A-Maisonette",
+        "Apartment",
+        "Adjoined flat"
+      ]
+    },
+    "lease_commence_date": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 48,
+      "sample_values": [
+        "1986",
+        "1980",
+        "1984",
+        "1981",
+        "1978",
+        "1979",
+        "1985",
+        "1977",
+        "1976",
+        "1982"
+      ],
+      "numeric": {
+        "min": 1966.0,
+        "max": 2013.0,
+        "mean": 1988.3960745696688
+      }
+    },
+    "resale_price": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 6549,
+      "sample_values": [
+        "250000",
+        "265000",
+        "315000",
+        "320000",
+        "321000",
+        "323000",
+        "325000",
+        "328000",
+        "330000",
+        "331000"
+      ],
+      "numeric": {
+        "min": 28000.0,
+        "max": 1150000.0,
+        "mean": 314330.66986566654
+      }
+    },
+    "source_file": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 3,
+      "sample_values": [
+        "d_2d5ff9ea31397b66239f245f57751537.csv",
+        "d_43f493c6c50d54243cc1eab0df142d6a.csv",
+        "d_ea9ed51da2787afaf8e51f827c304208.csv"
+      ]
+    },
+    "source_row_number": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 369651,
+      "sample_values": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "numeric": {
+        "min": 2.0,
+        "max": 369652.0,
+        "mean": 153318.72655536843
+      }
+    },
+    "remaining_lease": {
+      "non_empty_count": 459007,
+      "empty_count": 0,
+      "unique_count": 51,
+      "sample_values": [
+        NaN,
+        "70",
+        "65",
+        "64",
+        "63",
+        "62",
+        "69",
+        "60",
+        "61",
+        "86"
+      ],
+      "numeric": {
+        "min": 48.0,
+        "max": 97.0,
+        "mean": 73.91311603369849
+      }
+    }
+  }
+}

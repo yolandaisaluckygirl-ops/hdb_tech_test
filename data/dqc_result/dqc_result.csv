@@ -1,0 +1,519 @@
+dqc_category,dqc_field,dqc_value,dqc_rule,record_count,frequency_pct,source_file,source_row_number,month,town,flat_type,flat_model,storey_range,resale_price
+rare value,block,150A,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,256,2012-03,BISHAN,4 ROOM,SIMPLIFIED,01 TO 05,390000.0
+rare value,block,640A,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,2361,2012-03,YISHUN,EXECUTIVE,APARTMENT,01 TO 05,655000.0
+rare value,block,10C,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,21759,2013-02,BEDOK,EXECUTIVE,APARTMENT,01 TO 03,773000.0
+rare value,block,828A,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,23205,2013-03,JURONG WEST,EXECUTIVE,MAISONETTE,01 TO 03,580000.0
+rare value,block,863B,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,33548,2013-10,TAMPINES,4 ROOM,MODEL A,01 TO 03,448000.0
+rare value,block,856E,block frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,35914,2013-12,TAMPINES,EXECUTIVE,APARTMENT,04 TO 06,750000.0
+rare value,block,905,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,18368,2016-01,JURONG WEST,4 ROOM,MODEL A,01 TO 03,330000.0
+rare value,block,80C,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36063,2016-12,BUKIT MERAH,3 ROOM,PREMIUM APARTMENT,04 TO 06,510000.0
+rare value,block,476C,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36166,2016-12,CHOA CHU KANG,3 ROOM,MODEL A,10 TO 12,315000.0
+rare value,block,617C,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36631,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT,13 TO 15,570000.0
+rare value,block,618B,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36633,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT,16 TO 18,538000.0
+rare value,block,435A,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36762,2016-12,SENGKANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,410000.0
+rare value,block,434A,block frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36763,2016-12,SENGKANG,4 ROOM,PREMIUM APARTMENT,16 TO 18,460000.0
+rare value,street_name,MARINE PARADE CTRL,street_name frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,19274,2012-12,MARINE PARADE,3 ROOM,IMPROVED,01 TO 03,388000.0
+rare value,street_name,SEMBAWANG WAY,street_name frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,3318,2015-03,SEMBAWANG,5 ROOM,IMPROVED,13 TO 15,505000.0
+rare value,street_name,TELOK BLANGAH ST 31,street_name frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36063,2016-12,BUKIT MERAH,3 ROOM,PREMIUM APARTMENT,04 TO 06,510000.0
+rare value,floor_area_sqm,243.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,2623,2012-04,BISHAN,EXECUTIVE,MAISONETTE,06 TO 10,869000.0
+rare value,floor_area_sqm,171.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,6836,2012-05,YISHUN,MULTI-GENERATION,MULTI GENERATION,01 TO 05,680000.0
+rare value,floor_area_sqm,249.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,12115,2012-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,988888.0
+rare value,floor_area_sqm,266.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,24738,2013-04,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,1020000.0
+rare value,floor_area_sqm,37.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,26250,2013-05,JURONG WEST,2 ROOM,MODEL A,01 TO 03,208000.0
+rare value,floor_area_sqm,180.0,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,34556,2013-11,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,993888.0
+rare value,floor_area_sqm,68.8,floor_area_sqm frequency count <= 1,1,0.0011,d_2d5ff9ea31397b66239f245f57751537.csv,47760,2014-09,WOODLANDS,3 ROOM,NEW GENERATION,01 TO 03,270000.0
+rare value,floor_area_sqm,280.0,floor_area_sqm frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,3115,2015-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,1060000.0
+rare value,floor_area_sqm,241.0,floor_area_sqm frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,7907,2015-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,958000.0
+rare value,floor_area_sqm,259.0,floor_area_sqm frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,36492,2016-12,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,1150000.0
+rare value,flat_model,2-ROOM,flat_model frequency count <= 1,1,0.0011,d_ea9ed51da2787afaf8e51f827c304208.csv,33457,2016-10,PASIR RIS,2 ROOM,2-ROOM,01 TO 03,240000.0
+anomaly resale price,resale_price,567000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,235,2012-03,BEDOK,4 ROOM,MODEL A,06 TO 10,567000.0
+anomaly resale price,resale_price,577800.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,239,2012-03,BEDOK,4 ROOM,MODEL A,06 TO 10,577800.0
+anomaly resale price,resale_price,555000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,455,2012-03,BUKIT MERAH,3 ROOM,STANDARD,01 TO 05,555000.0
+anomaly resale price,resale_price,505000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,697,2012-03,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,06 TO 10,505000.0
+anomaly resale price,resale_price,516000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,699,2012-03,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,11 TO 15,516000.0
+anomaly resale price,resale_price,688000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1264,2012-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 05,688000.0
+anomaly resale price,resale_price,698000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1265,2012-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 05,698000.0
+anomaly resale price,resale_price,552000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1646,2012-03,SENGKANG,4 ROOM,PREMIUM APARTMENT,06 TO 10,552000.0
+anomaly resale price,resale_price,555000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1648,2012-03,SENGKANG,4 ROOM,PREMIUM APARTMENT,11 TO 15,555000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1658,2012-03,SENGKANG,4 ROOM,PREMIUM APARTMENT,11 TO 15,570000.0
+anomaly resale price,resale_price,573000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1660,2012-03,SENGKANG,4 ROOM,PREMIUM APARTMENT,11 TO 15,573000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,1662,2012-03,SENGKANG,4 ROOM,PREMIUM APARTMENT,11 TO 15,580000.0
+anomaly resale price,resale_price,639000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,3244,2012-04,HOUGANG,5 ROOM,MODEL A-MAISONETTE,06 TO 10,639000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,4729,2012-05,BEDOK,4 ROOM,MODEL A,16 TO 20,580000.0
+anomaly resale price,resale_price,595000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,4948,2012-05,BUKIT MERAH,3 ROOM,STANDARD,01 TO 05,595000.0
+anomaly resale price,resale_price,505000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5171,2012-05,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,01 TO 05,505000.0
+anomaly resale price,resale_price,523000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5173,2012-05,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,06 TO 10,523000.0
+anomaly resale price,resale_price,623000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5188,2012-05,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,06 TO 10,623000.0
+anomaly resale price,resale_price,419000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5303,2012-05,GEYLANG,3 ROOM,MODEL A,11 TO 15,419000.0
+anomaly resale price,resale_price,430000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5304,2012-05,GEYLANG,3 ROOM,MODEL A,01 TO 05,430000.0
+anomaly resale price,resale_price,454000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5307,2012-05,GEYLANG,3 ROOM,MODEL A,11 TO 15,454000.0
+anomaly resale price,resale_price,530000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,5829,2012-05,PASIR RIS,4 ROOM,MODEL A,11 TO 15,530000.0
+anomaly resale price,resale_price,773000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,6385,2012-05,TAMPINES,EXECUTIVE,APARTMENT,11 TO 15,773000.0
+anomaly resale price,resale_price,730000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,6692,2012-05,WOODLANDS,EXECUTIVE,APARTMENT,06 TO 10,730000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,6931,2012-06,ANG MO KIO,4 ROOM,MODEL A,19 TO 21,620000.0
+anomaly resale price,resale_price,638000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,6932,2012-06,ANG MO KIO,4 ROOM,MODEL A,22 TO 24,638000.0
+anomaly resale price,resale_price,536800.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7306,2012-06,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,19 TO 21,536800.0
+anomaly resale price,resale_price,543000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7307,2012-06,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,28 TO 30,543000.0
+anomaly resale price,resale_price,513000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7420,2012-06,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,513000.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7421,2012-06,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,520000.0
+anomaly resale price,resale_price,810000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7913,2012-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,810000.0
+anomaly resale price,resale_price,825000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,7914,2012-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,825000.0
+anomaly resale price,resale_price,590000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9067,2012-07,BEDOK,4 ROOM,MODEL A,16 TO 18,590000.0
+anomaly resale price,resale_price,383000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9317,2012-07,BUKIT PANJANG,3 ROOM,MODEL A,10 TO 12,383000.0
+anomaly resale price,resale_price,396000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9323,2012-07,BUKIT PANJANG,3 ROOM,MODEL A,10 TO 12,396000.0
+anomaly resale price,resale_price,550000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9487,2012-07,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,550000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9499,2012-07,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,10 TO 12,610000.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9500,2012-07,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,07 TO 09,615000.0
+anomaly resale price,resale_price,628000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9717,2012-07,HOUGANG,5 ROOM,IMPROVED-MAISONETTE,01 TO 03,628000.0
+anomaly resale price,resale_price,688888.88,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,9722,2012-07,HOUGANG,5 ROOM,MODEL A-MAISONETTE,07 TO 09,688888.88
+anomaly resale price,resale_price,810000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10035,2012-07,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,810000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10466,2012-07,SERANGOON,5 ROOM,IMPROVED,13 TO 15,680000.0
+anomaly resale price,resale_price,713000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10467,2012-07,SERANGOON,5 ROOM,IMPROVED,04 TO 06,713000.0
+anomaly resale price,resale_price,315000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10472,2012-07,TAMPINES,3 ROOM,NEW GENERATION,04 TO 06,315000.0
+anomaly resale price,resale_price,666000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10609,2012-07,TAMPINES,5 ROOM,IMPROVED,07 TO 09,666000.0
+anomaly resale price,resale_price,705000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,10881,2012-07,WOODLANDS,EXECUTIVE,APARTMENT,10 TO 12,705000.0
+anomaly resale price,resale_price,655000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,11124,2012-08,ANG MO KIO,4 ROOM,MODEL A,25 TO 27,655000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,11421,2012-08,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,600000.0
+anomaly resale price,resale_price,988888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,12115,2012-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,988888.0
+anomaly resale price,resale_price,532000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,12182,2012-08,PASIR RIS,4 ROOM,MODEL A,10 TO 12,532000.0
+anomaly resale price,resale_price,860000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,12762,2012-08,TOA PAYOH,5 ROOM,IMPROVED,28 TO 30,860000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,13183,2012-09,ANG MO KIO,4 ROOM,MODEL A,28 TO 30,680000.0
+anomaly resale price,resale_price,780000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,14003,2012-09,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,780000.0
+anomaly resale price,resale_price,795000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,14186,2012-09,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,795000.0
+anomaly resale price,resale_price,750000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,14378,2012-09,SERANGOON,5 ROOM,ADJOINED FLAT,07 TO 09,750000.0
+anomaly resale price,resale_price,535000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,15316,2012-10,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,535000.0
+anomaly resale price,resale_price,563800.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,15322,2012-10,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,13 TO 15,563800.0
+anomaly resale price,resale_price,638000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,15617,2012-10,HOUGANG,5 ROOM,IMPROVED,07 TO 09,638000.0
+anomaly resale price,resale_price,852000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,15866,2012-10,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,852000.0
+anomaly resale price,resale_price,675000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,16430,2012-10,TAMPINES,5 ROOM,IMPROVED,07 TO 09,675000.0
+anomaly resale price,resale_price,690000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,16432,2012-10,TAMPINES,5 ROOM,MODEL A,04 TO 06,690000.0
+anomaly resale price,resale_price,247000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,16662,2012-10,YISHUN,4 ROOM,MODEL A,10 TO 12,247000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,17117,2012-11,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,650000.0
+anomaly resale price,resale_price,812000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,17722,2012-11,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,812000.0
+anomaly resale price,resale_price,640000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18061,2012-11,SERANGOON,4 ROOM,MODEL A,10 TO 12,640000.0
+anomaly resale price,resale_price,700000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18062,2012-11,SERANGOON,4 ROOM,MODEL A,10 TO 12,700000.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18588,2012-12,BEDOK,3 ROOM,MODEL A,04 TO 06,520000.0
+anomaly resale price,resale_price,567000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18643,2012-12,BEDOK,4 ROOM,PREMIUM APARTMENT,13 TO 15,567000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18649,2012-12,BEDOK,4 ROOM,MODEL A,04 TO 06,600000.0
+anomaly resale price,resale_price,648000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,18821,2012-12,BUKIT PANJANG,5 ROOM,PREMIUM APARTMENT,07 TO 09,648000.0
+anomaly resale price,resale_price,778000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,19049,2012-12,HOUGANG,5 ROOM,MODEL A-MAISONETTE,04 TO 06,778000.0
+anomaly resale price,resale_price,370000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,19087,2012-12,JURONG EAST,4 ROOM,NEW GENERATION,01 TO 03,370000.0
+anomaly resale price,resale_price,533000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,19089,2012-12,JURONG EAST,4 ROOM,MODEL A,10 TO 12,533000.0
+anomaly resale price,resale_price,758000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,19668,2012-12,TAMPINES,5 ROOM,IMPROVED,07 TO 09,758000.0
+anomaly resale price,resale_price,411888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,19924,2012-12,YISHUN,3 ROOM,MODEL A,10 TO 12,411888.0
+anomaly resale price,resale_price,618000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20080,2013-01,ANG MO KIO,4 ROOM,MODEL A,07 TO 09,618000.0
+anomaly resale price,resale_price,648000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20083,2013-01,ANG MO KIO,4 ROOM,MODEL A,13 TO 15,648000.0
+anomaly resale price,resale_price,636300.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20297,2013-01,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,636300.0
+anomaly resale price,resale_price,663000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20300,2013-01,BUKIT MERAH,3 ROOM,STANDARD,04 TO 06,663000.0
+anomaly resale price,resale_price,565000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20376,2013-01,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,28 TO 30,565000.0
+anomaly resale price,resale_price,574000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20453,2013-01,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,13 TO 15,574000.0
+anomaly resale price,resale_price,608000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20456,2013-01,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,04 TO 06,608000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20600,2013-01,HOUGANG,4 ROOM,MODEL A,04 TO 06,580000.0
+anomaly resale price,resale_price,685000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20606,2013-01,HOUGANG,5 ROOM,IMPROVED,07 TO 09,685000.0
+anomaly resale price,resale_price,700000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20608,2013-01,HOUGANG,5 ROOM,IMPROVED-MAISONETTE,01 TO 03,700000.0
+anomaly resale price,resale_price,522500.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,20643,2013-01,JURONG EAST,5 ROOM,IMPROVED,04 TO 06,522500.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21023,2013-01,SEMBAWANG,EXECUTIVE,APARTMENT,01 TO 03,520000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21040,2013-01,SEMBAWANG,EXECUTIVE,MAISONETTE,10 TO 12,650000.0
+anomaly resale price,resale_price,710000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21190,2013-01,SERANGOON,5 ROOM,IMPROVED,10 TO 12,710000.0
+anomaly resale price,resale_price,435000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21731,2013-02,BEDOK,3 ROOM,NEW GENERATION,01 TO 03,435000.0
+anomaly resale price,resale_price,468000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21739,2013-02,BEDOK,3 ROOM,MODEL A,10 TO 12,468000.0
+anomaly resale price,resale_price,538500.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,21871,2013-02,BUKIT PANJANG,4 ROOM,MODEL A,10 TO 12,538500.0
+anomaly resale price,resale_price,735000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22119,2013-02,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,735000.0
+anomaly resale price,resale_price,440000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22637,2013-03,BEDOK,3 ROOM,NEW GENERATION,04 TO 06,440000.0
+anomaly resale price,resale_price,515000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22658,2013-03,BEDOK,3 ROOM,MODEL A,10 TO 12,515000.0
+anomaly resale price,resale_price,393000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22736,2013-03,BUKIT BATOK,3 ROOM,MODEL A,13 TO 15,393000.0
+anomaly resale price,resale_price,393000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22737,2013-03,BUKIT BATOK,3 ROOM,MODEL A,10 TO 12,393000.0
+anomaly resale price,resale_price,450000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22982,2013-03,GEYLANG,3 ROOM,IMPROVED,13 TO 15,450000.0
+anomaly resale price,resale_price,455000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22983,2013-03,GEYLANG,3 ROOM,IMPROVED,13 TO 15,455000.0
+anomaly resale price,resale_price,460000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,22984,2013-03,GEYLANG,3 ROOM,MODEL A,04 TO 06,460000.0
+anomaly resale price,resale_price,455000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,23032,2013-03,HOUGANG,3 ROOM,NEW GENERATION,07 TO 09,455000.0
+anomaly resale price,resale_price,400000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,23081,2013-03,JURONG EAST,3 ROOM,IMPROVED,13 TO 15,400000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,23901,2013-04,ANG MO KIO,4 ROOM,NEW GENERATION,07 TO 09,620000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,23902,2013-04,ANG MO KIO,4 ROOM,MODEL A,10 TO 12,625000.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,23997,2013-04,BEDOK,3 ROOM,MODEL A,16 TO 18,520000.0
+anomaly resale price,resale_price,519000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,24214,2013-04,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,519000.0
+anomaly resale price,resale_price,563500.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,24221,2013-04,BUKIT PANJANG,4 ROOM,MODEL A,13 TO 15,563500.0
+anomaly resale price,resale_price,773000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,24487,2013-04,HOUGANG,5 ROOM,MODEL A-MAISONETTE,04 TO 06,773000.0
+anomaly resale price,resale_price,540000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,24779,2013-04,PASIR RIS,4 ROOM,MODEL A,10 TO 12,540000.0
+anomaly resale price,resale_price,478000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,25692,2013-05,BEDOK,3 ROOM,MODEL A,01 TO 03,478000.0
+anomaly resale price,resale_price,681000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,25722,2013-05,BEDOK,4 ROOM,MODEL A,07 TO 09,681000.0
+anomaly resale price,resale_price,705000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,25726,2013-05,BEDOK,4 ROOM,MODEL A,07 TO 09,705000.0
+anomaly resale price,resale_price,380188.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,25786,2013-05,BUKIT BATOK,3 ROOM,MODEL A,01 TO 03,380188.0
+anomaly resale price,resale_price,578000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,26003,2013-05,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,16 TO 18,578000.0
+anomaly resale price,resale_price,670000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,26010,2013-05,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,07 TO 09,670000.0
+anomaly resale price,resale_price,572000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,26615,2013-05,SEMBAWANG,5 ROOM,IMPROVED,13 TO 15,572000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,27466,2013-06,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,560000.0
+anomaly resale price,resale_price,585000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,27655,2013-06,HOUGANG,4 ROOM,MODEL A,10 TO 12,585000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,27950,2013-06,QUEENSTOWN,4 ROOM,MODEL A,01 TO 03,570000.0
+anomaly resale price,resale_price,392000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,27962,2013-06,SEMBAWANG,4 ROOM,MODEL A,04 TO 06,392000.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28604,2013-07,BEDOK,4 ROOM,MODEL A,04 TO 06,615000.0
+anomaly resale price,resale_price,640000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28607,2013-07,BEDOK,4 ROOM,MODEL A,01 TO 03,640000.0
+anomaly resale price,resale_price,660000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28610,2013-07,BEDOK,4 ROOM,MODEL A,04 TO 06,660000.0
+anomaly resale price,resale_price,688000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28612,2013-07,BEDOK,4 ROOM,MODEL A,04 TO 06,688000.0
+anomaly resale price,resale_price,918000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28750,2013-07,BUKIT MERAH,5 ROOM,IMPROVED,19 TO 21,918000.0
+anomaly resale price,resale_price,533000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28849,2013-07,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,533000.0
+anomaly resale price,resale_price,550000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,28854,2013-07,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,07 TO 09,550000.0
+anomaly resale price,resale_price,661000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,29016,2013-07,HOUGANG,5 ROOM,MODEL A-MAISONETTE,01 TO 03,661000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,29996,2013-08,ANG MO KIO,4 ROOM,MODEL A,22 TO 24,680000.0
+anomaly resale price,resale_price,272571.43,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,30502,2013-08,JURONG EAST,3 ROOM,NEW GENERATION,04 TO 06,272571.43
+anomaly resale price,resale_price,758000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,30736,2013-08,PASIR RIS,EXECUTIVE,APARTMENT,04 TO 06,758000.0
+anomaly resale price,resale_price,668000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,31429,2013-09,BEDOK,4 ROOM,MODEL A,10 TO 12,668000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,31432,2013-09,BEDOK,4 ROOM,MODEL A,10 TO 12,680000.0
+anomaly resale price,resale_price,708000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,31505,2013-09,BUKIT BATOK,4 ROOM,MODEL A,28 TO 30,708000.0
+anomaly resale price,resale_price,495000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,31695,2013-09,GEYLANG,3 ROOM,MODEL A,19 TO 21,495000.0
+anomaly resale price,resale_price,662000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,32559,2013-10,ANG MO KIO,4 ROOM,MODEL A,10 TO 12,662000.0
+anomaly resale price,resale_price,672000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,32562,2013-10,ANG MO KIO,4 ROOM,MODEL A,19 TO 21,672000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,32644,2013-10,BEDOK,3 ROOM,MODEL A,10 TO 12,500000.0
+anomaly resale price,resale_price,544000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,32859,2013-10,BUKIT PANJANG,4 ROOM,MODEL A,10 TO 12,544000.0
+anomaly resale price,resale_price,653000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,32862,2013-10,BUKIT PANJANG,5 ROOM,PREMIUM APARTMENT,13 TO 15,653000.0
+anomaly resale price,resale_price,420000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,33032,2013-10,HOUGANG,3 ROOM,MODEL A,01 TO 03,420000.0
+anomaly resale price,resale_price,573000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,33067,2013-10,HOUGANG,4 ROOM,MODEL A,13 TO 15,573000.0
+anomaly resale price,resale_price,780000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,33381,2013-10,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,780000.0
+anomaly resale price,resale_price,562000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,33890,2013-10,YISHUN,5 ROOM,IMPROVED,07 TO 09,562000.0
+anomaly resale price,resale_price,642000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,34021,2013-11,BEDOK,4 ROOM,MODEL A,01 TO 03,642000.0
+anomaly resale price,resale_price,565000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,34205,2013-11,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,19 TO 21,565000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,34379,2013-11,HOUGANG,4 ROOM,MODEL A,10 TO 12,580000.0
+anomaly resale price,resale_price,993888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,34556,2013-11,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,993888.0
+anomaly resale price,resale_price,440000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35112,2013-12,ANG MO KIO,3 ROOM,NEW GENERATION,07 TO 09,440000.0
+anomaly resale price,resale_price,668000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35297,2013-12,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,668000.0
+anomaly resale price,resale_price,495000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35678,2013-12,PASIR RIS,4 ROOM,MODEL A,07 TO 09,495000.0
+anomaly resale price,resale_price,485000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35685,2013-12,PASIR RIS,4 ROOM,MODEL A,01 TO 03,485000.0
+anomaly resale price,resale_price,510000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35692,2013-12,PASIR RIS,4 ROOM,MODEL A,13 TO 15,510000.0
+anomaly resale price,resale_price,390000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,35895,2013-12,TAMPINES,4 ROOM,SIMPLIFIED,01 TO 03,390000.0
+anomaly resale price,resale_price,640000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,36239,2014-01,BEDOK,4 ROOM,MODEL A,01 TO 03,640000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,36324,2014-01,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,650000.0
+anomaly resale price,resale_price,569000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,36537,2014-01,HOUGANG,4 ROOM,MODEL A,13 TO 15,569000.0
+anomaly resale price,resale_price,590000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,36539,2014-01,HOUGANG,4 ROOM,MODEL A,16 TO 18,590000.0
+anomaly resale price,resale_price,540000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37112,2014-01,WOODLANDS,EXECUTIVE,MAISONETTE,01 TO 03,540000.0
+anomaly resale price,resale_price,698000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37120,2014-01,WOODLANDS,EXECUTIVE,APARTMENT,07 TO 09,698000.0
+anomaly resale price,resale_price,530000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37400,2014-02,BUKIT MERAH,3 ROOM,MODEL A,10 TO 12,530000.0
+anomaly resale price,resale_price,510000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37475,2014-02,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,510000.0
+anomaly resale price,resale_price,468000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37513,2014-02,GEYLANG,3 ROOM,MODEL A,10 TO 12,468000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37573,2014-02,HOUGANG,4 ROOM,MODEL A,10 TO 12,600000.0
+anomaly resale price,resale_price,493000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37691,2014-02,KALLANG/WHAMPOA,3 ROOM,MODEL A,16 TO 18,493000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37692,2014-02,KALLANG/WHAMPOA,3 ROOM,MODEL A,19 TO 21,500000.0
+anomaly resale price,resale_price,395000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37922,2014-02,TAMPINES,4 ROOM,SIMPLIFIED,01 TO 03,395000.0
+anomaly resale price,resale_price,445000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,37930,2014-02,TAMPINES,3 ROOM,MODEL A,07 TO 09,445000.0
+anomaly resale price,resale_price,457000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,38330,2014-03,BEDOK,3 ROOM,MODEL A,07 TO 09,457000.0
+anomaly resale price,resale_price,690000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,38358,2014-03,BEDOK,4 ROOM,MODEL A,13 TO 15,690000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,38590,2014-03,CHOA CHU KANG,4 ROOM,MODEL A,10 TO 12,500000.0
+anomaly resale price,resale_price,835000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,38959,2014-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,835000.0
+anomaly resale price,resale_price,598000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,39787,2014-04,BEDOK,4 ROOM,MODEL A,04 TO 06,598000.0
+anomaly resale price,resale_price,518000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,39918,2014-04,BUKIT MERAH,3 ROOM,MODEL A,25 TO 27,518000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,39993,2014-04,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,25 TO 27,560000.0
+anomaly resale price,resale_price,685000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,40098,2014-04,CLEMENTI,4 ROOM,MODEL A,13 TO 15,685000.0
+anomaly resale price,resale_price,585000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,40233,2014-04,HOUGANG,4 ROOM,MODEL A,13 TO 15,585000.0
+anomaly resale price,resale_price,700000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,40241,2014-04,HOUGANG,5 ROOM,MODEL A-MAISONETTE,04 TO 06,700000.0
+anomaly resale price,resale_price,795000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,41059,2014-04,WOODLANDS,EXECUTIVE,APARTMENT,04 TO 06,795000.0
+anomaly resale price,resale_price,645000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,41525,2014-05,BUKIT PANJANG,5 ROOM,PREMIUM APARTMENT,19 TO 21,645000.0
+anomaly resale price,resale_price,900000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,41938,2014-05,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,900000.0
+anomaly resale price,resale_price,745000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42343,2014-05,TAMPINES,EXECUTIVE,APARTMENT,04 TO 06,745000.0
+anomaly resale price,resale_price,465000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42730,2014-06,BEDOK,3 ROOM,MODEL A,04 TO 06,465000.0
+anomaly resale price,resale_price,524888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42928,2014-06,BUKIT PANJANG,4 ROOM,MODEL A,19 TO 21,524888.0
+anomaly resale price,resale_price,543000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42930,2014-06,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,13 TO 15,543000.0
+anomaly resale price,resale_price,494000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42983,2014-06,CHOA CHU KANG,4 ROOM,MODEL A,07 TO 09,494000.0
+anomaly resale price,resale_price,510000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,42985,2014-06,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,13 TO 15,510000.0
+anomaly resale price,resale_price,410000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43083,2014-06,HOUGANG,3 ROOM,NEW GENERATION,13 TO 15,410000.0
+anomaly resale price,resale_price,708000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43295,2014-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,708000.0
+anomaly resale price,resale_price,755000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43297,2014-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,755000.0
+anomaly resale price,resale_price,928000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43299,2014-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,928000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43394,2014-06,QUEENSTOWN,3 ROOM,MODEL A,34 TO 36,560000.0
+anomaly resale price,resale_price,453000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43983,2014-07,BEDOK,3 ROOM,MODEL A,10 TO 12,453000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43987,2014-07,BEDOK,3 ROOM,MODEL A,16 TO 18,500000.0
+anomaly resale price,resale_price,635000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43990,2014-07,BEDOK,4 ROOM,MODEL A,04 TO 06,635000.0
+anomaly resale price,resale_price,648000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,43991,2014-07,BEDOK,4 ROOM,MODEL A,07 TO 09,648000.0
+anomaly resale price,resale_price,485000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,44203,2014-07,CHOA CHU KANG,4 ROOM,MODEL A,10 TO 12,485000.0
+anomaly resale price,resale_price,670000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,44364,2014-07,HOUGANG,5 ROOM,IMPROVED-MAISONETTE,01 TO 03,670000.0
+anomaly resale price,resale_price,850000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,44551,2014-07,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,850000.0
+anomaly resale price,resale_price,548000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,44908,2014-07,TAMPINES,EXECUTIVE,MAISONETTE,01 TO 03,548000.0
+anomaly resale price,resale_price,458000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45319,2014-08,BEDOK,3 ROOM,MODEL A,07 TO 09,458000.0
+anomaly resale price,resale_price,663000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45341,2014-08,BEDOK,4 ROOM,MODEL A,07 TO 09,663000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45410,2014-08,BUKIT BATOK,4 ROOM,MODEL A,25 TO 27,625000.0
+anomaly resale price,resale_price,628000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45448,2014-08,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,628000.0
+anomaly resale price,resale_price,648000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45450,2014-08,BUKIT MERAH,3 ROOM,STANDARD,04 TO 06,648000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45451,2014-08,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,650000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45832,2014-08,JURONG WEST,4 ROOM,MODEL A,04 TO 06,560000.0
+anomaly resale price,resale_price,940000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45879,2014-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,940000.0
+anomaly resale price,resale_price,498888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,45963,2014-08,PUNGGOL,4 ROOM,PREMIUM APARTMENT,07 TO 09,498888.0
+anomaly resale price,resale_price,488000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,46671,2014-09,BEDOK,3 ROOM,MODEL A,10 TO 12,488000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,46677,2014-09,BEDOK,4 ROOM,MODEL A,10 TO 12,620000.0
+anomaly resale price,resale_price,694000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,46685,2014-09,BEDOK,4 ROOM,MODEL A,13 TO 15,694000.0
+anomaly resale price,resale_price,725000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,47247,2014-09,JURONG WEST,EXECUTIVE,MAISONETTE,13 TO 15,725000.0
+anomaly resale price,resale_price,720000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,47417,2014-09,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,720000.0
+anomaly resale price,resale_price,415000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48114,2014-10,BEDOK,3 ROOM,NEW GENERATION,10 TO 12,415000.0
+anomaly resale price,resale_price,425000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48119,2014-10,BEDOK,3 ROOM,MODEL A,01 TO 03,425000.0
+anomaly resale price,resale_price,435000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48127,2014-10,BEDOK,3 ROOM,MODEL A,01 TO 03,435000.0
+anomaly resale price,resale_price,675000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48158,2014-10,BEDOK,4 ROOM,MODEL A,13 TO 15,675000.0
+anomaly resale price,resale_price,635000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48291,2014-10,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,635000.0
+anomaly resale price,resale_price,810000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,48806,2014-10,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,810000.0
+anomaly resale price,resale_price,635000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,49696,2014-11,BEDOK,4 ROOM,MODEL A,04 TO 06,635000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,49818,2014-11,BUKIT MERAH,5 ROOM,IMPROVED,01 TO 03,600000.0
+anomaly resale price,resale_price,488000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50052,2014-11,HOUGANG,5 ROOM,IMPROVED,04 TO 06,488000.0
+anomaly resale price,resale_price,489000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50053,2014-11,HOUGANG,5 ROOM,IMPROVED,10 TO 12,489000.0
+anomaly resale price,resale_price,555000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50060,2014-11,HOUGANG,5 ROOM,MODEL A,07 TO 09,555000.0
+anomaly resale price,resale_price,590000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50063,2014-11,HOUGANG,5 ROOM,MODEL A-MAISONETTE,01 TO 03,590000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50953,2014-12,ANG MO KIO,4 ROOM,MODEL A,16 TO 18,580000.0
+anomaly resale price,resale_price,808000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,50961,2014-12,ANG MO KIO,5 ROOM,IMPROVED,16 TO 18,808000.0
+anomaly resale price,resale_price,675888.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51007,2014-12,BEDOK,4 ROOM,MODEL A,10 TO 12,675888.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51161,2014-12,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,615000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51162,2014-12,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,625000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51163,2014-12,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,620000.0
+anomaly resale price,resale_price,510000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51218,2014-12,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,16 TO 18,510000.0
+anomaly resale price,resale_price,688000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51582,2014-12,JURONG WEST,EXECUTIVE,MAISONETTE,04 TO 06,688000.0
+anomaly resale price,resale_price,690000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51966,2014-12,TAMPINES,5 ROOM,DBSS,13 TO 15,690000.0
+anomaly resale price,resale_price,662000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51967,2014-12,TAMPINES,5 ROOM,DBSS,07 TO 09,662000.0
+anomaly resale price,resale_price,678000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,51968,2014-12,TAMPINES,5 ROOM,DBSS,10 TO 12,678000.0
+anomaly resale price,resale_price,360000.0,3x IQR outlier within month + town + flat_type,,,d_2d5ff9ea31397b66239f245f57751537.csv,52137,2014-12,YISHUN,3 ROOM,NEW GENERATION,04 TO 06,360000.0
+anomaly resale price,resale_price,575000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,366758,2012-01,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,575000.0
+anomaly resale price,resale_price,830888.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,367303,2012-01,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,830888.0
+anomaly resale price,resale_price,705000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,367304,2012-01,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,705000.0
+anomaly resale price,resale_price,648000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,367369,2012-01,PASIR RIS,5 ROOM,MODEL A,04 TO 06,648000.0
+anomaly resale price,resale_price,598000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,368141,2012-02,BEDOK,4 ROOM,MODEL A,19 TO 21,598000.0
+anomaly resale price,resale_price,272000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,368192,2012-02,BISHAN,3 ROOM,IMPROVED,01 TO 03,272000.0
+anomaly resale price,resale_price,800000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,368867,2012-02,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,800000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,369541,2012-02,WOODLANDS,EXECUTIVE,APARTMENT,04 TO 06,680000.0
+anomaly resale price,resale_price,665000.0,3x IQR outlier within month + town + flat_type,,,d_43f493c6c50d54243cc1eab0df142d6a.csv,369548,2012-02,WOODLANDS,EXECUTIVE,APARTMENT,01 TO 03,665000.0
+anomaly resale price,resale_price,458000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,104,2015-01,BEDOK,3 ROOM,MODEL A,04 TO 06,458000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,105,2015-01,BEDOK,3 ROOM,MODEL A,16 TO 18,500000.0
+anomaly resale price,resale_price,493000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,341,2015-01,CENTRAL AREA,4 ROOM,IMPROVED,19 TO 21,493000.0
+anomaly resale price,resale_price,955000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,349,2015-01,CENTRAL AREA,4 ROOM,TYPE S1,46 TO 48,955000.0
+anomaly resale price,resale_price,510000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,386,2015-01,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,510000.0
+anomaly resale price,resale_price,515000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,387,2015-01,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,515000.0
+anomaly resale price,resale_price,760000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,675,2015-01,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,760000.0
+anomaly resale price,resale_price,368000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1352,2015-02,BEDOK,3 ROOM,NEW GENERATION,07 TO 09,368000.0
+anomaly resale price,resale_price,380000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1353,2015-02,BEDOK,3 ROOM,NEW GENERATION,10 TO 12,380000.0
+anomaly resale price,resale_price,385000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1354,2015-02,BEDOK,3 ROOM,NEW GENERATION,01 TO 03,385000.0
+anomaly resale price,resale_price,637500.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1380,2015-02,BEDOK,4 ROOM,MODEL A,10 TO 12,637500.0
+anomaly resale price,resale_price,240000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1409,2015-02,BUKIT BATOK,3 ROOM,NEW GENERATION,04 TO 06,240000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1474,2015-02,BUKIT MERAH,3 ROOM,STANDARD,04 TO 06,650000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1540,2015-02,CENTRAL AREA,4 ROOM,IMPROVED,16 TO 18,560000.0
+anomaly resale price,resale_price,465888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1582,2015-02,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,465888.0
+anomaly resale price,resale_price,582888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1598,2015-02,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,07 TO 09,582888.0
+anomaly resale price,resale_price,875000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,1866,2015-02,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,875000.0
+anomaly resale price,resale_price,670000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,2697,2015-03,BUKIT MERAH,3 ROOM,STANDARD,04 TO 06,670000.0
+anomaly resale price,resale_price,496000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,2741,2015-03,BUKIT PANJANG,4 ROOM,MODEL A,19 TO 21,496000.0
+anomaly resale price,resale_price,509000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,2742,2015-03,BUKIT PANJANG,4 ROOM,MODEL A,22 TO 24,509000.0
+anomaly resale price,resale_price,708000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3114,2015-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,708000.0
+anomaly resale price,resale_price,1060000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3115,2015-03,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,1060000.0
+anomaly resale price,resale_price,528000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3271,2015-03,QUEENSTOWN,3 ROOM,MODEL A,19 TO 21,528000.0
+anomaly resale price,resale_price,565000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3513,2015-03,TAMPINES,4 ROOM,DBSS,07 TO 09,565000.0
+anomaly resale price,resale_price,688888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3540,2015-03,TAMPINES,5 ROOM,DBSS,13 TO 15,688888.0
+anomaly resale price,resale_price,465000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3811,2015-04,ANG MO KIO,3 ROOM,NEW GENERATION,10 TO 12,465000.0
+anomaly resale price,resale_price,630000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,3831,2015-04,ANG MO KIO,4 ROOM,MODEL A,19 TO 21,630000.0
+anomaly resale price,resale_price,450000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4017,2015-04,BUKIT BATOK,5 ROOM,IMPROVED,10 TO 12,450000.0
+anomaly resale price,resale_price,700100.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4061,2015-04,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,700100.0
+anomaly resale price,resale_price,530000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4127,2015-04,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,25 TO 27,530000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4162,2015-04,CENTRAL AREA,4 ROOM,MODEL A,07 TO 09,570000.0
+anomaly resale price,resale_price,918000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4170,2015-04,CENTRAL AREA,4 ROOM,TYPE S1,37 TO 39,918000.0
+anomaly resale price,resale_price,495000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4209,2015-04,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,13 TO 15,495000.0
+anomaly resale price,resale_price,551000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,4286,2015-04,CLEMENTI,5 ROOM,IMPROVED,07 TO 09,551000.0
+anomaly resale price,resale_price,715000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,5103,2015-04,TAMPINES,5 ROOM,DBSS,10 TO 12,715000.0
+anomaly resale price,resale_price,490000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,5504,2015-05,BEDOK,3 ROOM,MODEL A,16 TO 18,490000.0
+anomaly resale price,resale_price,480000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,5739,2015-05,BUKIT PANJANG,4 ROOM,MODEL A,25 TO 27,480000.0
+anomaly resale price,resale_price,458888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,5820,2015-05,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,01 TO 03,458888.0
+anomaly resale price,resale_price,688000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,6686,2015-05,TAMPINES,5 ROOM,DBSS,10 TO 12,688000.0
+anomaly resale price,resale_price,690000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,6687,2015-05,TAMPINES,5 ROOM,DBSS,10 TO 12,690000.0
+anomaly resale price,resale_price,728000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,6688,2015-05,TAMPINES,5 ROOM,DBSS,07 TO 09,728000.0
+anomaly resale price,resale_price,770000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,6843,2015-05,WOODLANDS,EXECUTIVE,APARTMENT,10 TO 12,770000.0
+anomaly resale price,resale_price,760000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7035,2015-06,ANG MO KIO,5 ROOM,IMPROVED,07 TO 09,760000.0
+anomaly resale price,resale_price,850000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7036,2015-06,ANG MO KIO,5 ROOM,IMPROVED,19 TO 21,850000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7140,2015-06,BEDOK,4 ROOM,MODEL A,10 TO 12,625000.0
+anomaly resale price,resale_price,530000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7400,2015-06,CENTRAL AREA,4 ROOM,MODEL A,04 TO 06,530000.0
+anomaly resale price,resale_price,650000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7401,2015-06,CENTRAL AREA,4 ROOM,TYPE S1,04 TO 06,650000.0
+anomaly resale price,resale_price,553888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7647,2015-06,HOUGANG,4 ROOM,MODEL A,13 TO 15,553888.0
+anomaly resale price,resale_price,838000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7906,2015-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,838000.0
+anomaly resale price,resale_price,958000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,7907,2015-06,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,958000.0
+anomaly resale price,resale_price,428000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,8429,2015-06,TOA PAYOH,3 ROOM,MODEL A,13 TO 15,428000.0
+anomaly resale price,resale_price,425000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,8808,2015-07,BEDOK,3 ROOM,NEW GENERATION,04 TO 06,425000.0
+anomaly resale price,resale_price,450000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,8809,2015-07,BEDOK,3 ROOM,MODEL A,04 TO 06,450000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,8843,2015-07,BEDOK,4 ROOM,MODEL A,07 TO 09,620000.0
+anomaly resale price,resale_price,681168.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,8844,2015-07,BEDOK,4 ROOM,MODEL A,13 TO 15,681168.0
+anomaly resale price,resale_price,535000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,9149,2015-07,CHOA CHU KANG,5 ROOM,MODEL A,04 TO 06,535000.0
+anomaly resale price,resale_price,918000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,9243,2015-07,GEYLANG,5 ROOM,MODEL A-MAISONETTE,01 TO 03,918000.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,9307,2015-07,HOUGANG,5 ROOM,IMPROVED,13 TO 15,615000.0
+anomaly resale price,resale_price,705000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,9308,2015-07,HOUGANG,5 ROOM,MODEL A-MAISONETTE,10 TO 12,705000.0
+anomaly resale price,resale_price,503000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,9488,2015-07,KALLANG/WHAMPOA,3 ROOM,MODEL A,13 TO 15,503000.0
+anomaly resale price,resale_price,387888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10242,2015-08,ANG MO KIO,3 ROOM,NEW GENERATION,07 TO 09,387888.0
+anomaly resale price,resale_price,396388.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10243,2015-08,ANG MO KIO,3 ROOM,NEW GENERATION,10 TO 12,396388.0
+anomaly resale price,resale_price,470000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10322,2015-08,BEDOK,3 ROOM,MODEL A,07 TO 09,470000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10354,2015-08,BEDOK,4 ROOM,MODEL A,13 TO 15,570000.0
+anomaly resale price,resale_price,583000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10355,2015-08,BEDOK,4 ROOM,MODEL A,19 TO 21,583000.0
+anomaly resale price,resale_price,590000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10356,2015-08,BEDOK,4 ROOM,MODEL A,01 TO 03,590000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10357,2015-08,BEDOK,4 ROOM,MODEL A,01 TO 03,610000.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10358,2015-08,BEDOK,4 ROOM,MODEL A,07 TO 09,615000.0
+anomaly resale price,resale_price,645000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10359,2015-08,BEDOK,4 ROOM,MODEL A,04 TO 06,645000.0
+anomaly resale price,resale_price,558000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10476,2015-08,BUKIT MERAH,3 ROOM,MODEL A,19 TO 21,558000.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10477,2015-08,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,615000.0
+anomaly resale price,resale_price,515000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10626,2015-08,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,515000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10647,2015-08,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,10 TO 12,560000.0
+anomaly resale price,resale_price,665000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10944,2015-08,JURONG WEST,EXECUTIVE,MAISONETTE,07 TO 09,665000.0
+anomaly resale price,resale_price,735000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10945,2015-08,JURONG WEST,EXECUTIVE,MAISONETTE,04 TO 06,735000.0
+anomaly resale price,resale_price,845888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,10968,2015-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,845888.0
+anomaly resale price,resale_price,850000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11124,2015-08,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,850000.0
+anomaly resale price,resale_price,592000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11714,2015-09,ANG MO KIO,4 ROOM,MODEL A,16 TO 18,592000.0
+anomaly resale price,resale_price,625600.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11715,2015-09,ANG MO KIO,4 ROOM,MODEL A,19 TO 21,625600.0
+anomaly resale price,resale_price,418000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11762,2015-09,BEDOK,3 ROOM,NEW GENERATION,10 TO 12,418000.0
+anomaly resale price,resale_price,628888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11911,2015-09,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,628888.0
+anomaly resale price,resale_price,700200.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,11912,2015-09,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,700200.0
+anomaly resale price,resale_price,485000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12003,2015-09,CENTRAL AREA,4 ROOM,IMPROVED,13 TO 15,485000.0
+anomaly resale price,resale_price,584000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12004,2015-09,CENTRAL AREA,4 ROOM,IMPROVED,13 TO 15,584000.0
+anomaly resale price,resale_price,485000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12426,2015-09,KALLANG/WHAMPOA,3 ROOM,MODEL A,07 TO 09,485000.0
+anomaly resale price,resale_price,496000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12427,2015-09,KALLANG/WHAMPOA,3 ROOM,MODEL A,16 TO 18,496000.0
+anomaly resale price,resale_price,720000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12887,2015-09,TAMPINES,5 ROOM,DBSS,13 TO 15,720000.0
+anomaly resale price,resale_price,745000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,12888,2015-09,TAMPINES,5 ROOM,DBSS,16 TO 18,745000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13223,2015-10,ANG MO KIO,4 ROOM,NEW GENERATION,10 TO 12,600000.0
+anomaly resale price,resale_price,478000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13295,2015-10,BEDOK,3 ROOM,MODEL A,07 TO 09,478000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13341,2015-10,BEDOK,4 ROOM,MODEL A,04 TO 06,625000.0
+anomaly resale price,resale_price,634000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13596,2015-10,BUKIT PANJANG,5 ROOM,PREMIUM APARTMENT,19 TO 21,634000.0
+anomaly resale price,resale_price,460000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13614,2015-10,CENTRAL AREA,4 ROOM,IMPROVED,07 TO 09,460000.0
+anomaly resale price,resale_price,490000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13697,2015-10,CHOA CHU KANG,5 ROOM,IMPROVED,13 TO 15,490000.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,13698,2015-10,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,07 TO 09,520000.0
+anomaly resale price,resale_price,750800.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,14096,2015-10,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,750800.0
+anomaly resale price,resale_price,613000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,14487,2015-10,SERANGOON,4 ROOM,MODEL A,10 TO 12,613000.0
+anomaly resale price,resale_price,635000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,14488,2015-10,SERANGOON,4 ROOM,MODEL A,13 TO 15,635000.0
+anomaly resale price,resale_price,588000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,14596,2015-10,TAMPINES,4 ROOM,DBSS,10 TO 12,588000.0
+anomaly resale price,resale_price,438000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15015,2015-11,BEDOK,3 ROOM,NEW GENERATION,10 TO 12,438000.0
+anomaly resale price,resale_price,473000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15016,2015-11,BEDOK,3 ROOM,MODEL A,04 TO 06,473000.0
+anomaly resale price,resale_price,470000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15341,2015-11,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,07 TO 09,470000.0
+anomaly resale price,resale_price,700000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15489,2015-11,HOUGANG,5 ROOM,MODEL A-MAISONETTE,07 TO 09,700000.0
+anomaly resale price,resale_price,728000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15490,2015-11,HOUGANG,5 ROOM,MODEL A-MAISONETTE,04 TO 06,728000.0
+anomaly resale price,resale_price,506000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15731,2015-11,PASIR RIS,4 ROOM,MODEL A,10 TO 12,506000.0
+anomaly resale price,resale_price,760000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15821,2015-11,PUNGGOL,5 ROOM,PREMIUM APARTMENT LOFT,16 TO 18,760000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15851,2015-11,QUEENSTOWN,3 ROOM,MODEL A,07 TO 09,570000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15852,2015-11,QUEENSTOWN,3 ROOM,MODEL A,16 TO 18,580000.0
+anomaly resale price,resale_price,360000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,15985,2015-11,SENGKANG,5 ROOM,IMPROVED,07 TO 09,360000.0
+anomaly resale price,resale_price,602000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16026,2015-11,SENGKANG,5 ROOM,PREMIUM APARTMENT,13 TO 15,602000.0
+anomaly resale price,resale_price,660000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16149,2015-11,TAMPINES,5 ROOM,DBSS,04 TO 06,660000.0
+anomaly resale price,resale_price,720000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16150,2015-11,TAMPINES,5 ROOM,DBSS,07 TO 09,720000.0
+anomaly resale price,resale_price,515000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16299,2015-11,WOODLANDS,5 ROOM,MODEL A,10 TO 12,515000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16683,2015-12,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,19 TO 21,560000.0
+anomaly resale price,resale_price,748000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16927,2015-12,HOUGANG,5 ROOM,MODEL A-MAISONETTE,10 TO 12,748000.0
+anomaly resale price,resale_price,740000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,16934,2015-12,HOUGANG,5 ROOM,MODEL A-MAISONETTE,10 TO 12,740000.0
+anomaly resale price,resale_price,760000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17096,2015-12,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,760000.0
+anomaly resale price,resale_price,673000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17402,2015-12,SENGKANG,EXECUTIVE,MAISONETTE,07 TO 09,673000.0
+anomaly resale price,resale_price,597000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17468,2015-12,TAMPINES,4 ROOM,DBSS,16 TO 18,597000.0
+anomaly resale price,resale_price,545000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17498,2015-12,TAMPINES,4 ROOM,MODEL A,10 TO 12,545000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17771,2015-12,YISHUN,5 ROOM,IMPROVED,07 TO 09,560000.0
+anomaly resale price,resale_price,628000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17835,2016-01,ANG MO KIO,4 ROOM,MODEL A,19 TO 21,628000.0
+anomaly resale price,resale_price,420000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17875,2016-01,BEDOK,3 ROOM,MODEL A,01 TO 03,420000.0
+anomaly resale price,resale_price,480000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17876,2016-01,BEDOK,3 ROOM,MODEL A,07 TO 09,480000.0
+anomaly resale price,resale_price,440000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17928,2016-01,BISHAN,4 ROOM,SIMPLIFIED,01 TO 03,440000.0
+anomaly resale price,resale_price,500000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17929,2016-01,BISHAN,4 ROOM,SIMPLIFIED,04 TO 06,500000.0
+anomaly resale price,resale_price,502000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,17930,2016-01,BISHAN,4 ROOM,SIMPLIFIED,10 TO 12,502000.0
+anomaly resale price,resale_price,655000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,18020,2016-01,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,655000.0
+anomaly resale price,resale_price,480000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,18301,2016-01,HOUGANG,4 ROOM,MODEL A,13 TO 15,480000.0
+anomaly resale price,resale_price,505000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,18302,2016-01,HOUGANG,4 ROOM,MODEL A,13 TO 15,505000.0
+anomaly resale price,resale_price,520000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,18585,2016-01,QUEENSTOWN,3 ROOM,MODEL A,13 TO 15,520000.0
+anomaly resale price,resale_price,880000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,18586,2016-01,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,880000.0
+anomaly resale price,resale_price,455000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19095,2016-02,ANG MO KIO,3 ROOM,MODEL A,10 TO 12,455000.0
+anomaly resale price,resale_price,750000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19114,2016-02,ANG MO KIO,4 ROOM,MODEL A,22 TO 24,750000.0
+anomaly resale price,resale_price,630000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19181,2016-02,BEDOK,4 ROOM,MODEL A,01 TO 03,630000.0
+anomaly resale price,resale_price,640000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19182,2016-02,BEDOK,4 ROOM,MODEL A,07 TO 09,640000.0
+anomaly resale price,resale_price,645000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19183,2016-02,BEDOK,4 ROOM,MODEL A,07 TO 09,645000.0
+anomaly resale price,resale_price,345000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19574,2016-02,JURONG EAST,4 ROOM,NEW GENERATION,01 TO 03,345000.0
+anomaly resale price,resale_price,460000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,19586,2016-02,JURONG EAST,4 ROOM,NEW GENERATION,07 TO 09,460000.0
+anomaly resale price,resale_price,715000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,20037,2016-02,TAMPINES,5 ROOM,DBSS,10 TO 12,715000.0
+anomaly resale price,resale_price,733888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,20038,2016-02,TAMPINES,5 ROOM,DBSS,16 TO 18,733888.0
+anomaly resale price,resale_price,608000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,20557,2016-03,BUKIT MERAH,3 ROOM,MODEL A,37 TO 39,608000.0
+anomaly resale price,resale_price,335000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,20972,2016-03,JURONG EAST,3 ROOM,NEW GENERATION,13 TO 15,335000.0
+anomaly resale price,resale_price,550000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,21324,2016-03,QUEENSTOWN,4 ROOM,IMPROVED,01 TO 03,550000.0
+anomaly resale price,resale_price,730000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,21991,2016-04,ANG MO KIO,4 ROOM,MODEL A,25 TO 27,730000.0
+anomaly resale price,resale_price,867900.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22004,2016-04,ANG MO KIO,5 ROOM,IMPROVED,07 TO 09,867900.0
+anomaly resale price,resale_price,473000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22056,2016-04,BEDOK,3 ROOM,MODEL A,07 TO 09,473000.0
+anomaly resale price,resale_price,498000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22057,2016-04,BEDOK,3 ROOM,MODEL A,10 TO 12,498000.0
+anomaly resale price,resale_price,545000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22238,2016-04,BUKIT MERAH,3 ROOM,MODEL A,28 TO 30,545000.0
+anomaly resale price,resale_price,660000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22490,2016-04,CLEMENTI,3 ROOM,MODEL A,10 TO 12,660000.0
+anomaly resale price,resale_price,718000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,22621,2016-04,HOUGANG,5 ROOM,IMPROVED,16 TO 18,718000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,23056,2016-04,QUEENSTOWN,3 ROOM,MODEL A,31 TO 33,610000.0
+anomaly resale price,resale_price,480000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,23463,2016-04,TOA PAYOH,3 ROOM,MODEL A,13 TO 15,480000.0
+anomaly resale price,resale_price,424000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,24360,2016-05,GEYLANG,3 ROOM,NEW GENERATION,07 TO 09,424000.0
+anomaly resale price,resale_price,820000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,24699,2016-05,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,820000.0
+anomaly resale price,resale_price,788000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,24885,2016-05,PUNGGOL,5 ROOM,PREMIUM APARTMENT LOFT,16 TO 18,788000.0
+anomaly resale price,resale_price,550000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,24996,2016-05,SEMBAWANG,EXECUTIVE,APARTMENT,10 TO 12,550000.0
+anomaly resale price,resale_price,580000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25252,2016-05,TAMPINES,4 ROOM,DBSS,04 TO 06,580000.0
+anomaly resale price,resale_price,585000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25253,2016-05,TAMPINES,4 ROOM,DBSS,04 TO 06,585000.0
+anomaly resale price,resale_price,601000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25254,2016-05,TAMPINES,4 ROOM,DBSS,10 TO 12,601000.0
+anomaly resale price,resale_price,610088.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25255,2016-05,TAMPINES,4 ROOM,DBSS,10 TO 12,610088.0
+anomaly resale price,resale_price,420000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25311,2016-05,TOA PAYOH,3 ROOM,MODEL A,16 TO 18,420000.0
+anomaly resale price,resale_price,432800.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25312,2016-05,TOA PAYOH,3 ROOM,MODEL A,07 TO 09,432800.0
+anomaly resale price,resale_price,420000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25709,2016-06,BEDOK,3 ROOM,NEW GENERATION,13 TO 15,420000.0
+anomaly resale price,resale_price,550000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25876,2016-06,BUKIT MERAH,3 ROOM,MODEL A,16 TO 18,550000.0
+anomaly resale price,resale_price,565000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25877,2016-06,BUKIT MERAH,3 ROOM,MODEL A,37 TO 39,565000.0
+anomaly resale price,resale_price,622000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,25974,2016-06,BUKIT PANJANG,5 ROOM,IMPROVED,22 TO 24,622000.0
+anomaly resale price,resale_price,900000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,26137,2016-06,CLEMENTI,4 ROOM,MODEL A,22 TO 24,900000.0
+anomaly resale price,resale_price,702800.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,26304,2016-06,HOUGANG,5 ROOM,MODEL A-MAISONETTE,04 TO 06,702800.0
+anomaly resale price,resale_price,720000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27095,2016-06,TAMPINES,5 ROOM,DBSS,10 TO 12,720000.0
+anomaly resale price,resale_price,728000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27096,2016-06,TAMPINES,5 ROOM,DBSS,10 TO 12,728000.0
+anomaly resale price,resale_price,728888.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27097,2016-06,TAMPINES,5 ROOM,DBSS,13 TO 15,728888.0
+anomaly resale price,resale_price,730000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27098,2016-06,TAMPINES,5 ROOM,DBSS,07 TO 09,730000.0
+anomaly resale price,resale_price,730000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27099,2016-06,TAMPINES,5 ROOM,DBSS,16 TO 18,730000.0
+anomaly resale price,resale_price,748000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27100,2016-06,TAMPINES,5 ROOM,DBSS,16 TO 18,748000.0
+anomaly resale price,resale_price,625000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27465,2016-07,ANG MO KIO,4 ROOM,MODEL A,16 TO 18,625000.0
+anomaly resale price,resale_price,790000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27473,2016-07,ANG MO KIO,5 ROOM,IMPROVED,28 TO 30,790000.0
+anomaly resale price,resale_price,600000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27695,2016-07,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,600000.0
+anomaly resale price,resale_price,630000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27696,2016-07,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,630000.0
+anomaly resale price,resale_price,660000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27697,2016-07,BUKIT MERAH,3 ROOM,STANDARD,01 TO 03,660000.0
+anomaly resale price,resale_price,430000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27834,2016-07,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,04 TO 06,430000.0
+anomaly resale price,resale_price,460000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27921,2016-07,GEYLANG,3 ROOM,MODEL A,16 TO 18,460000.0
+anomaly resale price,resale_price,465000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,27922,2016-07,GEYLANG,3 ROOM,MODEL A,16 TO 18,465000.0
+anomaly resale price,resale_price,755000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,28617,2016-07,SERANGOON,5 ROOM,IMPROVED,10 TO 12,755000.0
+anomaly resale price,resale_price,475000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29015,2016-08,ANG MO KIO,3 ROOM,MODEL A,25 TO 27,475000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29039,2016-08,ANG MO KIO,4 ROOM,MODEL A,16 TO 18,680000.0
+anomaly resale price,resale_price,697000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29040,2016-08,ANG MO KIO,4 ROOM,MODEL A,28 TO 30,697000.0
+anomaly resale price,resale_price,725000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29041,2016-08,ANG MO KIO,4 ROOM,MODEL A,22 TO 24,725000.0
+anomaly resale price,resale_price,618000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29308,2016-08,BUKIT MERAH,3 ROOM,STANDARD,04 TO 06,618000.0
+anomaly resale price,resale_price,456000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29493,2016-08,CHOA CHU KANG,4 ROOM,PREMIUM APARTMENT,07 TO 09,456000.0
+anomaly resale price,resale_price,560000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29567,2016-08,CLEMENTI,3 ROOM,MODEL A,10 TO 12,560000.0
+anomaly resale price,resale_price,680000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29568,2016-08,CLEMENTI,3 ROOM,MODEL A,22 TO 24,680000.0
+anomaly resale price,resale_price,805000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29576,2016-08,CLEMENTI,4 ROOM,MODEL A,34 TO 36,805000.0
+anomaly resale price,resale_price,840000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29577,2016-08,CLEMENTI,4 ROOM,MODEL A,34 TO 36,840000.0
+anomaly resale price,resale_price,393000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29931,2016-08,JURONG WEST,EXECUTIVE,APARTMENT,01 TO 03,393000.0
+anomaly resale price,resale_price,590000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29978,2016-08,KALLANG/WHAMPOA,3 ROOM,DBSS,04 TO 06,590000.0
+anomaly resale price,resale_price,612000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29979,2016-08,KALLANG/WHAMPOA,3 ROOM,DBSS,07 TO 09,612000.0
+anomaly resale price,resale_price,660000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29980,2016-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,660000.0
+anomaly resale price,resale_price,800000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,29981,2016-08,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,800000.0
+anomaly resale price,resale_price,860000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30213,2016-08,QUEENSTOWN,3 ROOM,TERRACE,01 TO 03,860000.0
+anomaly resale price,resale_price,450000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30214,2016-08,QUEENSTOWN,4 ROOM,IMPROVED,07 TO 09,450000.0
+anomaly resale price,resale_price,450000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30612,2016-08,TOA PAYOH,3 ROOM,MODEL A,04 TO 06,450000.0
+anomaly resale price,resale_price,470000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30900,2016-09,ANG MO KIO,3 ROOM,MODEL A,25 TO 27,470000.0
+anomaly resale price,resale_price,495000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30901,2016-09,ANG MO KIO,3 ROOM,MODEL A,10 TO 12,495000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30903,2016-09,ANG MO KIO,3 ROOM,MODEL A,28 TO 30,570000.0
+anomaly resale price,resale_price,390000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30977,2016-09,BEDOK,3 ROOM,NEW GENERATION,10 TO 12,390000.0
+anomaly resale price,resale_price,435000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30978,2016-09,BEDOK,3 ROOM,MODEL A,04 TO 06,435000.0
+anomaly resale price,resale_price,498000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,30979,2016-09,BEDOK,3 ROOM,MODEL A,16 TO 18,498000.0
+anomaly resale price,resale_price,690000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,31028,2016-09,BEDOK,4 ROOM,MODEL A,10 TO 12,690000.0
+anomaly resale price,resale_price,970000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,31085,2016-09,BISHAN,5 ROOM,DBSS,22 TO 24,970000.0
+anomaly resale price,resale_price,780000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,31895,2016-09,PUNGGOL,5 ROOM,PREMIUM APARTMENT LOFT,16 TO 18,780000.0
+anomaly resale price,resale_price,405000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,31950,2016-09,SEMBAWANG,4 ROOM,MODEL A,13 TO 15,405000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32227,2016-09,TAMPINES,4 ROOM,DBSS,10 TO 12,620000.0
+anomaly resale price,resale_price,435000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32295,2016-09,TOA PAYOH,3 ROOM,MODEL A,10 TO 12,435000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32703,2016-10,BEDOK,4 ROOM,MODEL A,13 TO 15,610000.0
+anomaly resale price,resale_price,635000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32705,2016-10,BEDOK,4 ROOM,MODEL A,16 TO 18,635000.0
+anomaly resale price,resale_price,688000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32706,2016-10,BEDOK,4 ROOM,MODEL A,13 TO 15,688000.0
+anomaly resale price,resale_price,693100.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32707,2016-10,BEDOK,4 ROOM,MODEL A,07 TO 09,693100.0
+anomaly resale price,resale_price,515000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32924,2016-10,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,10 TO 12,515000.0
+anomaly resale price,resale_price,535000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32925,2016-10,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,28 TO 30,535000.0
+anomaly resale price,resale_price,565000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,32926,2016-10,BUKIT PANJANG,4 ROOM,PREMIUM APARTMENT,28 TO 30,565000.0
+anomaly resale price,resale_price,563000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,33052,2016-10,CHOA CHU KANG,5 ROOM,PREMIUM APARTMENT,13 TO 15,563000.0
+anomaly resale price,resale_price,552000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,33209,2016-10,HOUGANG,4 ROOM,MODEL A,10 TO 12,552000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,33584,2016-10,PUNGGOL,5 ROOM,PREMIUM APARTMENT,10 TO 12,610000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,33585,2016-10,PUNGGOL,5 ROOM,PREMIUM APARTMENT,16 TO 18,620000.0
+anomaly resale price,resale_price,630000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,33586,2016-10,PUNGGOL,5 ROOM,PREMIUM APARTMENT,10 TO 12,630000.0
+anomaly resale price,resale_price,980000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,34387,2016-11,BISHAN,5 ROOM,DBSS,16 TO 18,980000.0
+anomaly resale price,resale_price,995000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,34388,2016-11,BISHAN,5 ROOM,DBSS,34 TO 36,995000.0
+anomaly resale price,resale_price,505000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,34562,2016-11,BUKIT PANJANG,4 ROOM,MODEL A,19 TO 21,505000.0
+anomaly resale price,resale_price,586800.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,34665,2016-11,CHOA CHU KANG,5 ROOM,MODEL A,13 TO 15,586800.0
+anomaly resale price,resale_price,516000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,34862,2016-11,JURONG EAST,4 ROOM,MODEL A,16 TO 18,516000.0
+anomaly resale price,resale_price,833000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,35020,2016-11,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,833000.0
+anomaly resale price,resale_price,452000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,35804,2016-12,ANG MO KIO,3 ROOM,NEW GENERATION,04 TO 06,452000.0
+anomaly resale price,resale_price,390000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,35875,2016-12,BEDOK,3 ROOM,NEW GENERATION,04 TO 06,390000.0
+anomaly resale price,resale_price,620000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36157,2016-12,CENTRAL AREA,4 ROOM,IMPROVED,22 TO 24,620000.0
+anomaly resale price,resale_price,440000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36165,2016-12,CENTRAL AREA,4 ROOM,MODEL A,01 TO 03,440000.0
+anomaly resale price,resale_price,570000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36231,2016-12,CLEMENTI,3 ROOM,MODEL A,22 TO 24,570000.0
+anomaly resale price,resale_price,1150000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36492,2016-12,KALLANG/WHAMPOA,3 ROOM,TERRACE,01 TO 03,1150000.0
+anomaly resale price,resale_price,610000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36636,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT,04 TO 06,610000.0
+anomaly resale price,resale_price,652000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36637,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT,13 TO 15,652000.0
+anomaly resale price,resale_price,835000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36642,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT LOFT,16 TO 18,835000.0
+anomaly resale price,resale_price,722800.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36648,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT LOFT,16 TO 18,722800.0
+anomaly resale price,resale_price,615000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,36649,2016-12,PUNGGOL,5 ROOM,PREMIUM APARTMENT,07 TO 09,615000.0
+anomaly resale price,resale_price,540000.0,3x IQR outlier within month + town + flat_type,,,d_ea9ed51da2787afaf8e51f827c304208.csv,37022,2016-12,WOODLANDS,5 ROOM,IMPROVED,10 TO 12,540000.0
