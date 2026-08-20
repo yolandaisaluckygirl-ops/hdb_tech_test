@@ -110,7 +110,7 @@ data/dqc_result/dqc_result.csv
 | DQC category | Method | Why it is review-only |
 | --- | --- | --- |
 | `rare value` | Frequency check across non-price fields; values appearing once are flagged | Rare does not always mean wrong |
-| `anomaly resale price` | 3x IQR outlier rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups | High or low price can still be genuine |
+| `anomaly resale price` | 3x IQR outlier rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups, with `dqc_anomaly_direction` as `high` or `low` | High or low price can still be genuine |
 
 DQC records remain in the cleaned dataset unless a future manual review process rejects them. See `docs/data_quality_notes.md` for the proposed review decision loop.
 

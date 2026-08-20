@@ -116,6 +116,7 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(len(dqc_result), 1)
         self.assertEqual(dqc_result.iloc[0]["dqc_category"], "anomaly resale price")
         self.assertEqual(dqc_result.iloc[0]["dqc_field"], "price_per_sqm")
+        self.assertEqual(dqc_result.iloc[0]["dqc_anomaly_direction"], "high")
         self.assertEqual(dqc_result.iloc[0]["remaining_lease_decade"], "40-49 years")
         self.assertIn("remaining_lease_decade", dqc_result.iloc[0]["dqc_rule"])
 

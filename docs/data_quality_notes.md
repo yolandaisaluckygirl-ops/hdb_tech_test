@@ -13,7 +13,7 @@ The pipeline currently implements rule-based validation for the required assignm
 - `storey_range` must follow `number TO number` format, for example `01 TO 03`, and the lower storey must be less than or equal to the upper storey.
 - `lease_commence_date` must be a plausible year between 1960 and the run year.
 - Duplicate composite keys keep the higher `resale_price`; lower-price duplicates go to the failed dataset.
-- Potential resale price anomalies are flagged with a conservative 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` and written to the DQC result dataset for review.
+- Potential resale price anomalies are flagged with a conservative 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` and written to the DQC result dataset for review. The `dqc_anomaly_direction` field indicates whether the record is below the lower bound (`low`) or above the upper bound (`high`).
 - Low-frequency values are identified across non-price fields. Values that appear only once in the cleaned dataset are written to the DQC result dataset as `rare value` for review.
 
 ## DQC Result Dataset
@@ -31,7 +31,7 @@ Current DQC categories:
 | Category | Meaning | Action |
 | --- | --- | --- |
 | `rare value` | A non-price field value appears only once in the cleaned dataset | Review as a potential typo, source drift, or genuinely rare value |
-| `anomaly resale price` | `price_per_sqm` is outside a 3x IQR threshold within `month + town + flat_type + remaining_lease_decade` | Review as a potential pricing anomaly |
+| `anomaly resale price` | `price_per_sqm` is outside a 3x IQR threshold within `month + town + flat_type + remaining_lease_decade`; `dqc_anomaly_direction` marks `high` or `low` | Review as a potential pricing anomaly |
 
 Rare values are not automatically sent to failed output because low frequency does not always mean invalid data.
 

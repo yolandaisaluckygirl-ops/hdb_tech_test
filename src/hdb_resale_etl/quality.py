@@ -34,6 +34,7 @@ DQC_RESULT_COLUMNS = [
     "dqc_field",
     "dqc_value",
     "dqc_rule",
+    "dqc_anomaly_direction",
     "record_count",
     "frequency_pct",
     "source_file",
@@ -260,11 +261,33 @@ def build_rare_value_dqc(df: pd.DataFrame, rare_count_threshold: int = 1) -> pd.
 
 def flag_price_anomalies(df: pd.DataFrame) -> pd.Series:
     """Flag 3x-IQR outliers using price per sqm within comparable lease-decade groups."""
+    return _price_anomaly_directions(df).ne("")
+
+
+def build_price_anomaly_dqc(df: pd.DataFrame) -> pd.DataFrame:
+    anomaly_direction = _price_anomaly_directions(df)
+    anomalies = df[anomaly_direction.ne("")].copy()
+    if anomalies.empty:
+        return pd.DataFrame(columns=DQC_RESULT_COLUMNS)
+
+    anomalies["remaining_lease_decade"] = _remaining_lease_decade(anomalies)
+    anomalies["price_per_sqm"] = _price_per_sqm(anomalies).round(2)
+    anomalies["dqc_anomaly_direction"] = anomaly_direction.loc[anomalies.index]
+    anomalies["dqc_category"] = "anomaly resale price"
+    anomalies["dqc_field"] = "price_per_sqm"
+    anomalies["dqc_value"] = anomalies["price_per_sqm"].astype(str)
+    anomalies["record_count"] = ""
+    anomalies["frequency_pct"] = ""
+    anomalies["dqc_rule"] = "3x IQR outlier on price_per_sqm within month + town + flat_type + remaining_lease_decade"
+    logger.info("Price anomaly DQC complete: rows=%s", len(anomalies))
+    return anomalies
+
+def _price_anomaly_directions(df: pd.DataFrame) -> pd.Series:
     working = df.copy()
     working["price_per_sqm"] = _price_per_sqm(working)
     working["remaining_lease_decade"] = _remaining_lease_decade(working)
 
-    anomaly = pd.Series(False, index=df.index)
+    direction = pd.Series("", index=df.index, dtype="object")
     group_columns = ["month", "town", "flat_type", "remaining_lease_decade"]
     for _, index in working.groupby(group_columns, dropna=False).groups.items():
         group_prices = working.loc[index, "price_per_sqm"].dropna()
@@ -275,26 +298,9 @@ def flag_price_anomalies(df: pd.DataFrame) -> pd.Series:
         iqr = q3 - q1
         lower_bound = max(0, q1 - 3 * iqr)
         upper_bound = q3 + 3 * iqr
-        anomaly.loc[group_prices.index] = (group_prices < lower_bound) | (group_prices > upper_bound)
-    return anomaly
-
-
-def build_price_anomaly_dqc(df: pd.DataFrame) -> pd.DataFrame:
-    anomalies = df[flag_price_anomalies(df)].copy()
-    if anomalies.empty:
-        return pd.DataFrame(columns=DQC_RESULT_COLUMNS)
-
-    anomalies["remaining_lease_decade"] = _remaining_lease_decade(anomalies)
-    anomalies["price_per_sqm"] = _price_per_sqm(anomalies).round(2)
-    anomalies["dqc_category"] = "anomaly resale price"
-    anomalies["dqc_field"] = "price_per_sqm"
-    anomalies["dqc_value"] = anomalies["price_per_sqm"].astype(str)
-    anomalies["record_count"] = ""
-    anomalies["frequency_pct"] = ""
-    anomalies["dqc_rule"] = "3x IQR outlier on price_per_sqm within month + town + flat_type + remaining_lease_decade"
-    logger.info("Price anomaly DQC complete: rows=%s", len(anomalies))
-    return anomalies
-
+        direction.loc[group_prices[group_prices < lower_bound].index] = "low"
+        direction.loc[group_prices[group_prices > upper_bound].index] = "high"
+    return direction
 
 def _price_per_sqm(df: pd.DataFrame) -> pd.Series:
     price = pd.to_numeric(df["resale_price"], errors="coerce")
