@@ -122,6 +122,6 @@ def load_raw_files(raw_dir: Path) -> pd.DataFrame:
         frames.append(frame)
     if not frames:
         raise FileNotFoundError(f"No raw CSV files found in {raw_dir}")
-    master = pd.concat(frames, ignore_index=True, sort=False)
-    logger.info("Combined raw master dataset rows=%s columns=%s", len(master), len(master.columns))
-    return master
+    raw_combined = pd.concat(frames, ignore_index=True, sort=False)
+    logger.info("Combined raw source files rows=%s columns=%s", len(raw_combined), len(raw_combined.columns))
+    return raw_combined

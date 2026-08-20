@@ -34,13 +34,27 @@ class PipelineTests(unittest.TestCase):
                         "flat_model": "Improved",
                         "lease_commence_date": "1980",
                         "resale_price": "300000",
+                    },
+                    {
+                        "month": "2011-12",
+                        "town": "Ang Mo Kio",
+                        "flat_type": "2 Room",
+                        "block": "20",
+                        "street_name": "Ang Mo Kio Ave 3",
+                        "storey_range": "01 to 03",
+                        "floor_area_sqm": "45",
+                        "flat_model": "Improved",
+                        "lease_commence_date": "1980",
+                        "resale_price": "280000",
                     }
                 ]
             ).to_csv(raw_dir / "sample.csv", index=False)
 
             result = run_pipeline(PipelineConfig(project_root=tmp_path, as_of_date=date(2026, 8, 18)))
 
-            self.assertEqual(result.raw_rows, 1)
+            self.assertEqual(result.raw_rows, 2)
+            self.assertEqual(result.master_rows, 1)
+            self.assertEqual(result.scope_excluded_rows, 1)
             self.assertEqual(result.cleaned_rows, 1)
             self.assertEqual(result.transformed_rows, 1)
             self.assertEqual(result.hashed_rows, 1)

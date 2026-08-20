@@ -91,14 +91,14 @@ def has_garbled_characters(value: str) -> bool:
     return bool(GARBLED_CHARACTER_PATTERN.search(str(value)))
 
 
-def clean_dataset(master_df: pd.DataFrame, start_month: str, end_month: str, as_of_date: date) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Apply deterministic validation, duplicate handling, and DQC review checks."""
+def clean_dataset(master_df: pd.DataFrame, as_of_date: date) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Apply deterministic validation, duplicate handling, and DQC review checks to scoped master data."""
     logger.info("Starting quality checks for rows=%s", len(master_df))
     working = normalize_string_columns(master_df)
     _ensure_required_columns(working)
 
     failure_reasons = _empty_reason_series(working)
-    valid_mask = _build_valid_mask(working, start_month, end_month, as_of_date, failure_reasons)
+    valid_mask = _build_valid_mask(working, as_of_date, failure_reasons)
 
     invalid = _failed_records(working, valid_mask, failure_reasons)
     cleaned = _prepare_cleaned_records(working, valid_mask, as_of_date)
@@ -121,12 +121,12 @@ def _empty_reason_series(df: pd.DataFrame) -> pd.Series:
     return pd.Series([[] for _ in range(len(df))], index=df.index, dtype=object)
 
 
-def _build_valid_mask(df: pd.DataFrame, start_month: str, end_month: str, as_of_date: date, reasons: pd.Series) -> pd.Series:
+def _build_valid_mask(df: pd.DataFrame, as_of_date: date, reasons: pd.Series) -> pd.Series:
     """Build one deterministic pass/fail mask while collecting row-level failure reasons."""
     valid_mask = pd.Series(True, index=df.index)
     valid_mask &= _check_required_values(df, reasons)
     valid_mask &= _check_garbled_characters(df, reasons)
-    valid_mask &= _check_month(df, start_month, end_month, reasons)
+    valid_mask &= _check_month(df, reasons)
     valid_mask &= _check_categories(df, reasons)
     valid_mask &= _check_storey_range(df, reasons)
     valid_mask &= _check_numeric_fields(df, as_of_date, reasons)
@@ -151,14 +151,12 @@ def _check_garbled_characters(df: pd.DataFrame, reasons: pd.Series) -> pd.Series
     return ~garbled
 
 
-def _check_month(df: pd.DataFrame, start_month: str, end_month: str, reasons: pd.Series) -> pd.Series:
+def _check_month(df: pd.DataFrame, reasons: pd.Series) -> pd.Series:
     strict_format = df["month"].apply(is_valid_month_format)
     parseable = pd.to_datetime(df["month"], format="%Y-%m", errors="coerce").notna()
     valid_month = strict_format & parseable
-    in_scope = df["month"].between(start_month, end_month)
     _append_reason(reasons, ~valid_month, "invalid_month")
-    _append_reason(reasons, valid_month & ~in_scope, "out_of_scope_month")
-    return valid_month & in_scope
+    return valid_month
 
 
 def _check_categories(df: pd.DataFrame, reasons: pd.Series) -> pd.Series:

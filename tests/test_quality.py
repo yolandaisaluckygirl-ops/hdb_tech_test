@@ -31,16 +31,15 @@ class QualityTests(unittest.TestCase):
             [
                 _row(resale_price="300000", source_row_number=2),
                 _row(resale_price="320000", source_row_number=3),
-                _row(month="2017-01", resale_price="400000", source_row_number=4),
             ]
         )
 
-        cleaned, failed, dqc_result = clean_dataset(master, "2012-01", "2016-12", date(2026, 8, 18))
+        cleaned, failed, dqc_result = clean_dataset(master, date(2026, 8, 18))
 
         self.assertEqual(len(cleaned), 1)
         self.assertEqual(cleaned.iloc[0]["resale_price"], 320000)
-        self.assertEqual(len(failed), 2)
-        self.assertEqual(set(failed["failure_reason"]), {"duplicate_composite_key_lower_price", "out_of_scope_month"})
+        self.assertEqual(len(failed), 1)
+        self.assertEqual(set(failed["failure_reason"]), {"duplicate_composite_key_lower_price"})
         self.assertIn("rare value", set(dqc_result["dqc_category"]))
 
     def test_storey_range_month_and_lease_validation_fail_deterministically(self) -> None:
@@ -53,7 +52,7 @@ class QualityTests(unittest.TestCase):
             ]
         )
 
-        cleaned, failed, _dqc_result = clean_dataset(master, "2012-01", "2016-12", date(2026, 8, 18))
+        cleaned, failed, _dqc_result = clean_dataset(master, date(2026, 8, 18))
 
         self.assertEqual(len(cleaned), 1)
         self.assertEqual(len(failed), 3)
@@ -78,7 +77,7 @@ class QualityTests(unittest.TestCase):
             ]
         )
 
-        cleaned, failed, _dqc_result = clean_dataset(master, "2012-01", "2016-12", date(2026, 8, 18))
+        cleaned, failed, _dqc_result = clean_dataset(master, date(2026, 8, 18))
 
         self.assertEqual(len(cleaned), 1)
         self.assertEqual(len(failed), 2)

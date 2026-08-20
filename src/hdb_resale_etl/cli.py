@@ -33,6 +33,8 @@ def main() -> None:
     )
     result = run_pipeline(config, download=args.download)
     print(f"Raw rows: {result.raw_rows}")
+    print(f"Master rows: {result.master_rows}")
+    print(f"Scope-excluded rows: {result.scope_excluded_rows}")
     print(f"Cleaned rows: {result.cleaned_rows}")
     print(f"Transformed rows: {result.transformed_rows}")
     print(f"Failed rows: {result.failed_rows}")

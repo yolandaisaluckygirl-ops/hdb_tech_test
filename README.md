@@ -14,7 +14,10 @@ The solution is designed as a reproducible batch data pipeline:
 data.gov.sg API / raw CSV files
         |
         v
-Extract raw files and combine into master dataset
+Extract raw files and combine source files
+        |
+        v
+Filter to 2012-01 through 2016-12 master dataset
         |
         v
 Profile + deterministic data quality validation
@@ -69,7 +72,8 @@ hdb_resale_tech_test/
 | Assignment requirement | Implementation | Code location |
 | --- | --- | --- |
 | Extract data programmatically from data.gov.sg | Discover collection child datasets, filter by coverage period, use initiate/poll download API | `src/hdb_resale_etl/extract.py` |
-| Combine datasets into one master dataset | Load all raw CSVs and concatenate into one DataFrame with source metadata | `load_raw_files()` in `extract.py` |
+| Preserve and combine raw source files | Load complete downloaded CSVs with source metadata for audit | `load_raw_files()` in `extract.py` |
+| Build assignment master dataset | Filter combined raw rows to `2012-01` through `2016-12` before profiling and DQ | `split_assignment_scope()` in `scope.py` |
 | Data profiling | Generate row counts, empty counts, unique counts, samples, and numeric stats | `src/hdb_resale_etl/profile.py` |
 | Validate date, town, flat type, flat model, storey range | Apply deterministic validation and statistical DQC checks | `src/hdb_resale_etl/quality.py` |
 | Recompute remaining lease | Recalculate 99-year lease balance as of run date | `recompute_remaining_lease()` in `quality.py` |
@@ -85,14 +89,13 @@ hdb_resale_tech_test/
 
 ### Hard Validation Rules
 
-Records that fail these rules are written to `data/failed/failed_resale_flat_prices.csv`.
+Records that fail these rules are written to `data/failed/failed_resale_flat_prices.csv`. Valid rows outside `2012-01` through `2016-12` are excluded before DQ and are not treated as failed records.
 
 | Rule | Failure reason |
 | --- | --- |
 | Mandatory fields must not be null or empty | `missing_required_<column>` |
 | Business fields must not contain replacement/control characters | `garbled_or_control_characters` |
 | `month` must be strict `YYYY-MM` | `invalid_month` |
-| `month` must be within `2012-01` to `2016-12` | `out_of_scope_month` |
 | `storey_range` must follow `number TO number`, e.g. `01 TO 03` | `invalid_storey_range_format` |
 | `lease_commence_date` must be between 1960 and the run year | `invalid_lease_commence_date` |
 | `floor_area_sqm` must be greater than zero | `invalid_floor_area_sqm` |

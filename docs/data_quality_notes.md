@@ -2,9 +2,9 @@
 
 ## Implemented Validation
 
-The pipeline currently implements rule-based validation for the required assignment fields:
+The pipeline first filters the combined raw rows to the assignment period, `2012-01` through `2016-12`. Valid rows outside this period are scope-excluded before profiling and data quality checks; they are not failed records. The pipeline then implements rule-based validation for the required assignment fields:
 
-- `month` must be strict `YYYY-MM` format and fall within `2012-01` to `2016-12`.
+- `month` must be strict `YYYY-MM` format and parseable. The assignment date range is handled by the upstream scope filter, not by failed-record validation.
 - Mandatory source fields must not be null or empty.
 - Business fields must not contain replacement characters or non-printable control characters that indicate possible encoding corruption.
 - `town`, `flat_type`, `flat_model`, and `storey_range` must be non-empty after canonical normalization.

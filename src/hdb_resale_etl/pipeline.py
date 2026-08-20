@@ -10,6 +10,7 @@ from hdb_resale_etl.config import PipelineConfig
 from hdb_resale_etl.extract import download_collection, load_raw_files
 from hdb_resale_etl.profile import build_profile, write_profile
 from hdb_resale_etl.quality import clean_dataset
+from hdb_resale_etl.scope import split_assignment_scope
 from hdb_resale_etl.transform import add_hashed_identifier, add_resale_identifier
 
 logger = logging.getLogger(__name__)
@@ -18,6 +19,8 @@ logger = logging.getLogger(__name__)
 @dataclass(frozen=True)
 class PipelineResult:
     raw_rows: int
+    master_rows: int
+    scope_excluded_rows: int
     cleaned_rows: int
     transformed_rows: int
     failed_rows: int
@@ -39,9 +42,10 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
     if download:
         download_collection(config.collection_id, config.raw_dir, config.start_month, config.end_month)
 
-    master = load_raw_files(config.raw_dir)
+    raw_combined = load_raw_files(config.raw_dir)
+    master, scope_excluded = split_assignment_scope(raw_combined, config.start_month, config.end_month)
     profile = build_profile(master)
-    cleaned, failed, dqc_result = clean_dataset(master, config.start_month, config.end_month, config.as_of_date)
+    cleaned, failed, dqc_result = clean_dataset(master, config.as_of_date)
     logger.info("Quality stage complete: cleaned=%s failed=%s dqc_result=%s", len(cleaned), len(failed), len(dqc_result))
     transformed = add_resale_identifier(cleaned)
     logger.info("Transformation stage complete: transformed=%s", len(transformed))
@@ -58,7 +62,9 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
     }
 
     result = PipelineResult(
-        raw_rows=len(master),
+        raw_rows=len(raw_combined),
+        master_rows=len(master),
+        scope_excluded_rows=len(scope_excluded),
         cleaned_rows=len(cleaned),
         transformed_rows=len(transformed),
         failed_rows=len(failed),
