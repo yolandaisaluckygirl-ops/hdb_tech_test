@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import time
 import urllib.request
 from datetime import datetime
@@ -15,29 +16,36 @@ COLLECTION_METADATA_URL = "https://api-production.data.gov.sg/v2/public/api/coll
 COLLECTION_WITH_DATASETS_URL = "https://api-production.data.gov.sg/v2/public/api/collections/{collection_id}/metadata?withDatasetMetadata=true"
 INITIATE_DOWNLOAD_URL = "https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/initiate-download"
 POLL_DOWNLOAD_URL = "https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/poll-download"
+logger = logging.getLogger(__name__)
 
 
 def fetch_json(url: str, retries: int = 5) -> dict:
     request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "hdb-resale-etl/1.0"})
     for attempt in range(retries + 1):
         try:
+            logger.debug("Fetching JSON: %s", url)
             with urllib.request.urlopen(request, timeout=60) as response:
                 return json.loads(response.read().decode("utf-8"))
         except HTTPError as error:
             if error.code != 429 or attempt == retries:
+                logger.exception("Failed to fetch JSON from %s", url)
                 raise
             retry_after = error.headers.get("Retry-After")
             wait_seconds = int(retry_after) if retry_after and retry_after.isdigit() else 15 * (attempt + 1)
+            logger.warning("Rate limited by API. Retrying in %s seconds. URL=%s", wait_seconds, url)
             time.sleep(wait_seconds)
     raise RuntimeError(f"Unable to fetch JSON from {url}")
 
 
 def discover_dataset_ids(collection_id: str) -> list[str]:
     payload = fetch_json(COLLECTION_METADATA_URL.format(collection_id=collection_id))
-    return payload["data"]["collectionMetadata"]["childDatasets"]
+    dataset_ids = payload["data"]["collectionMetadata"]["childDatasets"]
+    logger.info("Discovered %s child datasets for collection %s", len(dataset_ids), collection_id)
+    return dataset_ids
 
 
 def discover_dataset_ids_for_period(collection_id: str, start_month: str, end_month: str) -> list[str]:
+    logger.info("Discovering datasets for collection=%s period=%s..%s", collection_id, start_month, end_month)
     payload = fetch_json(COLLECTION_WITH_DATASETS_URL.format(collection_id=collection_id))
     dataset_metadata = payload["data"].get("datasetMetadata") or []
     if not dataset_metadata:
@@ -51,6 +59,8 @@ def discover_dataset_ids_for_period(collection_id: str, start_month: str, end_mo
         coverage_end = _period_from_timestamp(dataset["coverageEnd"])
         if coverage_start <= end and coverage_end >= start:
             selected.append(dataset["datasetId"])
+            logger.debug("Selected dataset %s covering %s..%s", dataset["datasetId"], coverage_start, coverage_end)
+    logger.info("Selected %s datasets for requested period", len(selected))
     return selected
 
 
@@ -65,12 +75,15 @@ def _download_url(payload: dict) -> str | None:
 
 
 def get_download_url(dataset_id: str, attempts: int = 10, wait_seconds: float = 2.0) -> str:
+    logger.info("Initiating download for dataset %s", dataset_id)
     fetch_json(INITIATE_DOWNLOAD_URL.format(dataset_id=dataset_id))
-    for _ in range(attempts):
+    for attempt in range(1, attempts + 1):
         payload = fetch_json(POLL_DOWNLOAD_URL.format(dataset_id=dataset_id))
         url = _download_url(payload)
         if url:
+            logger.info("Download URL ready for dataset %s after %s poll attempt(s)", dataset_id, attempt)
             return url
+        logger.debug("Download URL not ready for dataset %s. Poll attempt=%s", dataset_id, attempt)
         time.sleep(wait_seconds)
     raise TimeoutError(f"Download URL was not ready for dataset {dataset_id}")
 
@@ -83,21 +96,28 @@ def download_dataset(dataset_id: str, raw_dir: Path) -> Path:
     request = urllib.request.Request(url, headers={"User-Agent": "hdb-resale-etl/1.0"})
     with urllib.request.urlopen(request, timeout=300) as response, output_path.open("wb") as handle:
         handle.write(response.read())
+    logger.info("Downloaded dataset %s to %s", dataset_id, output_path)
     return output_path
 
 
 def download_collection(collection_id: str, raw_dir: Path, start_month: str, end_month: str) -> list[Path]:
     dataset_ids = discover_dataset_ids_for_period(collection_id, start_month, end_month)
-    return [download_dataset(dataset_id, raw_dir) for dataset_id in dataset_ids]
+    paths = [download_dataset(dataset_id, raw_dir) for dataset_id in dataset_ids]
+    logger.info("Downloaded %s dataset file(s) into %s", len(paths), raw_dir)
+    return paths
 
 
 def load_raw_files(raw_dir: Path) -> pd.DataFrame:
     frames = []
     for csv_path in sorted(raw_dir.glob("*.csv")):
+        logger.info("Loading raw CSV: %s", csv_path)
         frame = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
         frame["source_file"] = csv_path.name
         frame["source_row_number"] = range(2, len(frame) + 2)
+        logger.debug("Loaded %s rows from %s with columns=%s", len(frame), csv_path.name, list(frame.columns))
         frames.append(frame)
     if not frames:
         raise FileNotFoundError(f"No raw CSV files found in {raw_dir}")
-    return pd.concat(frames, ignore_index=True, sort=False)
+    master = pd.concat(frames, ignore_index=True, sort=False)
+    logger.info("Combined raw master dataset rows=%s columns=%s", len(master), len(master.columns))
+    return master

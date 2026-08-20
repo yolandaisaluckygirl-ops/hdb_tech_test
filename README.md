@@ -53,6 +53,54 @@ python run_pipeline.py --download
 
 The pipeline discovers child datasets from collection `189` programmatically. Unauthenticated data.gov.sg API calls are rate-limited, so a retry or production API key may be required for repeated downloads.
 
+
+## Engineering Practices
+
+The code is organized as reusable modules instead of a single notebook script:
+
+- `extract.py`: data.gov.sg API access, dataset discovery, download, and raw CSV loading.
+- `profile.py`: reusable data profiling helpers.
+- `quality.py`: deterministic validation, duplicate handling, DQC review detection, and lease recomputation.
+- `transform.py`: resale identifier and hashed identifier transformations.
+- `pipeline.py`: orchestration and output writing.
+- `config.py`: project paths, collection id, date range, and runtime settings.
+- `cli.py`: command-line entry point.
+
+The implementation follows these principles:
+
+- Separation of concerns: extraction, validation, transformation, profiling, and orchestration are separate modules.
+- Reusable pure functions: validation helpers such as `is_valid_month_format`, `is_reasonable_storey_range`, `has_garbled_characters`, and `recompute_remaining_lease` can be unit-tested independently.
+- Idempotent processing: raw inputs are preserved, outputs are regenerated from source data, and duplicate handling is deterministic.
+- Auditability: failed records retain `source_file`, `source_row_number`, and `failure_reason`; DQC review records retain category, field, value, and rule.
+- Configurability: date range, collection id, run date, download mode, and log level are CLI/config driven rather than hardcoded inside business logic.
+- Testability: unit tests cover deterministic validation, duplicate handling, DQC checks, identifier hashing, and pipeline output generation.
+
+## Logging / Debugging
+
+The pipeline uses Python standard-library logging. Default level is `INFO`:
+
+```bash
+python run_pipeline.py --log-level INFO
+```
+
+For more detailed API and row-level debugging metadata:
+
+```bash
+python run_pipeline.py --log-level DEBUG
+```
+
+The logs include:
+
+- API metadata fetch and rate-limit retries.
+- Dataset selection for the requested period.
+- Raw CSV load paths, row counts, and columns.
+- Deterministic validation counts.
+- Duplicate key failure counts.
+- DQC result category counts.
+- Failed record reason counts.
+- Output file paths and row counts.
+- Hashing stage duplicate-hash count.
+
 ## Required Outputs
 
 The pipeline writes:

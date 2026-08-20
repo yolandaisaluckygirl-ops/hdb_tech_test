@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import logging
 from pathlib import Path
 
 import pandas as pd
@@ -10,6 +11,8 @@ from hdb_resale_etl.extract import download_collection, load_raw_files
 from hdb_resale_etl.profile import build_profile, write_profile
 from hdb_resale_etl.quality import clean_dataset
 from hdb_resale_etl.transform import add_hashed_identifier, add_resale_identifier
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -26,18 +29,24 @@ class PipelineResult:
 def _write_csv(df: pd.DataFrame, path: Path) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=False)
+    logger.info("Wrote %s rows to %s", len(df), path)
     return path
 
 
 def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineResult:
+    logger.info("Starting HDB resale ETL pipeline")
+    logger.debug("Pipeline config: %s", config)
     if download:
         download_collection(config.collection_id, config.raw_dir, config.start_month, config.end_month)
 
     master = load_raw_files(config.raw_dir)
     profile = build_profile(master)
     cleaned, failed, dqc_result = clean_dataset(master, config.start_month, config.end_month, config.as_of_date)
+    logger.info("Quality stage complete: cleaned=%s failed=%s dqc_result=%s", len(cleaned), len(failed), len(dqc_result))
     transformed = add_resale_identifier(cleaned)
+    logger.info("Transformation stage complete: transformed=%s", len(transformed))
     hashed = add_hashed_identifier(transformed)
+    logger.info("Hashing stage complete: hashed=%s duplicate_hashes=%s", len(hashed), int(hashed["hashed_resale_identifier"].duplicated().sum()))
 
     output_paths = {
         "profile": write_profile(profile, config.profile_dir / "master_profile.json"),
@@ -48,7 +57,7 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
         "dqc_result": _write_csv(dqc_result, config.dqc_result_dir / "dqc_result.csv"),
     }
 
-    return PipelineResult(
+    result = PipelineResult(
         raw_rows=len(master),
         cleaned_rows=len(cleaned),
         transformed_rows=len(transformed),
@@ -57,3 +66,5 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
         dqc_result_rows=len(dqc_result),
         output_paths=output_paths,
     )
+    logger.info("Pipeline complete: %s", result)
+    return result

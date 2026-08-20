@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 
 def _block_digits(block: str) -> str:
@@ -12,6 +15,7 @@ def _block_digits(block: str) -> str:
 
 
 def add_resale_identifier(cleaned: pd.DataFrame) -> pd.DataFrame:
+    logger.info("Adding resale identifiers for rows=%s", len(cleaned))
     result = cleaned.copy()
     result["_avg_price"] = result.groupby(["month", "town", "flat_type"])["resale_price"].transform("mean")
     result["_avg_price_digits"] = result["_avg_price"].round().astype(int).astype(str).str.zfill(2).str[:2]
@@ -26,6 +30,7 @@ def add_resale_identifier(cleaned: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_hashed_identifier(transformed: pd.DataFrame) -> pd.DataFrame:
+    logger.info("Adding hashed resale identifiers for rows=%s", len(transformed))
     result = transformed.copy()
     key_columns = [
         column
@@ -34,4 +39,5 @@ def add_hashed_identifier(transformed: pd.DataFrame) -> pd.DataFrame:
     ]
     hash_input = result[key_columns].astype(str).agg("|".join, axis=1)
     result["hashed_resale_identifier"] = hash_input.apply(lambda value: hashlib.sha256(value.encode("utf-8")).hexdigest())
+    logger.debug("Hashed identifier sample: %s", result["hashed_resale_identifier"].head(3).tolist())
     return result

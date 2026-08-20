@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
+import logging
 from math import floor
 import re
 
@@ -43,6 +44,7 @@ DQC_RESULT_COLUMNS = [
     "storey_range",
     "resale_price",
 ]
+logger = logging.getLogger(__name__)
 
 
 def normalize_string_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -94,6 +96,7 @@ def split_duplicate_keys(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     failed = ranked[ranked["_rank"] > 1].drop(columns=["_rank", "_resale_price_numeric"])
     if not failed.empty:
         failed = failed.assign(failure_reason="duplicate_composite_key_lower_price")
+    logger.info("Duplicate key check complete: kept=%s duplicate_failures=%s", len(keep), len(failed))
     return keep.reset_index(drop=True), failed.reset_index(drop=True)
 
 
@@ -115,6 +118,7 @@ def flag_price_anomalies(df: pd.DataFrame) -> pd.Series:
 
 
 def clean_dataset(master_df: pd.DataFrame, start_month: str, end_month: str, as_of_date: date) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    logger.info("Starting quality checks for rows=%s", len(master_df))
     df = normalize_string_columns(master_df)
     failed_frames = []
     working = df.copy()
@@ -173,6 +177,7 @@ def clean_dataset(master_df: pd.DataFrame, start_month: str, end_month: str, as_
     if not invalid.empty:
         invalid["failure_reason"] = failure_reasons.loc[invalid.index].apply(lambda reasons: ";".join(reasons))
         failed_frames.append(invalid)
+    logger.info("Deterministic validation complete: valid=%s invalid=%s", int(valid_mask.sum()), int((~valid_mask).sum()))
 
     cleaned = working[valid_mask].copy()
     cleaned["floor_area_sqm"] = numeric_area.loc[cleaned.index].round(2)
@@ -196,8 +201,12 @@ def clean_dataset(master_df: pd.DataFrame, start_month: str, end_month: str, as_
         dqc_result = pd.DataFrame(columns=DQC_RESULT_COLUMNS)
     else:
         dqc_result = dqc_result.reindex(columns=DQC_RESULT_COLUMNS)
+    if not dqc_result.empty:
+        logger.info("DQC result categories: %s", dqc_result["dqc_category"].value_counts().to_dict())
 
     failed = pd.concat(failed_frames, ignore_index=True, sort=False) if failed_frames else pd.DataFrame(columns=list(working.columns))
+    if not failed.empty:
+        logger.info("Failed record reasons: %s", failed["failure_reason"].value_counts().to_dict())
     return cleaned.reset_index(drop=True), failed.reset_index(drop=True), dqc_result.reset_index(drop=True)
 
 
@@ -232,7 +241,9 @@ def build_rare_value_dqc(df: pd.DataFrame, rare_count_threshold: int = 1) -> pd.
         rare_records["dqc_rule"] = f"{column} frequency count <= {rare_count_threshold}"
         dqc_frames.append(rare_records)
 
-    return pd.concat(dqc_frames, ignore_index=True, sort=False) if dqc_frames else pd.DataFrame(columns=DQC_RESULT_COLUMNS)
+    result = pd.concat(dqc_frames, ignore_index=True, sort=False) if dqc_frames else pd.DataFrame(columns=DQC_RESULT_COLUMNS)
+    logger.info("Rare value DQC complete: rows=%s threshold=%s", len(result), rare_count_threshold)
+    return result
 
 
 def build_price_anomaly_dqc(df: pd.DataFrame) -> pd.DataFrame:
@@ -247,4 +258,5 @@ def build_price_anomaly_dqc(df: pd.DataFrame) -> pd.DataFrame:
     anomalies["record_count"] = ""
     anomalies["frequency_pct"] = ""
     anomalies["dqc_rule"] = "3x IQR outlier within month + town + flat_type"
+    logger.info("Price anomaly DQC complete: rows=%s", len(anomalies))
     return anomalies

@@ -5,6 +5,7 @@ from datetime import date
 from pathlib import Path
 
 from hdb_resale_etl.config import PipelineConfig
+from hdb_resale_etl.logging_config import configure_logging
 from hdb_resale_etl.pipeline import run_pipeline
 
 
@@ -16,11 +17,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--start-month", default="2012-01")
     parser.add_argument("--end-month", default="2016-12")
     parser.add_argument("--as-of-date", default=date.today().isoformat(), help="YYYY-MM-DD date for remaining lease calculation.")
+    parser.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR"])
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    configure_logging(args.log_level)
     config = PipelineConfig(
         project_root=args.project_root,
         collection_id=args.collection_id,
