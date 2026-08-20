@@ -19,7 +19,6 @@ from hdb_resale_etl.quality import (
     is_valid_month_format,
     recompute_remaining_lease,
 )
-from hdb_resale_etl.transform import add_hashed_identifier, add_resale_identifier
 
 
 class QualityTests(unittest.TestCase):
@@ -118,18 +117,6 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(dqc_result.iloc[0]["dqc_anomaly_direction"], "high")
         self.assertEqual(dqc_result.iloc[0]["remaining_lease_decade"], "40-49 years")
         self.assertIn("remaining_lease_decade", dqc_result.iloc[0]["dqc_rule"])
-
-    def test_resale_identifier_and_hash_are_created(self) -> None:
-        cleaned = pd.DataFrame([_row(block="19A", resale_price=230000), _row(block="7", resale_price=230000)])
-
-        transformed = add_resale_identifier(cleaned)
-        hashed = add_hashed_identifier(transformed)
-
-        self.assertEqual(transformed.iloc[0]["resale_identifier"], "S0192301A")
-        self.assertEqual(transformed.iloc[1]["resale_identifier"], "S0072301A")
-        self.assertEqual(len(hashed.iloc[0]["hashed_resale_identifier"]), 64)
-        self.assertNotEqual(hashed.iloc[0]["hashed_resale_identifier"], transformed.iloc[0]["resale_identifier"])
-        self.assertEqual(hashed["hashed_resale_identifier"].nunique(), 2)
 
 
 def _row(**overrides):

@@ -128,3 +128,9 @@ raw.storey_range not in dim_storey_range -> failed / unknown_storey_range
 This gives the pipeline an explicit mechanism to identify source-system drift, unexpected new categories, typos, and anomalous categorical values. The current dataset may not contain these issues, but the design demonstrates how the pipeline can detect them in future loads.
 
 In production, these profiling-derived dimension tables should be reviewed by data owners and promoted to governed reference data before being used as hard validation rules.
+
+## Stable Hashing Note
+
+The hashed identifier is built from the assignment-defined resale identifier plus an explicit stable source business key. The key is serialized as ordered JSON with field names so the hash is deterministic and independent of DataFrame column order.
+
+The business key excludes `remaining_lease` because this pipeline recomputes it as of the run date. It also excludes `resale_price`, DQC helper fields, lineage metadata, and execution-time values. This keeps the hash stable across reruns with different `as_of_date` values while still preserving uniqueness when the plain resale identifier collides.

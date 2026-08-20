@@ -58,7 +58,7 @@ hdb_resale_tech_test/
     cleaned/                 Records that pass deterministic validation
     transformed/             Cleaned records with Resale Identifier
     failed/                  Records removed by hard validation rules
-    hashed/                  Transformed data with hashed identifier
+    hashed/                  Cleaned records with hashed identifier
     dqc_result/              Review queue for statistical DQC findings
     profile/                 Data profiling JSON
   docs/                      Data quality notes and future improvements
@@ -80,7 +80,7 @@ hdb_resale_tech_test/
 | Handle duplicate composite keys | Use all columns except resale price as the key; keep higher resale price | `split_duplicate_keys()` in `quality.py` |
 | Identify anomalous resale prices | 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups | `build_price_anomaly_dqc()` in `quality.py` |
 | Create Resale Identifier | Apply assignment formula using block, group average price, month, and town | `add_resale_identifier()` in `transform.py` |
-| Hash identifier irreversibly | SHA-256 hash using identifier plus natural key to preserve uniqueness | `add_hashed_identifier()` in `transform.py` |
+| Hash identifier irreversibly | SHA-256 hash using the assignment identifier plus an explicit stable source business key | `add_hashed_identifier()` in `transform.py` |
 | Produce output groups | Write raw, cleaned, transformed, failed, hashed, DQC, and profile outputs | `src/hdb_resale_etl/pipeline.py` |
 | Provide execution guide | Notebook walkthrough | `notebooks/HDB_Resale_ETL_Walkthrough.ipynb` |
 | Provide AWS architecture | PNG diagrams and notes | `architecture/` |
@@ -134,16 +134,18 @@ using SHA-256. This produces a 64-character irreversible hash in `hashed_resale_
 ```text
 architecture/data_ingestion_architecture.png
 architecture/data_exploitation_architecture.png
+architecture/data_ingestion_architecture.svg
+architecture/data_exploitation_architecture.svg
 architecture/architecture_notes.md
 ```
 
 The architecture covers:
 
-- Batch ingestion from public data.gov.sg into private AWS data platform components.
+- Batch ingestion from public data.gov.sg into private AWS data platform components, with NAT Gateway placed in the public subnet for controlled outbound egress.
 - Raw and curated storage on S3.
 - Glue Data Catalog and Athena integration.
 - Tableau on AWS using Athena driver.
-- Security, scalability, and performance considerations.
+- Security, scalability, performance considerations, and AWS Architecture Icons in the final diagrams.
 
 ## Future Improvements
 

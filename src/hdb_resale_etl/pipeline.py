@@ -49,7 +49,7 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
     logger.info("Quality stage complete: cleaned=%s failed=%s dqc_result=%s", len(cleaned), len(failed), len(dqc_result))
     transformed = add_resale_identifier(cleaned)
     logger.info("Transformation stage complete: transformed=%s", len(transformed))
-    hashed = add_hashed_identifier(transformed)
+    hashed = add_hashed_identifier(cleaned)
     logger.info("Hashing stage complete: hashed=%s duplicate_hashes=%s", len(hashed), int(hashed["hashed_resale_identifier"].duplicated().sum()))
 
     output_paths = {

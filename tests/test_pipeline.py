@@ -63,6 +63,9 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue(result.output_paths["transformed"].exists())
             self.assertTrue(result.output_paths["failed"].exists())
             self.assertTrue(result.output_paths["hashed"].exists())
+            hashed_columns = pd.read_csv(result.output_paths["hashed"], nrows=0).columns
+            self.assertIn("hashed_resale_identifier", hashed_columns)
+            self.assertNotIn("resale_identifier", hashed_columns)
             self.assertTrue(result.output_paths["dqc_result"].exists())
             self.assertTrue(result.output_paths["profile"].exists())
 

@@ -14,7 +14,7 @@ The ingestion design supports scheduled batch pulls from data.gov.sg, including 
 
 - EventBridge triggers the ETL workflow monthly or on demand.
 - ECS Fargate or AWS Glue runs the Python pipeline in private subnets.
-- The runtime reaches data.gov.sg through controlled outbound egress via NAT Gateway.
+- The runtime reaches data.gov.sg through controlled outbound egress: private Fargate task -> private route table -> NAT Gateway in a public subnet -> Internet Gateway -> data.gov.sg.
 - Raw files are written to an immutable S3 raw zone.
 - Cleaned, transformed, failed, and hashed outputs are written to curated S3 prefixes.
 - Glue Data Catalog stores schemas and partitions for downstream Athena queries.
@@ -42,3 +42,7 @@ The exploitation design supports Tableau on AWS using the Athena driver.
 
 - `architecture/data_ingestion_architecture.png`
 - `architecture/data_exploitation_architecture.png`
+- `architecture/data_ingestion_architecture.svg`
+- `architecture/data_exploitation_architecture.svg`
+
+The diagrams use selected icons from the official AWS Architecture Icons package. The SVG files are retained as maintainable diagram sources, and the selected icon assets are stored under `architecture/aws-icons/`.

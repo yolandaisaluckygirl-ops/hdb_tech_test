@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+<rect width="1800" height="1050" fill="#f7f9fc"/>
+<text x="55" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#172033">HDB Resale Data Ingestion Architecture</text>
+<rect x="70" y="160" width="210" height="126" rx="10" fill="#e0f2fe" stroke="#4b5563" stroke-width="2"/>
+<text x="175" y="248" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">data.gov.sg</text>
+<text x="175" y="266" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">public endpoint</text>
+<rect x="345" y="160" width="210" height="126" rx="10" fill="#e0f2fe" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/aws-transit-gateway.png" x="423" y="172" width="54" height="54"/>
+<text x="450" y="248" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Internet Gateway</text>
+<text x="450" y="266" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">VPC edge</text>
+<rect x="950" y="210" width="210" height="126" rx="10" fill="#fff7ed" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/amazon-eventbridge.png" x="1028" y="222" width="54" height="54"/>
+<text x="1055" y="298" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Amazon EventBridge</text>
+<text x="1055" y="316" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">schedule</text>
+<rect x="475" y="515" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/aws-transit-gateway.png" x="553" y="527" width="54" height="54"/>
+<text x="580" y="603" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">NAT Gateway</text>
+<text x="580" y="621" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">outbound egress</text>
+<rect x="1015" y="515" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/aws-fargate.png" x="1093" y="527" width="54" height="54"/>
+<text x="1120" y="603" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">AWS Fargate</text>
+<text x="1120" y="621" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">ingestion task</text>
+<rect x="1295" y="455" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/amazon-s3.png" x="1373" y="467" width="54" height="54"/>
+<text x="1400" y="543" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Amazon S3</text>
+<text x="1400" y="561" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">raw immutable</text>
+<rect x="1295" y="620" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/amazon-s3.png" x="1373" y="632" width="54" height="54"/>
+<text x="1400" y="708" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Amazon S3</text>
+<text x="1400" y="726" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">curated outputs</text>
+<rect x="1510" y="540" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/aws-glue.png" x="1588" y="552" width="54" height="54"/>
+<text x="1615" y="628" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">AWS Glue</text>
+<text x="1615" y="646" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Data Catalog</text>
+<rect x="1015" y="725" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/amazon-cloudwatch.png" x="1093" y="737" width="54" height="54"/>
+<text x="1120" y="813" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Amazon CloudWatch</text>
+<text x="1120" y="831" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">logs and alarms</text>
+<rect x="475" y="725" width="210" height="126" rx="10" fill="#ffffff" stroke="#4b5563" stroke-width="2"/>
+<image href="aws-icons/aws-secrets-manager.png" x="553" y="737" width="54" height="54"/>
+<text x="580" y="813" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">AWS Secrets Manager</text>
+<text x="580" y="831" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">managed secrets</text>
+</svg>
