@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 def fetch_json(url: str, retries: int = 5) -> dict:
+    """Fetch JSON with simple retry handling for public API rate limits."""
     request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "hdb-resale-etl/1.0"})
     for attempt in range(retries + 1):
         try:
@@ -45,6 +46,7 @@ def discover_dataset_ids(collection_id: str) -> list[str]:
 
 
 def discover_dataset_ids_for_period(collection_id: str, start_month: str, end_month: str) -> list[str]:
+    """Select only child datasets whose coverage overlaps the assignment period."""
     logger.info("Discovering datasets for collection=%s period=%s..%s", collection_id, start_month, end_month)
     payload = fetch_json(COLLECTION_WITH_DATASETS_URL.format(collection_id=collection_id))
     dataset_metadata = payload["data"].get("datasetMetadata") or []
@@ -75,6 +77,7 @@ def _download_url(payload: dict) -> str | None:
 
 
 def get_download_url(dataset_id: str, attempts: int = 10, wait_seconds: float = 2.0) -> str:
+    """Use data.gov.sg initiate/poll flow to obtain the real CSV download URL."""
     logger.info("Initiating download for dataset %s", dataset_id)
     fetch_json(INITIATE_DOWNLOAD_URL.format(dataset_id=dataset_id))
     for attempt in range(1, attempts + 1):
@@ -108,6 +111,7 @@ def download_collection(collection_id: str, raw_dir: Path, start_month: str, end
 
 
 def load_raw_files(raw_dir: Path) -> pd.DataFrame:
+    """Load all raw CSV files and retain source metadata for audit/debugging."""
     frames = []
     for csv_path in sorted(raw_dir.glob("*.csv")):
         logger.info("Loading raw CSV: %s", csv_path)

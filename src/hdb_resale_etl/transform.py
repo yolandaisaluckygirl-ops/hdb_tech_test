@@ -15,6 +15,7 @@ def _block_digits(block: str) -> str:
 
 
 def add_resale_identifier(cleaned: pd.DataFrame) -> pd.DataFrame:
+    """Create the assignment-defined plain resale identifier."""
     logger.info("Adding resale identifiers for rows=%s", len(cleaned))
     result = cleaned.copy()
     result["_avg_price"] = result.groupby(["month", "town", "flat_type"])["resale_price"].transform("mean")
@@ -30,8 +31,10 @@ def add_resale_identifier(cleaned: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_hashed_identifier(transformed: pd.DataFrame) -> pd.DataFrame:
+    """Hash identifier plus natural key so uniqueness is preserved after hashing."""
     logger.info("Adding hashed resale identifiers for rows=%s", len(transformed))
     result = transformed.copy()
+    # The plain assignment identifier is not unique by itself, so hash it with the cleaned natural key.
     key_columns = [
         column
         for column in result.columns
