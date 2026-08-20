@@ -1,109 +1,164 @@
-# HDB Technical Test for Senior Data Engineer
+# HDB Resale Flat Prices Technical Test
 
-This is a fresh project for the HDB resale flat prices technical test.
+This repository contains a Python ETL pipeline and AWS solution architecture for the HDB Senior Data Engineer technical test.
 
-Source dataset: https://data.gov.sg/collections/189/view
+Dataset source: https://data.gov.sg/collections/189/view
 
-The pipeline processes resale flat price records for `2012-01` to `2016-12`, produces the required output groups, and includes AWS architecture diagrams for ingestion and exploitation.
+The pipeline processes HDB resale flat price records for the assignment period, `2012-01` to `2016-12`, and produces the required raw, cleaned, transformed, failed, and hashed outputs.
+
+## Project Overview
+
+The solution is designed as a reproducible batch data pipeline:
+
+```text
+data.gov.sg API / raw CSV files
+        |
+        v
+Extract raw files and combine into master dataset
+        |
+        v
+Profile + deterministic data quality validation
+        |
+        +--> failed dataset
+        |
+        v
+Cleaned dataset
+        |
+        +--> DQC review result for rare values and price anomalies
+        |
+        v
+Transform with Resale Identifier
+        |
+        v
+Hash identifier while preserving uniqueness
+        |
+        v
+Final assignment outputs
+```
+
+Main design considerations:
+
+- Preserve raw data as-is for audit and replay.
+- Keep deterministic failures separate from review-only DQC findings.
+- Make transformations idempotent and testable.
+- Keep source file and row number metadata for traceability.
+- Use modular Python code rather than one large notebook script.
+- Include architecture diagrams for operationalising the flow on AWS.
 
 ## Project Structure
 
 ```text
 hdb_resale_tech_test/
-  architecture/              PNG diagrams and architecture notes
+  architecture/              AWS ingestion and exploitation diagrams
   data/
-    raw/                     Raw CSV files as downloaded
-    cleaned/                 Records that pass data quality checks
+    raw/                     Raw CSV files from data.gov.sg
+    cleaned/                 Records that pass deterministic validation
     transformed/             Cleaned records with Resale Identifier
-    failed/                  Removed records with failure reasons
-    hashed/                  Cleaned data with hashed identifier
-    dqc_result/              Review output for rare values and price anomalies
+    failed/                  Records removed by hard validation rules
+    hashed/                  Transformed data with hashed identifier
+    dqc_result/              Review queue for statistical DQC findings
     profile/                 Data profiling JSON
-  notebooks/                 Jupyter walkthrough
-  src/hdb_resale_etl/        ETL source code
-  tests/                     Automated tests
+  docs/                      Data quality notes and future improvements
+  notebooks/                 Jupyter execution walkthrough
+  src/hdb_resale_etl/        ETL package
+  tests/                     Unit tests
 ```
 
-## Setup
+## Requirement-To-Code Map
+
+| Assignment requirement | Implementation | Code location |
+| --- | --- | --- |
+| Extract data programmatically from data.gov.sg | Discover collection child datasets, filter by coverage period, use initiate/poll download API | `src/hdb_resale_etl/extract.py` |
+| Combine datasets into one master dataset | Load all raw CSVs and concatenate into one DataFrame with source metadata | `load_raw_files()` in `extract.py` |
+| Data profiling | Generate row counts, empty counts, unique counts, samples, and numeric stats | `src/hdb_resale_etl/profile.py` |
+| Validate date, town, flat type, flat model, storey range | Apply deterministic validation and statistical DQC checks | `src/hdb_resale_etl/quality.py` |
+| Recompute remaining lease | Recalculate 99-year lease balance as of run date | `recompute_remaining_lease()` in `quality.py` |
+| Handle duplicate composite keys | Use all columns except resale price as the key; keep higher resale price | `split_duplicate_keys()` in `quality.py` |
+| Identify anomalous resale prices | 3x IQR rule within `month + town + flat_type` groups | `build_price_anomaly_dqc()` in `quality.py` |
+| Create Resale Identifier | Apply assignment formula using block, group average price, month, and town | `add_resale_identifier()` in `transform.py` |
+| Hash identifier irreversibly | SHA-256 hash using identifier plus natural key to preserve uniqueness | `add_hashed_identifier()` in `transform.py` |
+| Produce output groups | Write raw, cleaned, transformed, failed, hashed, DQC, and profile outputs | `src/hdb_resale_etl/pipeline.py` |
+| Provide execution guide | Notebook walkthrough | `notebooks/HDB_Resale_ETL_Walkthrough.ipynb` |
+| Provide AWS architecture | PNG diagrams and notes | `architecture/` |
+
+## Data Quality Approach
+
+### Hard Validation Rules
+
+Records that fail these rules are written to `data/failed/failed_resale_flat_prices.csv`.
+
+| Rule | Failure reason |
+| --- | --- |
+| Mandatory fields must not be null or empty | `missing_required_<column>` |
+| Business fields must not contain replacement/control characters | `garbled_or_control_characters` |
+| `month` must be strict `YYYY-MM` | `invalid_month` |
+| `month` must be within `2012-01` to `2016-12` | `out_of_scope_month` |
+| `storey_range` must follow `number TO number`, e.g. `01 TO 03` | `invalid_storey_range_format` |
+| `lease_commence_date` must be between 1960 and the run year | `invalid_lease_commence_date` |
+| `floor_area_sqm` must be greater than zero | `invalid_floor_area_sqm` |
+| `resale_price` must be greater than or equal to zero | `invalid_resale_price` |
+| Duplicate composite keys keep only the higher resale price | `duplicate_composite_key_lower_price` |
+
+### DQC Review Rules
+
+Some records pass hard validation but should still be reviewed. These are written to:
+
+```text
+data/dqc_result/dqc_result.csv
+```
+
+| DQC category | Method | Why it is review-only |
+| --- | --- | --- |
+| `rare value` | Frequency check across non-price fields; values appearing once are flagged | Rare does not always mean wrong |
+| `anomaly resale price` | 3x IQR outlier rule within `month + town + flat_type` groups | High or low price can still be genuine |
+
+DQC records remain in the cleaned dataset unless a future manual review process rejects them. See `docs/data_quality_notes.md` for the proposed review decision loop.
+
+## Identifier And Hashing
+
+The assignment-defined `resale_identifier` can repeat because it uses only a small number of fields.
+
+To preserve uniqueness, the pipeline hashes:
+
+```text
+resale_identifier + cleaned transaction natural key
+```
+
+using SHA-256. This produces a 64-character irreversible hash in `hashed_resale_identifier`.
+
+## How To Run
+
+Install dependencies:
 
 ```bash
-cd hdb_resale_tech_test
 python -m pip install -r requirements.txt
 ```
 
-## Run Tests
+Run tests:
 
 ```bash
 python -m unittest discover -s tests -q
 ```
 
-## Run Pipeline
-
-To process CSV files already placed in `data/raw/`:
+Run the pipeline using existing raw files:
 
 ```bash
 python run_pipeline.py
 ```
 
-To download the collection from data.gov.sg first:
+Download from data.gov.sg before running:
 
 ```bash
 python run_pipeline.py --download
 ```
 
-The pipeline discovers child datasets from collection `189` programmatically. Unauthenticated data.gov.sg API calls are rate-limited, so a retry or production API key may be required for repeated downloads.
-
-
-## Engineering Practices
-
-The code is organized as reusable modules instead of a single notebook script:
-
-- `extract.py`: data.gov.sg API access, dataset discovery, download, and raw CSV loading.
-- `profile.py`: reusable data profiling helpers.
-- `quality.py`: deterministic validation, duplicate handling, DQC review detection, and lease recomputation.
-- `transform.py`: resale identifier and hashed identifier transformations.
-- `pipeline.py`: orchestration and output writing.
-- `config.py`: project paths, collection id, date range, and runtime settings.
-- `cli.py`: command-line entry point.
-
-The implementation follows these principles:
-
-- Separation of concerns: extraction, validation, transformation, profiling, and orchestration are separate modules.
-- Reusable pure functions: validation helpers such as `is_valid_month_format`, `is_reasonable_storey_range`, `has_garbled_characters`, and `recompute_remaining_lease` can be unit-tested independently.
-- Idempotent processing: raw inputs are preserved, outputs are regenerated from source data, and duplicate handling is deterministic.
-- Auditability: failed records retain `source_file`, `source_row_number`, and `failure_reason`; DQC review records retain category, field, value, and rule.
-- Configurability: date range, collection id, run date, download mode, and log level are CLI/config driven rather than hardcoded inside business logic.
-- Testability: unit tests cover deterministic validation, duplicate handling, DQC checks, identifier hashing, and pipeline output generation.
-
-## Logging / Debugging
-
-The pipeline uses Python standard-library logging. Default level is `INFO`:
-
-```bash
-python run_pipeline.py --log-level INFO
-```
-
-For more detailed API and row-level debugging metadata:
+Enable debug logging:
 
 ```bash
 python run_pipeline.py --log-level DEBUG
 ```
 
-The logs include:
-
-- API metadata fetch and rate-limit retries.
-- Dataset selection for the requested period.
-- Raw CSV load paths, row counts, and columns.
-- Deterministic validation counts.
-- Duplicate key failure counts.
-- DQC result category counts.
-- Failed record reason counts.
-- Output file paths and row counts.
-- Hashing stage duplicate-hash count.
-
-## Required Outputs
-
-The pipeline writes:
+## Output Files
 
 ```text
 data/raw/*.csv
@@ -115,48 +170,16 @@ data/dqc_result/dqc_result.csv
 data/profile/master_profile.json
 ```
 
-## Key Rules Implemented
-
-- Combines all raw files into one master dataset.
-- Profiles every column with row counts, empty counts, unique counts, sample values, and numeric stats where applicable.
-- Validates `month`, `town`, `flat_type`, `flat_model`, and `storey_range` from the observed statistical properties of the master dataset.
-- Fails records with null or empty values in mandatory source fields.
-- Fails records containing replacement characters or non-printable control characters that indicate possible encoding corruption.
-- Fails records where `month` is not strict `YYYY-MM` format or is outside `2012-01` to `2016-12`.
-- Fails records where `storey_range` is not in `number TO number` format, for example `01 TO 03`, or where the lower storey is greater than the upper storey.
-- Fails records where `lease_commence_date` is outside a reasonable interval from 1960 to the run year.
-- Recomputes remaining lease as of the run date using a 99-year lease, rounded down to years and months.
-- Treats all columns except `resale_price` as the duplicate composite key; when duplicate keys exist, keeps the higher resale price and sends lower prices to failed output.
-- Flags potential resale price anomalies using a 3x IQR rule within each `month + town + flat_type` group where there are at least 8 records, and writes them to `data/dqc_result/dqc_result.csv` for review.
-- Runs frequency checks on all non-price fields in the cleaned dataset. Values that appear only once are flagged as `rare value` in `data/dqc_result/dqc_result.csv` for review instead of being automatically failed.
-- Builds `resale_identifier` according to the assignment formula.
-- Hashes the identifier with SHA-256, an irreversible one-way hashing algorithm with a 256-bit digest represented as 64 hex characters.
-- The assignment formula can produce duplicate plain `resale_identifier` values. To preserve uniqueness, `hashed_resale_identifier` hashes the plain identifier together with the cleaned transaction natural key.
-
-## Additional Data Validation Mechanism
-
-As an additional production-ready validation pattern, the categorical fields can be governed through profiling-derived dimension tables:
+Current generated counts:
 
 ```text
-dim_town
-dim_flat_type
-dim_flat_model
-dim_storey_range
+Raw rows: 459007
+Cleaned rows: 90944
+Transformed rows: 90944
+Failed rows: 368063
+Hashed rows: 90944
+DQC result rows: 518
 ```
-
-These dimension tables would be derived from the combined in-scope master dataset after canonical normalization. Each table can store the full accepted value list together with profiling statistics such as `record_count`, `first_month`, and `last_month`.
-
-Example:
-
-```text
-dim_town(town, record_count, first_month, last_month)
-```
-
-During validation, incoming records can be checked against these reference dimensions. Any record with a `town`, `flat_type`, `flat_model`, or `storey_range` outside the accepted dimension values would be routed to the failed dataset with a reason such as `unknown_town` or `unknown_flat_model`.
-
-This approach demonstrates a mechanism for catching spelling changes, unexpected new categories, source-system drift, and other anomalous categorical values even if the current dataset does not contain such issues. In production, these generated dimension lists should be reviewed and promoted to governed reference data before being used for future loads.
-
-For a stronger production workflow, DQC review decisions can be captured in a separate decision file and applied in a later stage to produce a final approved dataset. See `docs/data_quality_notes.md` for the recommended review decision loop.
 
 ## Architecture Deliverables
 
@@ -166,4 +189,21 @@ architecture/data_exploitation_architecture.png
 architecture/architecture_notes.md
 ```
 
-The diagrams cover AWS batch ingestion from public data.gov.sg into private HDB data platform components, and Tableau-on-AWS integration with Athena while keeping AWS traffic private where possible.
+The architecture covers:
+
+- Batch ingestion from public data.gov.sg into private AWS data platform components.
+- Raw and curated storage on S3.
+- Glue Data Catalog and Athena integration.
+- Tableau on AWS using Athena driver.
+- Security, scalability, and performance considerations.
+
+## Future Improvements
+
+Recommended enhancements for a production version:
+
+- Create governed dimension tables such as `dim_town`, `dim_flat_type`, `dim_flat_model`, and `dim_storey_range` from profiled master data.
+- Validate future loads against those dimension tables to detect unknown categories and source drift.
+- Add a permanent transaction-level unique id to simplify deduplication, audit, review decisions, and downstream joins.
+- Implement the DQC review decision loop described in `docs/data_quality_notes.md`.
+- Store curated outputs as partitioned Parquet files for Athena performance.
+- Add CI checks to run unit tests automatically on GitHub.
