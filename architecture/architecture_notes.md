@@ -49,7 +49,6 @@ The exploitation design supports Tableau on AWS using the Athena driver.
 
 ## Diagram Files
 
-- `architecture/data_ingestion_architecture.png`
-- `architecture/data_exploitation_architecture.png`
+- `architecture/hdb_resale_architecture.png`
 
-The diagrams use selected icons from the official AWS Architecture Icons package. The PNG files are the submitted diagram artifacts, and the selected icon assets are stored under `architecture/aws-icons/`.
+The diagram uses selected icons from the official AWS Architecture Icons package. The PNG file is the submitted diagram artifact, and the selected icon assets are stored under `architecture/aws-icons/`.

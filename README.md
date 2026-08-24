@@ -133,21 +133,21 @@ using SHA-256. This produces a 64-character irreversible hash in `hashed_resale_
 ## Architecture Deliverables
 
 ```text
-architecture/data_ingestion_architecture.png
-architecture/data_exploitation_architecture.png
+architecture/hdb_resale_architecture.png
 architecture/architecture_notes.md
 src/hdb_resale_etl/architecture_diagrams.py
 ```
 
 The architecture covers:
 
-- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet, with Scheduler retry/DLQ for invocation failures.
+- A single left-to-right view from public data.gov.sg through the HDB private VPC, AWS managed Athena, and the Tableau VPC.
+- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet, with Scheduler retry/DLQ for target invocation failures.
 - ECS task runtime failure handling through ECS task state change events and an EventBridge alert or failure-handler rule.
 - Batch ingestion from public data.gov.sg with NAT Gateway in a public subnet for public internet traffic to data.gov.sg and AWS services without configured VPC endpoints.
 - Raw, curated, and Athena query-result storage on S3.
-- S3 Gateway Endpoint and Secrets Manager Interface Endpoint ENI for the ingestion runtime, with optional production endpoints for ECR, CloudWatch Logs, Glue, KMS, and STS.
-- Tableau on AWS using an Athena Interface Endpoint and Athena driver; Athena reads Glue Catalog metadata, scans curated S3 data directly, writes S3 query results, emits CloudWatch query metrics, and records API activity through CloudTrail.
-- Security, scalability, performance considerations, and AWS Architecture Icons in the final diagrams.
+- Athena reading Glue Catalog metadata separately from scanning curated S3 data, and writing results to a controlled S3 result location.
+- Tableau on AWS using an Athena Interface Endpoint and Athena driver, with Athena remaining an AWS managed service outside the VPC.
+- Security, scalability, performance considerations, and AWS Architecture Icons in the final PNG diagram.
 
 ## Future Improvements
 

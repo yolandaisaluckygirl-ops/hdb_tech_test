@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-import html
 import math
 from pathlib import Path
 from textwrap import wrap
@@ -11,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 ICON_DIR = ROOT / "architecture" / "aws-icons"
-CANVAS_SIZE = (1800, 1050)
+CANVAS_SIZE = (1900, 860)
 
 COLORS = {
     "bg": "#f7f9fc",
@@ -91,19 +90,19 @@ def _draw_text(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, size: 
 def _draw_node(canvas: Image.Image, draw: ImageDraw.ImageDraw, node: Node) -> None:
     outline = COLORS["border"]
     draw.rounded_rectangle((node.x, node.y, node.x + node.w, node.y + node.h), radius=12, fill=_rgb(node.fill), outline=_rgb(outline), width=2)
-    y_text = node.y + 74
+    y_text = node.y + 36
     if node.icon:
         icon_path = ICON_DIR / node.icon
         if icon_path.exists():
             icon = Image.open(icon_path).convert("RGBA").resize((54, 54))
-            canvas.paste(icon, (node.x + node.w // 2 - 27, node.y + 16), icon)
-        y_text = node.y + 86
+            canvas.paste(icon, (node.x + node.w // 2 - 27, node.y + 18), icon)
+        y_text = node.y + 92
     lines: list[str] = []
     for part in node.label.split("\n"):
-        lines.extend(wrap(part, width=24) or [""])
+        lines.extend(wrap(part, width=max(10, node.w // 9)) or [""])
     for line in lines[:3]:
-        _draw_text(draw, (node.x + node.w // 2, y_text), line, 14, bold=True, anchor="ma")
-        y_text += 20
+        _draw_text(draw, (node.x + node.w // 2, y_text), line, 13, bold=True, anchor="ma")
+        y_text += 18
 
 
 def _draw_band(draw: ImageDraw.ImageDraw, band: Band) -> None:
@@ -154,165 +153,75 @@ def _draw_arrow_head(draw: ImageDraw.ImageDraw, previous: tuple[int, int], tip: 
     draw.polygon(points, fill=_rgb(COLORS["arrow"]))
 
 
-def _svg_rect(x: int, y: int, w: int, h: int, fill: str, stroke: str, sw: int = 2, rx: int = 12) -> str:
-    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>'
-
-
-def _svg_text(x: int | float, y: int | float, text: str, size: int, *, fill: str = COLORS["ink"], weight: int = 700, anchor: str = "middle") -> str:
-    return f'<text x="{x}" y="{y}" text-anchor="{anchor}" font-family="Arial" font-size="{size}" font-weight="{weight}" fill="{fill}">{html.escape(text)}</text>'
-
-
-def _svg_node(node: Node) -> list[str]:
-    parts = [_svg_rect(node.x, node.y, node.w, node.h, node.fill, COLORS["border"])]
-    y_text = node.y + 74
-    if node.icon:
-        parts.append(f'<image href="aws-icons/{html.escape(node.icon)}" x="{node.x + node.w / 2 - 27}" y="{node.y + 16}" width="54" height="54"/>')
-        y_text = node.y + 86
-    lines: list[str] = []
-    for part in node.label.split("\n"):
-        lines.extend(wrap(part, width=24) or [""])
-    for i, line in enumerate(lines[:3]):
-        parts.append(_svg_text(node.x + node.w / 2, y_text + i * 20, line, 14))
-    return parts
-
-
-def _svg_arrow(points: list[tuple[int, int]], dashed: bool = False) -> str:
-    path = f"M {points[0][0]} {points[0][1]} " + " ".join(f"L {x} {y}" for x, y in points[1:])
-    dash = ' stroke-dasharray="9 8"' if dashed else ""
-    return f'<path d="{path}" fill="none" stroke="{COLORS["arrow"]}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"{dash}/>'
-
-
 def _render(diagram: Diagram, output_path: Path) -> Path:
     canvas = Image.new("RGB", CANVAS_SIZE, _rgb(COLORS["bg"]))
     draw = ImageDraw.Draw(canvas)
-    _draw_text(draw, (55, 70), diagram.title, 34, bold=True)
+    _draw_text(draw, (55, 54), diagram.title, 30, bold=True)
     for band in diagram.bands:
         _draw_band(draw, band)
     for node in diagram.nodes:
         _draw_node(canvas, draw, node)
     for points, dashed in diagram.arrows:
         _draw_arrow(draw, points, dashed)
-    _draw_text(draw, (70, 946), diagram.footer_title, 19, bold=True)
-    _draw_text(draw, (70, 980), diagram.footer_note, 17, fill=COLORS["muted"])
+    _draw_text(draw, (55, 780), diagram.footer_title, 18, bold=True)
+    _draw_text(draw, (55, 810), diagram.footer_note, 16, fill=COLORS["muted"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(output_path)
     return output_path
 
 
-def _write_svg(diagram: Diagram, path: Path) -> None:
-    parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">',
-        "<defs>",
-        f'<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M2,2 L10,6 L2,10 Z" fill="{COLORS["arrow"]}"/></marker>',
-        "</defs>",
-        f'<rect width="1800" height="1050" fill="{COLORS["bg"]}"/>',
-        f'<text x="55" y="70" font-family="Arial" font-size="34" font-weight="700" fill="{COLORS["ink"]}">{html.escape(diagram.title)}</text>',
-    ]
-    for band in diagram.bands:
-        parts.append(_svg_rect(band.x, band.y, band.w, band.h, band.fill, band.stroke, 3, 14))
-        parts.append(_svg_text(band.x + 20, band.y + 32, band.label, 22, fill=band.stroke, anchor="start"))
-    for node in diagram.nodes:
-        parts.extend(_svg_node(node))
-    for points, dashed in diagram.arrows:
-        parts.append(_svg_arrow(points, dashed))
-    parts.append(_svg_text(70, 946, diagram.footer_title, 19, anchor="start"))
-    parts.append(_svg_text(70, 980, diagram.footer_note, 17, fill=COLORS["muted"], weight=400, anchor="start"))
-    parts.append("</svg>")
-    path.write_text("\n".join(parts), encoding="utf-8")
-
-
-def _ingestion_diagram() -> Diagram:
+def _overview_diagram() -> Diagram:
     return Diagram(
-        title="HDB Resale Data Ingestion Architecture",
+        title="HDB Resale Data Platform Architecture",
         bands=[
-            Band("AWS VPC", 300, 320, 1000, 555, COLORS["vpc"], COLORS["vpc_fill"]),
-            Band("Public Subnet", 340, 410, 330, 300, COLORS["public"], COLORS["public_fill"]),
-            Band("Private Subnet, AZ A", 760, 410, 500, 300, COLORS["private"], COLORS["private_fill"]),
+            Band("Public", 25, 160, 255, 250, "#f97316", "#ffffff"),
+            Band("HDB Private VPC", 330, 105, 930, 510, "#3730ff", "#ffffff"),
+            Band("Public Subnet", 365, 180, 150, 350, "#94a3b8", "#ffffff"),
+            Band("Private Subnet", 555, 180, 495, 350, "#94a3b8", "#ffffff"),
+            Band("AWS Managed", 1285, 160, 245, 250, "#f97316", "#ffffff"),
+            Band("Tableau VPC", 1560, 160, 310, 250, "#7c3aed", "#ffffff"),
         ],
         nodes=[
-            Node("source", "data.gov.sg\npublic endpoint", 70, 180, fill=COLORS["external"]),
-            Node("igw", "Internet Gateway\nVPC edge", 360, 180, fill=COLORS["external"]),
-            Node("scheduler", "EventBridge Scheduler\nRunTask trigger", 790, 170, icon="amazon-eventbridge.png", fill=COLORS["schedule"], w=240),
-            Node("nat", "NAT Gateway\noutbound egress", 390, 535),
-            Node("task", "ECS Fargate Task\nprivate ENI", 890, 530, icon="aws-fargate.png", w=230),
-            Node("s3_endpoint", "S3 Gateway Endpoint\nprivate route table", 780, 730, w=240),
-            Node("secrets_endpoint", "Secrets Manager\ninterface endpoint ENI", 1030, 730, icon="aws-privatelink.png", w=240),
-            Node("s3raw", "Amazon S3\nraw zone", 1345, 360, icon="amazon-s3.png", w=210),
-            Node("s3curated", "Amazon S3\ncurated zone", 1345, 535, icon="amazon-s3.png", w=210),
-            Node("glue", "AWS Glue\nData Catalog", 1345, 710, icon="aws-glue.png", w=210),
-            Node("cloudwatch", "CloudWatch Logs\nand metrics", 1570, 535, icon="amazon-cloudwatch.png", w=210),
-            Node("dlq", "Scheduler retry\nand DLQ", 1570, 710, fill=COLORS["failure"], w=210),
-            Node("task_failure", "ECS task failed\nEventBridge rule", 1570, 810, fill=COLORS["failure"], w=210),
-            Node("secrets", "AWS Secrets Manager\nmanaged secrets", 1570, 360, icon="aws-secrets-manager.png", w=210),
+            Node("datagov", "DATA.GOV.SG\npublic endpoint", 55, 245, w=195, h=112, fill="#ffffff"),
+            Node("nat", "NAT Gateway\noutbound egress", 388, 248, w=105, h=124, fill="#ffffff"),
+            Node("scheduler", "EventBridge\nScheduler", 600, 420, icon="amazon-eventbridge.png", w=135, h=128, fill=COLORS["schedule"]),
+            Node("fargate", "ECS Fargate\nETL task", 600, 248, icon="aws-fargate.png", w=135, h=128),
+            Node("s3raw", "Amazon S3\nraw zone", 760, 248, icon="amazon-s3.png", w=135, h=128),
+            Node("s3curated", "Amazon S3\ncurated zone", 920, 248, icon="amazon-s3.png", w=135, h=128),
+            Node("glue", "AWS Glue\nData Catalog", 1080, 248, icon="aws-glue.png", w=135, h=128),
+            Node("vpce_hdb", "Athena\nPrivateLink", 1080, 430, icon="aws-privatelink.png", w=135, h=132),
+            Node("athena", "Amazon Athena\nmanaged service", 1340, 228, icon="amazon-athena.png", w=145, h=132),
+            Node("results", "S3 query\nresults", 1340, 455, icon="amazon-s3.png", w=145, h=118),
+            Node("vpce_tableau", "Athena\nPrivateLink", 1590, 228, icon="aws-privatelink.png", w=140, h=132),
+            Node("tableau", "Tableau\nBI dashboards", 1755, 228, w=100, h=132, fill="#ffffff"),
+            Node("task_failure", "Task stopped\nnon-zero exit", 600, 655, w=175, h=86, fill=COLORS["failure"]),
+            Node("scheduler_dlq", "Scheduler invoke\nretry / DLQ", 815, 655, w=175, h=86, fill=COLORS["failure"]),
         ],
         arrows=[
-            ([(910, 304), (910, 522)], False),
-            ([(882, 585), (618, 585)], False),
-            ([(500, 527), (500, 315), (470, 315), (470, 304)], False),
-            ([(352, 243), (298, 243)], False),
-            ([(1010, 660), (1010, 722)], True),
-            ([(1122, 660), (1122, 722)], True),
-            ([(1128, 560), (1310, 560), (1310, 423), (1337, 423)], False),
-            ([(1128, 598), (1337, 598)], False),
-            ([(1128, 636), (1310, 636), (1310, 773), (1337, 773)], False),
-            ([(1278, 793), (1285, 793), (1285, 330), (1675, 330), (1675, 352)], True),
-            ([(1128, 580), (1280, 580), (1280, 510), (1675, 510), (1675, 527)], True),
-            ([(910, 296), (910, 320), (1790, 320), (1790, 773), (1788, 773)], True),
-            ([(1128, 646), (1280, 646), (1280, 930), (1562, 873)], True),
+            ([(600, 312), (495, 312)], False),
+            ([(388, 312), (258, 301)], False),
+            ([(735, 312), (752, 312)], False),
+            ([(895, 312), (912, 312)], False),
+            ([(655, 420), (655, 384)], False),
+            ([(1340, 294), (1223, 294)], False),
+            ([(1340, 330), (1268, 330), (1268, 402), (988, 402), (988, 384)], False),
+            ([(1412, 360), (1412, 447)], False),
+            ([(1590, 294), (1493, 294)], False),
+            ([(1755, 294), (1738, 294)], False),
+            ([(668, 376), (668, 647)], True),
+            ([(660, 548), (902, 647)], True),
         ],
-        footer_title="EventBridge Scheduler starts ECS/Fargate RunTask; scheduler invocation failures use Scheduler retry/DLQ.",
-        footer_note="Public internet traffic to data.gov.sg and AWS services without VPC endpoints uses NAT Gateway; ECS task STOPPED failures are handled through EventBridge task-state events.",
+        footer_title="NAT Gateway stays in the public subnet; private ETL traffic uses it only for data.gov.sg and services without VPC endpoints.",
+        footer_note="Athena remains an AWS managed service: it reads Glue Catalog metadata, scans curated S3 data, and writes query results to controlled S3 output.",
     )
 
 
-def _exploitation_diagram() -> Diagram:
-    return Diagram(
-        title="HDB Resale Data Exploitation Architecture",
-        bands=[
-            Band("AWS Analytics VPC", 55, 150, 1065, 700, COLORS["vpc"], COLORS["vpc_fill"]),
-            Band("Private Subnet, AZ A", 90, 245, 450, 445, COLORS["private"], COLORS["private_fill"]),
-            Band("Endpoint Subnet", 620, 245, 450, 445, COLORS["private"], COLORS["private_fill"]),
-        ],
-        nodes=[
-            Node("tableau", "Tableau Server\non AWS", 165, 405),
-            Node("athena_ep", "Athena Interface\nEndpoint ENI", 690, 405, icon="aws-privatelink.png", w=240),
-            Node("athena", "Amazon Athena\nmanaged service", 1220, 210, icon="amazon-athena.png", w=240),
-            Node("catalog", "AWS Glue\nData Catalog metadata", 1220, 385, icon="aws-glue.png", w=240),
-            Node("s3", "Amazon S3\ncurated parquet/csv", 1220, 560, icon="amazon-s3.png", w=240),
-            Node("results", "Amazon S3\nquery results", 1220, 735, icon="amazon-s3.png", w=240),
-            Node("lake", "Lake Formation\nIAM governance", 1540, 210, icon="aws-lake-formation.png", w=230),
-            Node("cloudtrail", "AWS CloudTrail\nAPI activity audit", 1540, 470, icon="aws-cloudtrail.png", w=230),
-            Node("cloudwatch", "CloudWatch\nAthena query metrics", 1540, 735, icon="amazon-cloudwatch.png", w=230),
-        ],
-        arrows=[
-            ([(393, 468), (682, 468)], False),
-            ([(938, 468), (1212, 273)], False),
-            ([(1340, 344), (1340, 377)], False),
-            ([(1212, 273), (1165, 273), (1165, 623), (1212, 623)], False),
-            ([(1212, 273), (1150, 273), (1150, 798), (1212, 798)], False),
-            ([(1468, 273), (1532, 273)], True),
-            ([(1468, 273), (1532, 533)], True),
-            ([(1468, 448), (1532, 533)], True),
-            ([(1468, 623), (1532, 533)], True),
-            ([(1655, 336), (1655, 462)], True),
-            ([(1468, 273), (1532, 798)], True),
-        ],
-        footer_title="Tableau reaches Athena privately through an Athena Interface Endpoint; Athena service remains outside the VPC.",
-        footer_note="Athena reads Glue Catalog metadata, scans curated S3 data, writes query results to a controlled S3 location, and emits query metrics/audit events.",
-    )
-
-
-def generate_ingestion_diagram(output_path: Path) -> Path:
-    return _render(_ingestion_diagram(), output_path)
-
-
-def generate_exploitation_diagram(output_path: Path) -> Path:
-    return _render(_exploitation_diagram(), output_path)
+def generate_overview_diagram(output_path: Path) -> Path:
+    return _render(_overview_diagram(), output_path)
 
 
 def main() -> None:
-    generate_ingestion_diagram(ROOT / "architecture" / "data_ingestion_architecture.png")
-    generate_exploitation_diagram(ROOT / "architecture" / "data_exploitation_architecture.png")
+    generate_overview_diagram(ROOT / "architecture" / "hdb_resale_architecture.png")
 
 
 if __name__ == "__main__":
