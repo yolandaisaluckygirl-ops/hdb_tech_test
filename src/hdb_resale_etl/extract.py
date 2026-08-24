@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import time
 import urllib.request
 from datetime import datetime
@@ -17,6 +18,8 @@ COLLECTION_WITH_DATASETS_URL = "https://api-production.data.gov.sg/v2/public/api
 INITIATE_DOWNLOAD_URL = "https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/initiate-download"
 POLL_DOWNLOAD_URL = "https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/poll-download"
 logger = logging.getLogger(__name__)
+DOWNLOAD_CHUNK_SIZE = 1024 * 1024
+CSV_CHUNK_SIZE = 100_000
 
 
 def fetch_json(url: str, retries: int = 5) -> dict:
@@ -96,10 +99,22 @@ def download_dataset(dataset_id: str, raw_dir: Path) -> Path:
     url = get_download_url(dataset_id)
     suffix = Path(urlparse(url).path).suffix or ".csv"
     output_path = raw_dir / f"{dataset_id}{suffix}"
+    tmp_path = output_path.with_suffix(output_path.suffix + ".part")
     request = urllib.request.Request(url, headers={"User-Agent": "hdb-resale-etl/1.0"})
-    with urllib.request.urlopen(request, timeout=300) as response, output_path.open("wb") as handle:
-        handle.write(response.read())
-    logger.info("Downloaded dataset %s to %s", dataset_id, output_path)
+    bytes_written = 0
+    with urllib.request.urlopen(request, timeout=300) as response, tmp_path.open("wb") as handle:
+        expected_length = response.headers.get("Content-Length")
+        while True:
+            chunk = response.read(DOWNLOAD_CHUNK_SIZE)
+            if not chunk:
+                break
+            handle.write(chunk)
+            bytes_written += len(chunk)
+    if expected_length and bytes_written != int(expected_length):
+        tmp_path.unlink(missing_ok=True)
+        raise IOError(f"Downloaded {bytes_written} bytes for {dataset_id}; expected {expected_length} bytes")
+    os.replace(tmp_path, output_path)
+    logger.info("Downloaded dataset %s to %s bytes=%s", dataset_id, output_path, bytes_written)
     return output_path
 
 
@@ -110,16 +125,18 @@ def download_collection(collection_id: str, raw_dir: Path, start_month: str, end
     return paths
 
 
-def load_raw_files(raw_dir: Path) -> pd.DataFrame:
+def load_raw_files(raw_dir: Path, chunksize: int = CSV_CHUNK_SIZE) -> pd.DataFrame:
     """Load all raw CSV files and retain source metadata for audit/debugging."""
     frames = []
     for csv_path in sorted(raw_dir.glob("*.csv")):
         logger.info("Loading raw CSV: %s", csv_path)
-        frame = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
-        frame["source_file"] = csv_path.name
-        frame["source_row_number"] = range(2, len(frame) + 2)
-        logger.debug("Loaded %s rows from %s with columns=%s", len(frame), csv_path.name, list(frame.columns))
-        frames.append(frame)
+        next_source_row = 2
+        for frame in pd.read_csv(csv_path, dtype=str, keep_default_na=False, chunksize=chunksize):
+            frame["source_file"] = csv_path.name
+            frame["source_row_number"] = range(next_source_row, next_source_row + len(frame))
+            next_source_row += len(frame)
+            logger.debug("Loaded chunk rows=%s from %s with columns=%s", len(frame), csv_path.name, list(frame.columns))
+            frames.append(frame)
     if not frames:
         raise FileNotFoundError(f"No raw CSV files found in {raw_dir}")
     raw_combined = pd.concat(frames, ignore_index=True, sort=False)

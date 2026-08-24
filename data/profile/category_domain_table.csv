@@ -1,0 +1,79 @@
+field,value,record_count,frequency_pct,first_month,last_month,is_rare,domain_decision,validation_action
+flat_model,MODEL A,26100,28.69898,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,IMPROVED,23657,26.012711,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,NEW GENERATION,16103,17.706501,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,PREMIUM APARTMENT,8176,8.990148,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,SIMPLIFIED,5056,5.559465,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,APARTMENT,3664,4.028853,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,STANDARD,3381,3.717672,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,MAISONETTE,2550,2.803923,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,MODEL A2,1397,1.53611,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,DBSS,272,0.299085,2014-03,2016-12,False,accepted_master_domain,accept
+flat_model,MODEL A-MAISONETTE,151,0.166036,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,ADJOINED FLAT,140,0.153941,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,TYPE S1,134,0.147343,2014-12,2016-12,False,accepted_master_domain,accept
+flat_model,TERRACE,60,0.065975,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,TYPE S2,55,0.060477,2015-01,2016-11,False,accepted_master_domain,accept
+flat_model,MULTI GENERATION,27,0.029689,2012-01,2016-12,False,accepted_master_domain,accept
+flat_model,IMPROVED-MAISONETTE,9,0.009896,2012-07,2016-11,True,rare_in_master_dataset,dqc_review
+flat_model,PREMIUM MAISONETTE,6,0.006597,2012-09,2016-04,True,rare_in_master_dataset,dqc_review
+flat_model,PREMIUM APARTMENT LOFT,5,0.005498,2015-11,2016-12,True,rare_in_master_dataset,dqc_review
+flat_model,2-ROOM,1,0.0011,2016-10,2016-10,True,rare_in_master_dataset,dqc_review
+flat_type,4 ROOM,36044,39.633181,2012-01,2016-12,False,accepted_master_domain,accept
+flat_type,3 ROOM,25557,28.101909,2012-01,2016-12,False,accepted_master_domain,accept
+flat_type,5 ROOM,21114,23.216485,2012-01,2016-12,False,accepted_master_domain,accept
+flat_type,EXECUTIVE,7223,7.94225,2012-01,2016-12,False,accepted_master_domain,accept
+flat_type,2 ROOM,931,1.023707,2012-01,2016-12,False,accepted_master_domain,accept
+flat_type,1 ROOM,48,0.05278,2012-01,2016-10,False,accepted_master_domain,accept
+flat_type,MULTI-GENERATION,27,0.029689,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,04 TO 06,20798,22.869018,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,07 TO 09,18440,20.276214,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,01 TO 03,17221,18.935829,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,10 TO 12,15790,17.362333,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,13 TO 15,6603,7.260512,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,16 TO 18,2669,2.934773,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,01 TO 05,2614,2.874296,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,06 TO 10,2399,2.637887,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,11 TO 15,1227,1.349182,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,19 TO 21,1140,1.253519,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,22 TO 24,737,0.810389,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,25 TO 27,377,0.414541,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,16 TO 20,257,0.282591,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,28 TO 30,234,0.257301,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,21 TO 25,92,0.101161,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,34 TO 36,87,0.095663,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,37 TO 39,78,0.085767,2012-02,2016-12,False,accepted_master_domain,accept
+storey_range,31 TO 33,77,0.084667,2012-01,2016-12,False,accepted_master_domain,accept
+storey_range,26 TO 30,39,0.042884,2012-03,2012-05,False,accepted_master_domain,accept
+storey_range,40 TO 42,38,0.041784,2012-12,2016-12,False,accepted_master_domain,accept
+storey_range,43 TO 45,8,0.008797,2015-02,2016-09,True,rare_in_master_dataset,dqc_review
+storey_range,46 TO 48,8,0.008797,2015-01,2016-11,True,rare_in_master_dataset,dqc_review
+storey_range,36 TO 40,7,0.007697,2012-03,2012-05,True,rare_in_master_dataset,dqc_review
+storey_range,31 TO 35,2,0.002199,2012-04,2012-04,True,rare_in_master_dataset,dqc_review
+storey_range,49 TO 51,2,0.002199,2015-07,2016-02,True,rare_in_master_dataset,dqc_review
+town,JURONG WEST,7426,8.165464,2012-01,2016-12,False,accepted_master_domain,accept
+town,WOODLANDS,7287,8.012623,2012-01,2016-12,False,accepted_master_domain,accept
+town,TAMPINES,6647,7.308893,2012-01,2016-12,False,accepted_master_domain,accept
+town,BEDOK,5933,6.523795,2012-01,2016-12,False,accepted_master_domain,accept
+town,YISHUN,5819,6.398443,2012-01,2016-12,False,accepted_master_domain,accept
+town,SENGKANG,5775,6.350062,2012-01,2016-12,False,accepted_master_domain,accept
+town,HOUGANG,4680,5.146024,2012-01,2016-12,False,accepted_master_domain,accept
+town,ANG MO KIO,4462,4.906316,2012-01,2016-12,False,accepted_master_domain,accept
+town,CHOA CHU KANG,3894,4.281756,2012-01,2016-12,False,accepted_master_domain,accept
+town,BUKIT BATOK,3720,4.090429,2012-01,2016-12,False,accepted_master_domain,accept
+town,BUKIT MERAH,3554,3.907899,2012-01,2016-12,False,accepted_master_domain,accept
+town,BUKIT PANJANG,3234,3.556034,2012-01,2016-12,False,accepted_master_domain,accept
+town,PASIR RIS,3050,3.353712,2012-01,2016-12,False,accepted_master_domain,accept
+town,PUNGGOL,3014,3.314127,2012-01,2016-12,False,accepted_master_domain,accept
+town,TOA PAYOH,2851,3.134896,2012-01,2016-12,False,accepted_master_domain,accept
+town,KALLANG/WHAMPOA,2688,2.955665,2012-01,2016-12,False,accepted_master_domain,accept
+town,GEYLANG,2595,2.853404,2012-01,2016-12,False,accepted_master_domain,accept
+town,QUEENSTOWN,2481,2.728052,2012-01,2016-12,False,accepted_master_domain,accept
+town,SEMBAWANG,2268,2.493842,2012-01,2016-12,False,accepted_master_domain,accept
+town,CLEMENTI,2253,2.477349,2012-01,2016-12,False,accepted_master_domain,accept
+town,JURONG EAST,2103,2.312412,2012-01,2016-12,False,accepted_master_domain,accept
+town,SERANGOON,2004,2.203554,2012-01,2016-12,False,accepted_master_domain,accept
+town,BISHAN,1647,1.811005,2012-01,2016-12,False,accepted_master_domain,accept
+town,CENTRAL AREA,742,0.815887,2012-01,2016-12,False,accepted_master_domain,accept
+town,MARINE PARADE,628,0.690535,2012-01,2016-12,False,accepted_master_domain,accept
+town,BUKIT TIMAH,189,0.20782,2012-01,2016-12,False,accepted_master_domain,accept

@@ -60,7 +60,7 @@ hdb_resale_tech_test/
     failed/                  Records removed by hard validation rules
     hashed/                  Cleaned records with hashed identifier
     dqc_result/              Review queue for statistical DQC findings
-    profile/                 Data profiling JSON
+    profile/                 Data profiling JSON and category domain table
   docs/                      Data quality notes and future improvements
   notebooks/                 Jupyter execution walkthrough
   src/hdb_resale_etl/        ETL package
@@ -72,10 +72,10 @@ hdb_resale_tech_test/
 | Assignment requirement | Implementation | Code location |
 | --- | --- | --- |
 | Extract data programmatically from data.gov.sg | Discover collection child datasets, filter by coverage period, use initiate/poll download API | `src/hdb_resale_etl/extract.py` |
-| Preserve and combine raw source files | Load complete downloaded CSVs with source metadata for audit | `load_raw_files()` in `extract.py` |
+| Preserve and combine raw source files | Stream downloads to temporary files, verify `Content-Length`, atomically rename, and load CSVs in chunks with source metadata | `download_dataset()` and `load_raw_files()` in `extract.py` |
 | Build assignment master dataset | Filter combined raw rows to `2012-01` through `2016-12` before profiling and DQ | `split_assignment_scope()` in `scope.py` |
-| Data profiling | Generate row counts, empty counts, unique counts, samples, and numeric stats | `src/hdb_resale_etl/profile.py` |
-| Validate date, town, flat type, flat model, storey range | Apply deterministic validation and statistical DQC checks | `src/hdb_resale_etl/quality.py` |
+| Data profiling | Generate strict JSON profile with real missing counts, top values, quantiles, format failures, duplicate-key statistics, and category domain tables | `src/hdb_resale_etl/profile.py` |
+| Validate date, town, flat type, flat model, storey range | Apply deterministic validation, storey bounds, and statistical category-domain DQC checks | `src/hdb_resale_etl/quality.py` |
 | Recompute remaining lease | Recalculate 99-year lease balance as of run date | `recompute_remaining_lease()` in `quality.py` |
 | Handle duplicate composite keys | Use all columns except resale price as the key; keep higher resale price | `split_duplicate_keys()` in `quality.py` |
 | Identify anomalous resale prices | 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups | `build_price_anomaly_dqc()` in `quality.py` |
@@ -97,6 +97,7 @@ Records that fail these rules are written to `data/failed/failed_resale_flat_pri
 | Business fields must not contain replacement/control characters | `garbled_or_control_characters` |
 | `month` must be strict `YYYY-MM` | `invalid_month` |
 | `storey_range` must follow `number TO number`, e.g. `01 TO 03` | `invalid_storey_range_format` |
+| `storey_range` lower bound must not exceed upper bound and upper bound must be <= 60 | `invalid_storey_range_bounds`, `invalid_storey_range_above_60` |
 | `lease_commence_date` must be between 1960 and the run year | `invalid_lease_commence_date` |
 | `floor_area_sqm` must be greater than zero | `invalid_floor_area_sqm` |
 | `resale_price` must be greater than or equal to zero | `invalid_resale_price` |
@@ -112,7 +113,7 @@ data/dqc_result/dqc_result.csv
 
 | DQC category | Method | Why it is review-only |
 | --- | --- | --- |
-| `rare value` | Frequency check across non-price fields; values appearing once are flagged | Rare does not always mean wrong |
+| `rare statistical-domain value` | Frequency check on standardized `town`, `flat_type`, `flat_model`, and `storey_range`; values with count <= 1 or frequency <= 0.01% are flagged and listed in `data/profile/category_domain_table.csv` | Rare does not always mean wrong |
 | `anomaly resale price` | 3x IQR outlier rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` groups, with `dqc_anomaly_direction` as `high` or `low` | High or low price can still be genuine |
 
 DQC records remain in the cleaned dataset unless a future manual review process rejects them. See `docs/data_quality_notes.md` for the proposed review decision loop.
@@ -137,14 +138,16 @@ architecture/data_exploitation_architecture.png
 architecture/data_ingestion_architecture.svg
 architecture/data_exploitation_architecture.svg
 architecture/architecture_notes.md
+src/hdb_resale_etl/architecture_diagrams.py
 ```
 
 The architecture covers:
 
-- Batch ingestion from public data.gov.sg into private AWS data platform components, with NAT Gateway placed in the public subnet for controlled outbound egress.
+- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet.
+- Batch ingestion from public data.gov.sg with NAT Gateway in a public subnet only for controlled outbound source access.
 - Raw and curated storage on S3.
-- Glue Data Catalog and Athena integration.
-- Tableau on AWS using Athena driver.
+- S3 Gateway Endpoint, Secrets Manager Interface Endpoint ENI, Glue Catalog, Athena, Lake Formation, CloudWatch, retry, and DLQ patterns.
+- Tableau on AWS using an Athena Interface Endpoint and Athena driver.
 - Security, scalability, performance considerations, and AWS Architecture Icons in the final diagrams.
 
 ## Future Improvements
@@ -156,4 +159,5 @@ Recommended enhancements for a production version:
 - Add a permanent transaction-level unique id to simplify deduplication, audit, review decisions, and downstream joins.
 - Implement the DQC review decision loop described in `docs/data_quality_notes.md`.
 - Store curated outputs as partitioned Parquet files for Athena performance.
+- For production-scale files, stream directly to S3 with multipart upload and process with Glue/Spark or PyArrow rather than returning one combined in-memory DataFrame.
 - Add CI checks to run unit tests automatically on GitHub.

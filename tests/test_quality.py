@@ -11,6 +11,7 @@ if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 from hdb_resale_etl.quality import (
+    build_category_domain_table,
     build_price_anomaly_dqc,
     build_rare_value_dqc,
     clean_dataset,
@@ -39,7 +40,7 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(cleaned.iloc[0]["resale_price"], 320000)
         self.assertEqual(len(failed), 1)
         self.assertEqual(set(failed["failure_reason"]), {"duplicate_composite_key_lower_price"})
-        self.assertIn("rare value", set(dqc_result["dqc_category"]))
+        self.assertIn("rare statistical-domain value", set(dqc_result["dqc_category"]))
 
     def test_storey_range_month_and_lease_validation_fail_deterministically(self) -> None:
         master = pd.DataFrame(
@@ -100,7 +101,24 @@ class QualityTests(unittest.TestCase):
 
         rare_town = dqc_result[(dqc_result["dqc_field"] == "town") & (dqc_result["dqc_value"] == "RARE TOWN")]
         self.assertEqual(len(rare_town), 1)
-        self.assertEqual(rare_town.iloc[0]["dqc_category"], "rare value")
+        self.assertEqual(rare_town.iloc[0]["dqc_category"], "rare statistical-domain value")
+        self.assertIn("frequency count <= 1", rare_town.iloc[0]["dqc_rule"])
+
+    def test_category_domain_table_records_threshold_decisions(self) -> None:
+        df = pd.DataFrame(
+            [
+                _row(town="ANG MO KIO", source_row_number=2),
+                _row(town="ANG MO KIO", source_row_number=3),
+                _row(town="RARE TOWN", source_row_number=4),
+            ]
+        )
+
+        domain_table = build_category_domain_table(df)
+
+        rare_town = domain_table[(domain_table["field"] == "town") & (domain_table["value"] == "RARE TOWN")]
+        self.assertEqual(len(rare_town), 1)
+        self.assertTrue(bool(rare_town.iloc[0]["is_rare"]))
+        self.assertEqual(rare_town.iloc[0]["validation_action"], "dqc_review")
 
     def test_price_anomaly_dqc_flags_price_per_sqm_outlier_for_review(self) -> None:
         rows = [

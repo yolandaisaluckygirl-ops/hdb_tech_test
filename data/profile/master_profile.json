@@ -16,7 +16,60 @@
         "2012-10",
         "2012-11",
         "2012-12"
-      ]
+      ],
+      "top_values": [
+        {
+          "value": "2012-03",
+          "count": 2360,
+          "frequency_pct": 2.550138
+        },
+        {
+          "value": "2012-05",
+          "count": 2323,
+          "frequency_pct": 2.510157
+        },
+        {
+          "value": "2012-07",
+          "count": 2179,
+          "frequency_pct": 2.354556
+        },
+        {
+          "value": "2012-04",
+          "count": 2155,
+          "frequency_pct": 2.328622
+        },
+        {
+          "value": "2012-08",
+          "count": 2075,
+          "frequency_pct": 2.242177
+        },
+        {
+          "value": "2012-06",
+          "count": 1993,
+          "frequency_pct": 2.15357
+        },
+        {
+          "value": "2012-10",
+          "count": 1937,
+          "frequency_pct": 2.093058
+        },
+        {
+          "value": "2016-08",
+          "count": 1882,
+          "frequency_pct": 2.033627
+        },
+        {
+          "value": "2016-05",
+          "count": 1829,
+          "frequency_pct": 1.976357
+        },
+        {
+          "value": "2016-06",
+          "count": 1827,
+          "frequency_pct": 1.974196
+        }
+      ],
+      "format_failure_count": 0
     },
     "town": {
       "non_empty_count": 92544,
@@ -33,6 +86,58 @@
         "CENTRAL AREA",
         "CHOA CHU KANG",
         "CLEMENTI"
+      ],
+      "top_values": [
+        {
+          "value": "JURONG WEST",
+          "count": 7573,
+          "frequency_pct": 8.183135
+        },
+        {
+          "value": "WOODLANDS",
+          "count": 7399,
+          "frequency_pct": 7.995116
+        },
+        {
+          "value": "TAMPINES",
+          "count": 6728,
+          "frequency_pct": 7.270055
+        },
+        {
+          "value": "BEDOK",
+          "count": 6071,
+          "frequency_pct": 6.560123
+        },
+        {
+          "value": "YISHUN",
+          "count": 5937,
+          "frequency_pct": 6.415327
+        },
+        {
+          "value": "SENGKANG",
+          "count": 5896,
+          "frequency_pct": 6.371024
+        },
+        {
+          "value": "HOUGANG",
+          "count": 4735,
+          "frequency_pct": 5.116485
+        },
+        {
+          "value": "ANG MO KIO",
+          "count": 4558,
+          "frequency_pct": 4.925225
+        },
+        {
+          "value": "CHOA CHU KANG",
+          "count": 3928,
+          "frequency_pct": 4.244467
+        },
+        {
+          "value": "BUKIT BATOK",
+          "count": 3773,
+          "frequency_pct": 4.07698
+        }
       ]
     },
     "flat_type": {
@@ -47,6 +152,43 @@
         "EXECUTIVE",
         "MULTI-GENERATION",
         "1 ROOM"
+      ],
+      "top_values": [
+        {
+          "value": "4 ROOM",
+          "count": 36535,
+          "frequency_pct": 39.478518
+        },
+        {
+          "value": "3 ROOM",
+          "count": 26307,
+          "frequency_pct": 28.426478
+        },
+        {
+          "value": "5 ROOM",
+          "count": 21368,
+          "frequency_pct": 23.089557
+        },
+        {
+          "value": "EXECUTIVE",
+          "count": 7295,
+          "frequency_pct": 7.882737
+        },
+        {
+          "value": "2 ROOM",
+          "count": 956,
+          "frequency_pct": 1.033022
+        },
+        {
+          "value": "1 ROOM",
+          "count": 56,
+          "frequency_pct": 0.060512
+        },
+        {
+          "value": "MULTI-GENERATION",
+          "count": 27,
+          "frequency_pct": 0.029175
+        }
       ]
     },
     "block": {
@@ -65,10 +207,66 @@
         "476",
         "631"
       ],
+      "top_values": [
+        {
+          "value": "2",
+          "count": 397,
+          "frequency_pct": 0.428985
+        },
+        {
+          "value": "1",
+          "count": 350,
+          "frequency_pct": 0.378198
+        },
+        {
+          "value": "108",
+          "count": 318,
+          "frequency_pct": 0.34362
+        },
+        {
+          "value": "107",
+          "count": 309,
+          "frequency_pct": 0.333895
+        },
+        {
+          "value": "113",
+          "count": 298,
+          "frequency_pct": 0.322009
+        },
+        {
+          "value": "4",
+          "count": 295,
+          "frequency_pct": 0.318767
+        },
+        {
+          "value": "110",
+          "count": 294,
+          "frequency_pct": 0.317687
+        },
+        {
+          "value": "101",
+          "count": 294,
+          "frequency_pct": 0.317687
+        },
+        {
+          "value": "8",
+          "count": 286,
+          "frequency_pct": 0.309042
+        },
+        {
+          "value": "114",
+          "count": 272,
+          "frequency_pct": 0.293914
+        }
+      ],
       "numeric": {
+        "parse_failure_count": 17192,
         "min": 1.0,
         "max": 980.0,
-        "mean": 349.30450419365116
+        "mean": 349.30450419365116,
+        "p25": 124.0,
+        "median": 306.0,
+        "p75": 539.0
       }
     },
     "street_name": {
@@ -86,6 +284,58 @@
         "ANG MO KIO AVE 6",
         "ANG MO KIO ST 32",
         "ANG MO KIO ST 52"
+      ],
+      "top_values": [
+        {
+          "value": "YISHUN RING RD",
+          "count": 1629,
+          "frequency_pct": 1.760244
+        },
+        {
+          "value": "BEDOK RESERVOIR RD",
+          "count": 1264,
+          "frequency_pct": 1.365837
+        },
+        {
+          "value": "ANG MO KIO AVE 10",
+          "count": 1188,
+          "frequency_pct": 1.283714
+        },
+        {
+          "value": "ANG MO KIO AVE 3",
+          "count": 1059,
+          "frequency_pct": 1.144321
+        },
+        {
+          "value": "HOUGANG AVE 8",
+          "count": 844,
+          "frequency_pct": 0.911999
+        },
+        {
+          "value": "JURONG WEST ST 65",
+          "count": 777,
+          "frequency_pct": 0.839601
+        },
+        {
+          "value": "CHOA CHU KANG CRES",
+          "count": 737,
+          "frequency_pct": 0.796378
+        },
+        {
+          "value": "BEDOK NTH RD",
+          "count": 731,
+          "frequency_pct": 0.789895
+        },
+        {
+          "value": "BEDOK NTH ST 3",
+          "count": 708,
+          "frequency_pct": 0.765041
+        },
+        {
+          "value": "PUNGGOL CTRL",
+          "count": 644,
+          "frequency_pct": 0.695885
+        }
       ]
     },
     "storey_range": {
@@ -103,7 +353,60 @@
         "31 TO 35",
         "04 TO 06",
         "01 TO 03"
-      ]
+      ],
+      "top_values": [
+        {
+          "value": "04 TO 06",
+          "count": 21214,
+          "frequency_pct": 22.92315
+        },
+        {
+          "value": "07 TO 09",
+          "count": 18765,
+          "frequency_pct": 20.276841
+        },
+        {
+          "value": "01 TO 03",
+          "count": 17466,
+          "frequency_pct": 18.873185
+        },
+        {
+          "value": "10 TO 12",
+          "count": 16028,
+          "frequency_pct": 17.319329
+        },
+        {
+          "value": "13 TO 15",
+          "count": 6704,
+          "frequency_pct": 7.244122
+        },
+        {
+          "value": "16 TO 18",
+          "count": 2706,
+          "frequency_pct": 2.924015
+        },
+        {
+          "value": "01 TO 05",
+          "count": 2700,
+          "frequency_pct": 2.917531
+        },
+        {
+          "value": "06 TO 10",
+          "count": 2474,
+          "frequency_pct": 2.673323
+        },
+        {
+          "value": "11 TO 15",
+          "count": 1259,
+          "frequency_pct": 1.360434
+        },
+        {
+          "value": "19 TO 21",
+          "count": 1156,
+          "frequency_pct": 1.249136
+        }
+      ],
+      "format_failure_count": 0
     },
     "floor_area_sqm": {
       "non_empty_count": 92544,
@@ -121,11 +424,68 @@
         "83",
         "81"
       ],
+      "top_values": [
+        {
+          "value": "67",
+          "count": 6125,
+          "frequency_pct": 6.618473
+        },
+        {
+          "value": "110",
+          "count": 5192,
+          "frequency_pct": 5.610304
+        },
+        {
+          "value": "104",
+          "count": 4341,
+          "frequency_pct": 4.690742
+        },
+        {
+          "value": "90",
+          "count": 3517,
+          "frequency_pct": 3.800354
+        },
+        {
+          "value": "68",
+          "count": 3424,
+          "frequency_pct": 3.699862
+        },
+        {
+          "value": "84",
+          "count": 3152,
+          "frequency_pct": 3.405947
+        },
+        {
+          "value": "91",
+          "count": 3057,
+          "frequency_pct": 3.303294
+        },
+        {
+          "value": "92",
+          "count": 2713,
+          "frequency_pct": 2.931578
+        },
+        {
+          "value": "121",
+          "count": 2673,
+          "frequency_pct": 2.888356
+        },
+        {
+          "value": "73",
+          "count": 2564,
+          "frequency_pct": 2.770574
+        }
+      ],
       "numeric": {
+        "parse_failure_count": 0,
         "min": 31.0,
         "max": 280.0,
-        "mean": 96.56911523167359
-      }
+        "mean": 96.56911523167359,
+        "p25": 74.0,
+        "median": 95.0,
+        "p75": 111.0
+      },
+      "format_failure_count": 0
     },
     "flat_model": {
       "non_empty_count": 92544,
@@ -142,6 +502,58 @@
         "Model A-Maisonette",
         "Apartment",
         "Adjoined flat"
+      ],
+      "top_values": [
+        {
+          "value": "Model A",
+          "count": 26447,
+          "frequency_pct": 28.577758
+        },
+        {
+          "value": "Improved",
+          "count": 24117,
+          "frequency_pct": 26.060036
+        },
+        {
+          "value": "New Generation",
+          "count": 16495,
+          "frequency_pct": 17.823954
+        },
+        {
+          "value": "Premium Apartment",
+          "count": 8314,
+          "frequency_pct": 8.983835
+        },
+        {
+          "value": "Simplified",
+          "count": 5152,
+          "frequency_pct": 5.567082
+        },
+        {
+          "value": "Apartment",
+          "count": 3701,
+          "frequency_pct": 3.999179
+        },
+        {
+          "value": "Standard",
+          "count": 3458,
+          "frequency_pct": 3.736601
+        },
+        {
+          "value": "Maisonette",
+          "count": 2574,
+          "frequency_pct": 2.78138
+        },
+        {
+          "value": "Model A2",
+          "count": 1415,
+          "frequency_pct": 1.529002
+        },
+        {
+          "value": "DBSS",
+          "count": 277,
+          "frequency_pct": 0.299317
+        }
       ]
     },
     "lease_commence_date": {
@@ -160,11 +572,68 @@
         "1976",
         "1982"
       ],
+      "top_values": [
+        {
+          "value": "1985",
+          "count": 7254,
+          "frequency_pct": 7.838434
+        },
+        {
+          "value": "1984",
+          "count": 5206,
+          "frequency_pct": 5.625432
+        },
+        {
+          "value": "1988",
+          "count": 4455,
+          "frequency_pct": 4.813926
+        },
+        {
+          "value": "2001",
+          "count": 4033,
+          "frequency_pct": 4.357927
+        },
+        {
+          "value": "1987",
+          "count": 3533,
+          "frequency_pct": 3.817643
+        },
+        {
+          "value": "1997",
+          "count": 3405,
+          "frequency_pct": 3.679331
+        },
+        {
+          "value": "1978",
+          "count": 3362,
+          "frequency_pct": 3.632867
+        },
+        {
+          "value": "2003",
+          "count": 3355,
+          "frequency_pct": 3.625303
+        },
+        {
+          "value": "1986",
+          "count": 3266,
+          "frequency_pct": 3.529132
+        },
+        {
+          "value": "1999",
+          "count": 3191,
+          "frequency_pct": 3.44809
+        }
+      ],
       "numeric": {
-        "min": 1966.0,
-        "max": 2013.0,
-        "mean": 1990.0727005532503
-      }
+        "parse_failure_count": 0,
+        "min": 1966,
+        "max": 2013,
+        "mean": 1990.0727005532503,
+        "p25": 1983.0,
+        "median": 1988.0,
+        "p75": 1999.0
+      },
+      "format_failure_count": 0
     },
     "resale_price": {
       "non_empty_count": 92544,
@@ -182,11 +651,68 @@
         "330000",
         "331000"
       ],
+      "top_values": [
+        {
+          "value": "400000",
+          "count": 1274,
+          "frequency_pct": 1.376642
+        },
+        {
+          "value": "430000",
+          "count": 1146,
+          "frequency_pct": 1.23833
+        },
+        {
+          "value": "420000",
+          "count": 1144,
+          "frequency_pct": 1.236169
+        },
+        {
+          "value": "380000",
+          "count": 1143,
+          "frequency_pct": 1.235088
+        },
+        {
+          "value": "450000",
+          "count": 1132,
+          "frequency_pct": 1.223202
+        },
+        {
+          "value": "350000",
+          "count": 1061,
+          "frequency_pct": 1.146482
+        },
+        {
+          "value": "410000",
+          "count": 1053,
+          "frequency_pct": 1.137837
+        },
+        {
+          "value": "360000",
+          "count": 1023,
+          "frequency_pct": 1.10542
+        },
+        {
+          "value": "390000",
+          "count": 1017,
+          "frequency_pct": 1.098937
+        },
+        {
+          "value": "460000",
+          "count": 994,
+          "frequency_pct": 1.074084
+        }
+      ],
       "numeric": {
+        "parse_failure_count": 0,
         "min": 190000.0,
         "max": 1150000.0,
-        "mean": 450938.9717304202
-      }
+        "mean": 450938.9717304202,
+        "p25": 357000.0,
+        "median": 428000.0,
+        "p75": 515000.0
+      },
+      "format_failure_count": 0
     },
     "source_file": {
       "non_empty_count": 92544,
@@ -196,6 +722,23 @@
         "d_2d5ff9ea31397b66239f245f57751537.csv",
         "d_43f493c6c50d54243cc1eab0df142d6a.csv",
         "d_ea9ed51da2787afaf8e51f827c304208.csv"
+      ],
+      "top_values": [
+        {
+          "value": "d_2d5ff9ea31397b66239f245f57751537.csv",
+          "count": 52203,
+          "frequency_pct": 56.408843
+        },
+        {
+          "value": "d_ea9ed51da2787afaf8e51f827c304208.csv",
+          "count": 37153,
+          "frequency_pct": 40.146309
+        },
+        {
+          "value": "d_43f493c6c50d54243cc1eab0df142d6a.csv",
+          "count": 3188,
+          "frequency_pct": 3.444848
+        }
       ]
     },
     "source_row_number": {
@@ -203,29 +746,84 @@
       "empty_count": 0,
       "unique_count": 55391,
       "sample_values": [
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11"
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "top_values": [
+        {
+          "value": "2",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "3",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "4",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "5",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "6",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "7",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "8",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "9",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "10",
+          "count": 2,
+          "frequency_pct": 0.002161
+        },
+        {
+          "value": "11",
+          "count": 2,
+          "frequency_pct": 0.002161
+        }
       ],
       "numeric": {
-        "min": 2.0,
-        "max": 369652.0,
-        "mean": 34861.836974844395
+        "parse_failure_count": 0,
+        "min": 2,
+        "max": 369652,
+        "mean": 34861.836974844395,
+        "p25": 11569.75,
+        "median": 23137.5,
+        "p75": 34705.25
       }
     },
     "remaining_lease": {
-      "non_empty_count": 92544,
-      "empty_count": 0,
-      "unique_count": 51,
+      "non_empty_count": 37153,
+      "empty_count": 55391,
+      "unique_count": 50,
       "sample_values": [
-        NaN,
         "70",
         "65",
         "64",
@@ -234,13 +832,642 @@
         "69",
         "60",
         "61",
-        "86"
+        "86",
+        "77"
+      ],
+      "top_values": [
+        {
+          "value": "68",
+          "count": 2328,
+          "frequency_pct": 6.265981
+        },
+        {
+          "value": "67",
+          "count": 1857,
+          "frequency_pct": 4.99825
+        },
+        {
+          "value": "69",
+          "count": 1635,
+          "frequency_pct": 4.400721
+        },
+        {
+          "value": "71",
+          "count": 1547,
+          "frequency_pct": 4.163863
+        },
+        {
+          "value": "84",
+          "count": 1423,
+          "frequency_pct": 3.830108
+        },
+        {
+          "value": "70",
+          "count": 1337,
+          "frequency_pct": 3.598633
+        },
+        {
+          "value": "81",
+          "count": 1335,
+          "frequency_pct": 3.59325
+        },
+        {
+          "value": "80",
+          "count": 1317,
+          "frequency_pct": 3.544801
+        },
+        {
+          "value": "85",
+          "count": 1314,
+          "frequency_pct": 3.536727
+        },
+        {
+          "value": "83",
+          "count": 1312,
+          "frequency_pct": 3.531343
+        }
       ],
       "numeric": {
+        "parse_failure_count": 0,
         "min": 48.0,
         "max": 97.0,
-        "mean": 73.91311603369849
+        "mean": 73.91311603369849,
+        "p25": 66.0,
+        "median": 72.0,
+        "p75": 83.0
       }
     }
+  },
+  "duplicate_key_statistics": {
+    "key_columns": [
+      "month",
+      "town",
+      "flat_type",
+      "block",
+      "street_name",
+      "storey_range",
+      "floor_area_sqm",
+      "flat_model",
+      "lease_commence_date",
+      "remaining_lease"
+    ],
+    "duplicate_group_count": 1559,
+    "duplicate_row_count": 3154
+  },
+  "category_domain_tables": {
+    "town": [
+      {
+        "value": "JURONG WEST",
+        "record_count": 7573,
+        "frequency_pct": 8.183135,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "WOODLANDS",
+        "record_count": 7399,
+        "frequency_pct": 7.995116,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "TAMPINES",
+        "record_count": 6728,
+        "frequency_pct": 7.270055,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BEDOK",
+        "record_count": 6071,
+        "frequency_pct": 6.560123,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "YISHUN",
+        "record_count": 5937,
+        "frequency_pct": 6.415327,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "SENGKANG",
+        "record_count": 5896,
+        "frequency_pct": 6.371024,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "HOUGANG",
+        "record_count": 4735,
+        "frequency_pct": 5.116485,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "ANG MO KIO",
+        "record_count": 4558,
+        "frequency_pct": 4.925225,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "CHOA CHU KANG",
+        "record_count": 3928,
+        "frequency_pct": 4.244467,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BUKIT BATOK",
+        "record_count": 3773,
+        "frequency_pct": 4.07698,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BUKIT MERAH",
+        "record_count": 3618,
+        "frequency_pct": 3.909492,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BUKIT PANJANG",
+        "record_count": 3261,
+        "frequency_pct": 3.523729,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "PASIR RIS",
+        "record_count": 3075,
+        "frequency_pct": 3.322744,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "PUNGGOL",
+        "record_count": 3075,
+        "frequency_pct": 3.322744,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "TOA PAYOH",
+        "record_count": 2917,
+        "frequency_pct": 3.152014,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "KALLANG/WHAMPOA",
+        "record_count": 2755,
+        "frequency_pct": 2.976962,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "GEYLANG",
+        "record_count": 2649,
+        "frequency_pct": 2.862422,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "QUEENSTOWN",
+        "record_count": 2524,
+        "frequency_pct": 2.727351,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "CLEMENTI",
+        "record_count": 2319,
+        "frequency_pct": 2.505835,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "SEMBAWANG",
+        "record_count": 2314,
+        "frequency_pct": 2.500432,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "JURONG EAST",
+        "record_count": 2157,
+        "frequency_pct": 2.330783,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "SERANGOON",
+        "record_count": 2029,
+        "frequency_pct": 2.192471,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BISHAN",
+        "record_count": 1671,
+        "frequency_pct": 1.805628,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "CENTRAL AREA",
+        "record_count": 750,
+        "frequency_pct": 0.810425,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "MARINE PARADE",
+        "record_count": 640,
+        "frequency_pct": 0.691563,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "BUKIT TIMAH",
+        "record_count": 192,
+        "frequency_pct": 0.207469,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      }
+    ],
+    "flat_type": [
+      {
+        "value": "4 ROOM",
+        "record_count": 36535,
+        "frequency_pct": 39.478518,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "3 ROOM",
+        "record_count": 26307,
+        "frequency_pct": 28.426478,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "5 ROOM",
+        "record_count": 21368,
+        "frequency_pct": 23.089557,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "EXECUTIVE",
+        "record_count": 7295,
+        "frequency_pct": 7.882737,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "2 ROOM",
+        "record_count": 956,
+        "frequency_pct": 1.033022,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "1 ROOM",
+        "record_count": 56,
+        "frequency_pct": 0.060512,
+        "first_month": "2012-01",
+        "last_month": "2016-10"
+      },
+      {
+        "value": "MULTI-GENERATION",
+        "record_count": 27,
+        "frequency_pct": 0.029175,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      }
+    ],
+    "flat_model": [
+      {
+        "value": "MODEL A",
+        "record_count": 26447,
+        "frequency_pct": 28.577758,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "IMPROVED",
+        "record_count": 24117,
+        "frequency_pct": 26.060036,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "NEW GENERATION",
+        "record_count": 16495,
+        "frequency_pct": 17.823954,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "PREMIUM APARTMENT",
+        "record_count": 8314,
+        "frequency_pct": 8.983835,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "SIMPLIFIED",
+        "record_count": 5152,
+        "frequency_pct": 5.567082,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "APARTMENT",
+        "record_count": 3701,
+        "frequency_pct": 3.999179,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "STANDARD",
+        "record_count": 3458,
+        "frequency_pct": 3.736601,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "MAISONETTE",
+        "record_count": 2574,
+        "frequency_pct": 2.78138,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "MODEL A2",
+        "record_count": 1415,
+        "frequency_pct": 1.529002,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "DBSS",
+        "record_count": 277,
+        "frequency_pct": 0.299317,
+        "first_month": "2014-03",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "MODEL A-MAISONETTE",
+        "record_count": 151,
+        "frequency_pct": 0.163166,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "ADJOINED FLAT",
+        "record_count": 141,
+        "frequency_pct": 0.15236,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "TYPE S1",
+        "record_count": 138,
+        "frequency_pct": 0.149118,
+        "first_month": "2014-12",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "TERRACE",
+        "record_count": 60,
+        "frequency_pct": 0.064834,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "TYPE S2",
+        "record_count": 55,
+        "frequency_pct": 0.059431,
+        "first_month": "2015-01",
+        "last_month": "2016-11"
+      },
+      {
+        "value": "MULTI GENERATION",
+        "record_count": 27,
+        "frequency_pct": 0.029175,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "IMPROVED-MAISONETTE",
+        "record_count": 10,
+        "frequency_pct": 0.010806,
+        "first_month": "2012-07",
+        "last_month": "2016-11"
+      },
+      {
+        "value": "PREMIUM MAISONETTE",
+        "record_count": 6,
+        "frequency_pct": 0.006483,
+        "first_month": "2012-09",
+        "last_month": "2016-04"
+      },
+      {
+        "value": "PREMIUM APARTMENT LOFT",
+        "record_count": 5,
+        "frequency_pct": 0.005403,
+        "first_month": "2015-11",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "2-ROOM",
+        "record_count": 1,
+        "frequency_pct": 0.001081,
+        "first_month": "2016-10",
+        "last_month": "2016-10"
+      }
+    ],
+    "storey_range": [
+      {
+        "value": "04 TO 06",
+        "record_count": 21214,
+        "frequency_pct": 22.92315,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "07 TO 09",
+        "record_count": 18765,
+        "frequency_pct": 20.276841,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "01 TO 03",
+        "record_count": 17466,
+        "frequency_pct": 18.873185,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "10 TO 12",
+        "record_count": 16028,
+        "frequency_pct": 17.319329,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "13 TO 15",
+        "record_count": 6704,
+        "frequency_pct": 7.244122,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "16 TO 18",
+        "record_count": 2706,
+        "frequency_pct": 2.924015,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "01 TO 05",
+        "record_count": 2700,
+        "frequency_pct": 2.917531,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "06 TO 10",
+        "record_count": 2474,
+        "frequency_pct": 2.673323,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "11 TO 15",
+        "record_count": 1259,
+        "frequency_pct": 1.360434,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "19 TO 21",
+        "record_count": 1156,
+        "frequency_pct": 1.249136,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "22 TO 24",
+        "record_count": 746,
+        "frequency_pct": 0.806103,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "25 TO 27",
+        "record_count": 381,
+        "frequency_pct": 0.411696,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "16 TO 20",
+        "record_count": 265,
+        "frequency_pct": 0.28635,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "28 TO 30",
+        "record_count": 236,
+        "frequency_pct": 0.255014,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "21 TO 25",
+        "record_count": 92,
+        "frequency_pct": 0.099412,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "34 TO 36",
+        "record_count": 88,
+        "frequency_pct": 0.09509,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "37 TO 39",
+        "record_count": 81,
+        "frequency_pct": 0.087526,
+        "first_month": "2012-02",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "31 TO 33",
+        "record_count": 79,
+        "frequency_pct": 0.085365,
+        "first_month": "2012-01",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "26 TO 30",
+        "record_count": 39,
+        "frequency_pct": 0.042142,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "40 TO 42",
+        "record_count": 38,
+        "frequency_pct": 0.041062,
+        "first_month": "2012-12",
+        "last_month": "2016-12"
+      },
+      {
+        "value": "46 TO 48",
+        "record_count": 8,
+        "frequency_pct": 0.008645,
+        "first_month": "2015-01",
+        "last_month": "2016-11"
+      },
+      {
+        "value": "43 TO 45",
+        "record_count": 8,
+        "frequency_pct": 0.008645,
+        "first_month": "2015-02",
+        "last_month": "2016-09"
+      },
+      {
+        "value": "36 TO 40",
+        "record_count": 7,
+        "frequency_pct": 0.007564,
+        "first_month": "2012-03",
+        "last_month": "2012-05"
+      },
+      {
+        "value": "31 TO 35",
+        "record_count": 2,
+        "frequency_pct": 0.002161,
+        "first_month": "2012-04",
+        "last_month": "2012-04"
+      },
+      {
+        "value": "49 TO 51",
+        "record_count": 2,
+        "frequency_pct": 0.002161,
+        "first_month": "2015-07",
+        "last_month": "2016-02"
+      }
+    ]
   }
 }

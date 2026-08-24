@@ -68,6 +68,7 @@ class PipelineTests(unittest.TestCase):
             self.assertNotIn("resale_identifier", hashed_columns)
             self.assertTrue(result.output_paths["dqc_result"].exists())
             self.assertTrue(result.output_paths["profile"].exists())
+            self.assertTrue(result.output_paths["category_domain_table"].exists())
 
 
 if __name__ == "__main__":

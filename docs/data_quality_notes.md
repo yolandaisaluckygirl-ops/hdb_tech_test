@@ -10,11 +10,12 @@ The pipeline first filters the combined raw rows to the assignment period, `2012
 - `town`, `flat_type`, `flat_model`, and `storey_range` must be non-empty after canonical normalization.
 - `floor_area_sqm` must be greater than zero.
 - `resale_price` must be greater than or equal to zero.
-- `storey_range` must follow `number TO number` format, for example `01 TO 03`, and the lower storey must be less than or equal to the upper storey.
+- `storey_range` must follow `number TO number` format, for example `01 TO 03`; the lower storey must be less than or equal to the upper storey, and the upper storey must be within the configured reasonable bound of 60.
 - `lease_commence_date` must be a plausible year between 1960 and the run year.
 - Duplicate composite keys keep the higher `resale_price`; lower-price duplicates go to the failed dataset.
+- Standardized category frequency/domain tables are generated for `town`, `flat_type`, `flat_model`, and `storey_range` and written to `data/profile/category_domain_table.csv`.
+- Low-frequency category-domain values with record count <= 1 or frequency <= 0.01% are written to the DQC result dataset as `rare statistical-domain value` for review.
 - Potential resale price anomalies are flagged with a conservative 3x IQR rule on `price_per_sqm` within `month + town + flat_type + remaining_lease_decade` and written to the DQC result dataset for review. The `dqc_anomaly_direction` field indicates whether the record is below the lower bound (`low`) or above the upper bound (`high`).
-- Low-frequency values are identified across non-price fields. Values that appear only once in the cleaned dataset are written to the DQC result dataset as `rare value` for review.
 
 ## DQC Result Dataset
 
@@ -30,7 +31,7 @@ Current DQC categories:
 
 | Category | Meaning | Action |
 | --- | --- | --- |
-| `rare value` | A non-price field value appears only once in the cleaned dataset | Review as a potential typo, source drift, or genuinely rare value |
+| `rare statistical-domain value` | A standardized `town`, `flat_type`, `flat_model`, or `storey_range` value has count <= 1 or frequency <= 0.01% in the cleaned master dataset | Review as a potential typo, source drift, or genuinely rare value |
 | `anomaly resale price` | `price_per_sqm` is outside a 3x IQR threshold within `month + town + flat_type + remaining_lease_decade`; `dqc_anomaly_direction` marks `high` or `low` | Review as a potential pricing anomaly |
 
 Rare values are not automatically sent to failed output because low frequency does not always mean invalid data.
@@ -76,7 +77,7 @@ Example:
 
 ```csv
 source_file,source_row_number,dqc_category,dqc_field,review_status,review_comment,reviewed_by,reviewed_at
-d_xxx.csv,123,rare value,town,approved,false alarm - valid rare value,data_steward,2026-08-20
+d_xxx.csv,123,rare statistical-domain value,town,approved,false alarm - valid rare value,data_steward,2026-08-20
 d_xxx.csv,456,anomaly resale price,price_per_sqm,rejected,confirmed source price-per-sqm error,data_steward,2026-08-20
 ```
 
@@ -95,9 +96,23 @@ data/failed/review_rejected_resale_flat_prices.csv
 
 This avoids manual edits to generated CSV files and keeps the pipeline reproducible. It also creates an audit trail for why reviewed records were approved or rejected.
 
-## Proposed Dimension Table Validation
+## Implemented Category Domain Tables And Future Reference Validation
 
-As an additional validation mechanism, the categorical fields can be validated against dimension reference tables derived from the statistical profile of the in-scope master dataset.
+The pipeline now generates a profiling-derived category domain table:
+
+```text
+data/profile/category_domain_table.csv
+```
+
+Current columns:
+
+```text
+field,value,record_count,frequency_pct,first_month,last_month,is_rare,domain_decision,validation_action
+```
+
+Values marked `validation_action = dqc_review` are still retained in the cleaned dataset because rarity alone is not proof of invalidity.
+
+As a production hardening step, reviewed categorical fields can be promoted to governed dimension reference tables derived from the statistical profile of the in-scope master dataset.
 
 Recommended dimension tables:
 

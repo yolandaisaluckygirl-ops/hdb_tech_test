@@ -24,11 +24,14 @@ REQUIRED_COLUMNS = [
 CATEGORY_COLUMNS = ["town", "flat_type", "flat_model", "storey_range"]
 NORMALIZED_TEXT_COLUMNS = ["town", "flat_type", "flat_model", "storey_range", "street_name", "block"]
 MIN_LEASE_COMMENCE_YEAR = 1960
+MAX_REASONABLE_STOREY = 60
 STOREY_RANGE_PATTERN = re.compile(r"^\d{1,2}\s+TO\s+\d{1,2}$")
 MONTH_PATTERN = re.compile(r"^\d{4}-\d{2}$")
 GARBLED_CHARACTER_PATTERN = re.compile(r"[�\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
-DQC_FREQUENCY_EXCLUDED_COLUMNS = {"resale_price", "source_file", "source_row_number", "failure_reason"}
 GARBLED_CHECK_EXCLUDED_COLUMNS = {"source_file", "source_row_number", "failure_reason"}
+STATISTICAL_DOMAIN_COLUMNS = ["town", "flat_type", "flat_model", "storey_range"]
+RARE_VALUE_COUNT_THRESHOLD = 1
+RARE_VALUE_PCT_THRESHOLD = 0.01
 DQC_RESULT_COLUMNS = [
     "dqc_category",
     "dqc_field",
@@ -84,7 +87,7 @@ def is_reasonable_storey_range(value: str) -> bool:
     if not STOREY_RANGE_PATTERN.match(value):
         return False
     lower, upper = [int(part) for part in value.split(" TO ")]
-    return lower <= upper
+    return lower <= upper <= MAX_REASONABLE_STOREY
 
 
 def has_garbled_characters(value: str) -> bool:
@@ -171,7 +174,14 @@ def _check_categories(df: pd.DataFrame, reasons: pd.Series) -> pd.Series:
 
 def _check_storey_range(df: pd.DataFrame, reasons: pd.Series) -> pd.Series:
     mask = df["storey_range"].apply(is_reasonable_storey_range)
-    _append_reason(reasons, ~mask, "invalid_storey_range_format")
+    values = df["storey_range"].astype(str).str.strip().str.upper()
+    format_mask = values.apply(lambda value: bool(STOREY_RANGE_PATTERN.match(value)))
+    bounds = values.str.extract(r"^(\d{1,2})\s+TO\s+(\d{1,2})$")
+    lower = pd.to_numeric(bounds[0], errors="coerce")
+    upper = pd.to_numeric(bounds[1], errors="coerce")
+    _append_reason(reasons, ~format_mask, "invalid_storey_range_format")
+    _append_reason(reasons, format_mask & lower.gt(upper), "invalid_storey_range_bounds")
+    _append_reason(reasons, format_mask & upper.gt(MAX_REASONABLE_STOREY), f"invalid_storey_range_above_{MAX_REASONABLE_STOREY}")
     return mask
 
 
@@ -221,7 +231,7 @@ def split_duplicate_keys(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 def build_dqc_result(cleaned: pd.DataFrame) -> pd.DataFrame:
-    dqc_result = pd.concat([build_rare_value_dqc(cleaned), build_price_anomaly_dqc(cleaned)], ignore_index=True, sort=False)
+    dqc_result = pd.concat([build_statistical_domain_dqc(cleaned), build_price_anomaly_dqc(cleaned)], ignore_index=True, sort=False)
     if dqc_result.empty:
         return pd.DataFrame(columns=DQC_RESULT_COLUMNS)
 
@@ -230,31 +240,86 @@ def build_dqc_result(cleaned: pd.DataFrame) -> pd.DataFrame:
     return dqc_result
 
 
-def build_rare_value_dqc(df: pd.DataFrame, rare_count_threshold: int = 1) -> pd.DataFrame:
-    """Flag low-frequency values for review, but do not remove them from cleaned data."""
+def build_category_domain_table(df: pd.DataFrame) -> pd.DataFrame:
+    """Build frequency/domain tables for the required categorical validation fields."""
+    columns = [
+        "field",
+        "value",
+        "record_count",
+        "frequency_pct",
+        "first_month",
+        "last_month",
+        "is_rare",
+        "domain_decision",
+        "validation_action",
+    ]
+    if df.empty:
+        return pd.DataFrame(columns=columns)
+
+    rows = []
+    total_rows = len(df)
+    for column in [c for c in STATISTICAL_DOMAIN_COLUMNS if c in df.columns]:
+        values = df[column].astype("string").str.strip()
+        counts = values.value_counts(dropna=False)
+        for value, count in counts.items():
+            value_text = "" if pd.isna(value) else str(value)
+            value_mask = values.eq(value)
+            frequency_pct = float(count / total_rows * 100)
+            is_rare = int(count) <= RARE_VALUE_COUNT_THRESHOLD or frequency_pct <= RARE_VALUE_PCT_THRESHOLD
+            rows.append(
+                {
+                    "field": column,
+                    "value": value_text,
+                    "record_count": int(count),
+                    "frequency_pct": round(frequency_pct, 6),
+                    "first_month": df.loc[value_mask, "month"].min() if "month" in df.columns else "",
+                    "last_month": df.loc[value_mask, "month"].max() if "month" in df.columns else "",
+                    "is_rare": bool(is_rare),
+                    "domain_decision": "rare_in_master_dataset" if is_rare else "accepted_master_domain",
+                    "validation_action": "dqc_review" if is_rare else "accept",
+                }
+            )
+    return pd.DataFrame(rows, columns=columns).sort_values(["field", "record_count", "value"], ascending=[True, False, True]).reset_index(drop=True)
+
+
+def build_statistical_domain_dqc(
+    df: pd.DataFrame,
+    rare_count_threshold: int = RARE_VALUE_COUNT_THRESHOLD,
+    rare_pct_threshold: float = RARE_VALUE_PCT_THRESHOLD,
+) -> pd.DataFrame:
+    """Flag rare values in key statistical domains for review, but keep them in cleaned data."""
     total_rows = len(df)
     if total_rows == 0:
         return pd.DataFrame(columns=DQC_RESULT_COLUMNS)
 
     dqc_frames = []
-    for column in [c for c in df.columns if c not in DQC_FREQUENCY_EXCLUDED_COLUMNS]:
+    for column in [c for c in STATISTICAL_DOMAIN_COLUMNS if c in df.columns]:
         counts = df[column].astype(str).value_counts(dropna=False)
-        rare_values = counts[counts <= rare_count_threshold]
+        frequency_pct = counts / total_rows * 100
+        rare_values = counts[(counts <= rare_count_threshold) | (frequency_pct <= rare_pct_threshold)]
         if rare_values.empty:
             continue
 
         rare_records = df[df[column].astype(str).isin(rare_values.index)].copy()
-        rare_records["dqc_category"] = "rare value"
+        rare_records["dqc_category"] = "rare statistical-domain value"
         rare_records["dqc_field"] = column
         rare_records["dqc_value"] = rare_records[column].astype(str)
         rare_records["record_count"] = rare_records["dqc_value"].map(rare_values).astype(int)
         rare_records["frequency_pct"] = (rare_records["record_count"] / total_rows * 100).round(6)
-        rare_records["dqc_rule"] = f"{column} frequency count <= {rare_count_threshold}"
+        rare_records["dqc_rule"] = (
+            f"{column} frequency count <= {rare_count_threshold} or frequency_pct <= {rare_pct_threshold}; "
+            "derived from standardized master category domain table; review, not hard failure"
+        )
         dqc_frames.append(rare_records)
 
     result = pd.concat(dqc_frames, ignore_index=True, sort=False) if dqc_frames else pd.DataFrame(columns=DQC_RESULT_COLUMNS)
-    logger.info("Rare value DQC complete: rows=%s threshold=%s", len(result), rare_count_threshold)
+    logger.info("Statistical domain DQC complete: rows=%s threshold=%s pct=%s", len(result), rare_count_threshold, rare_pct_threshold)
     return result
+
+
+def build_rare_value_dqc(df: pd.DataFrame, rare_count_threshold: int = RARE_VALUE_COUNT_THRESHOLD) -> pd.DataFrame:
+    """Backward-compatible wrapper for rare categorical domain checks."""
+    return build_statistical_domain_dqc(df, rare_count_threshold=rare_count_threshold)
 
 
 def flag_price_anomalies(df: pd.DataFrame) -> pd.Series:

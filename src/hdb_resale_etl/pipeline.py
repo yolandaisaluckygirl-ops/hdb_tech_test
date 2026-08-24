@@ -9,7 +9,7 @@ import pandas as pd
 from hdb_resale_etl.config import PipelineConfig
 from hdb_resale_etl.extract import download_collection, load_raw_files
 from hdb_resale_etl.profile import build_profile, write_profile
-from hdb_resale_etl.quality import clean_dataset
+from hdb_resale_etl.quality import build_category_domain_table, clean_dataset
 from hdb_resale_etl.scope import split_assignment_scope
 from hdb_resale_etl.transform import add_hashed_identifier, add_resale_identifier
 
@@ -46,6 +46,7 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
     master, scope_excluded = split_assignment_scope(raw_combined, config.start_month, config.end_month)
     profile = build_profile(master)
     cleaned, failed, dqc_result = clean_dataset(master, config.as_of_date)
+    category_domain_table = build_category_domain_table(cleaned)
     logger.info("Quality stage complete: cleaned=%s failed=%s dqc_result=%s", len(cleaned), len(failed), len(dqc_result))
     transformed = add_resale_identifier(cleaned)
     logger.info("Transformation stage complete: transformed=%s", len(transformed))
@@ -54,6 +55,7 @@ def run_pipeline(config: PipelineConfig, *, download: bool = False) -> PipelineR
 
     output_paths = {
         "profile": write_profile(profile, config.profile_dir / "master_profile.json"),
+        "category_domain_table": _write_csv(category_domain_table, config.profile_dir / "category_domain_table.csv"),
         "cleaned": _write_csv(cleaned, config.cleaned_dir / "cleaned_resale_flat_prices.csv"),
         "transformed": _write_csv(transformed, config.transformed_dir / "transformed_resale_flat_prices.csv"),
         "failed": _write_csv(failed, config.failed_dir / "failed_resale_flat_prices.csv"),
