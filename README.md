@@ -140,14 +140,22 @@ src/hdb_resale_etl/architecture_diagrams.py
 
 The architecture covers:
 
-- A single left-to-right view from public data.gov.sg through the HDB private VPC, AWS managed Athena, and the Tableau VPC.
-- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet, with Scheduler retry/DLQ for target invocation failures.
-- ECS task runtime failure handling through ECS task state change events and an EventBridge alert or failure-handler rule.
-- Batch ingestion from public data.gov.sg with NAT Gateway in a public subnet for public internet traffic to data.gov.sg and AWS services without configured VPC endpoints.
-- Raw, curated, and Athena query-result storage on S3.
-- Athena reading Glue Catalog metadata separately from scanning curated S3 data, and writing results to a controlled S3 result location.
-- Tableau on AWS using an Athena Interface Endpoint and Athena driver, with Athena remaining an AWS managed service outside the VPC.
-- Security, scalability, performance considerations, and AWS Architecture Icons in the final PNG diagram.
+- AWS Managed Services:
+  - EventBridge Scheduler for scheduled ECS/Fargate `RunTask` invocation.
+  - Amazon S3 raw zone, curated zone, and Athena query-results location.
+  - AWS Glue Data Catalog for table and partition metadata, updated by the Fargate ETL task through the Glue API.
+  - Amazon Athena as the managed query service, reading Glue metadata, scanning curated S3 data, and writing query results to S3.
+  - CloudWatch, CloudTrail, and alerting targets for observability, audit, and failed-task notifications.
+- HDB Private VPC:
+  - Public subnet with NAT Gateway and an Internet Gateway attached to the VPC for controlled outbound internet access to data.gov.sg and AWS services without VPC endpoints.
+  - Private subnet with the ECS Fargate ETL task, which extracts from data.gov.sg, writes raw files, validates and transforms data, writes curated outputs, and updates Glue Catalog metadata.
+  - S3 Gateway Endpoint associated with the private route table so Fargate can access S3 without routing S3 traffic through NAT.
+- Tableau VPC:
+  - Private subnet hosting Tableau Server.
+  - Athena Interface VPC Endpoint ENI used by Tableau to reach Athena privately.
+- Failure handling:
+  - EventBridge Scheduler retry policy and SQS DLQ cover Scheduler target invocation failures.
+  - ECS task runtime failures are detected through ECS task-state change events, routed through an EventBridge rule to CloudWatch/SNS/SQS alerting or a failure handler.
 
 ## Future Improvements
 

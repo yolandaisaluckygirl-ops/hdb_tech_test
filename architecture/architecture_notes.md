@@ -15,12 +15,11 @@ The ingestion design supports scheduled batch pulls from data.gov.sg, including 
 - EventBridge Scheduler triggers ECS/Fargate `RunTask` monthly or on demand.
 - ECS Fargate runs the Python pipeline in a private subnet using a task ENI.
 - Public internet traffic to data.gov.sg and AWS services without configured VPC endpoints uses controlled outbound egress: private Fargate task -> private route table -> NAT Gateway in a public subnet -> Internet Gateway.
-- S3 traffic uses an S3 Gateway Endpoint where applicable, avoiding NAT for S3 access.
-- Secrets Manager access uses an Interface Endpoint ENI in the private subnet.
+- S3 traffic uses an S3 Gateway Endpoint associated with the private route table, avoiding NAT for S3 access while keeping S3 buckets outside the VPC.
 - In a production private-subnet setup, additional interface endpoints can be added for ECR API, ECR DKR, CloudWatch Logs, Glue, KMS, and STS to reduce NAT dependency.
 - Raw files are written to an immutable S3 raw zone.
-- Cleaned, transformed, failed, and hashed outputs are written to curated S3 prefixes.
-- Glue Data Catalog stores schemas and partitions for downstream Athena queries.
+- The Fargate task reads raw files, performs validation and transformation, and writes cleaned, transformed, failed, and hashed outputs to curated S3 prefixes.
+- The Fargate task updates Glue Data Catalog tables and partitions through the Glue API for downstream Athena queries.
 - CloudWatch and CloudTrail provide operational logs and audit records.
 - EventBridge Scheduler retry and DLQ handle failures to invoke the ECS `RunTask` target.
 - ECS task runtime failures are handled separately through ECS task state change events, for example a STOPPED non-zero-exit task triggering an EventBridge rule and SNS/SQS alert or failure handler.
@@ -37,7 +36,7 @@ The exploitation design supports Tableau on AWS using the Athena driver.
 - Athena writes query results to a controlled Amazon S3 result bucket or prefix. The Athena workgroup should enforce the result location, encryption, and lifecycle policy.
 - Lake Formation and IAM govern table, column, and S3 permissions.
 - Athena emits query metrics to CloudWatch.
-- CloudTrail is treated as a cross-cutting audit capability for Athena, Glue, S3, and Lake Formation API activity.
+- CloudTrail is treated as a cross-cutting audit capability for Athena, Glue, S3, EventBridge, ECS, and Lake Formation API activity.
 
 ## Security, Scalability, and Performance
 
