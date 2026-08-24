@@ -154,9 +154,7 @@ The architecture covers:
 
 Recommended enhancements for a production version:
 
-- Create governed dimension tables such as `dim_town`, `dim_flat_type`, `dim_flat_model`, and `dim_storey_range` from profiled master data.
-- Validate future loads against those dimension tables to detect unknown categories and source drift.
-- Add a permanent transaction-level unique id to simplify deduplication, audit, review decisions, and downstream joins.
+- Develop a target dimensional model consisting of governed `dim_property` and `dim_owner` tables and a `fact_resale_transaction` table at a one-row-per-transaction grain. Use `property_id` and `owner_id` as the dimension business keys, and use a unique `transaction_id` as the primary key of the transaction fact table, with foreign keys linking each transaction to the relevant property, buyer, and seller records.
 - Implement the DQC review decision loop described in `docs/data_quality_notes.md`.
 - Store curated outputs as partitioned Parquet files for Athena performance.
 - For production-scale files, stream directly to S3 with multipart upload and process with Glue/Spark or PyArrow rather than returning one combined in-memory DataFrame.
