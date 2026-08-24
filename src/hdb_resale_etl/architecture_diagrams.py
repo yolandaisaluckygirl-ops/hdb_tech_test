@@ -196,7 +196,6 @@ def _render(diagram: Diagram, output_path: Path) -> Path:
     _draw_text(draw, (70, 980), diagram.footer_note, 17, fill=COLORS["muted"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(output_path)
-    _write_svg(diagram, output_path.with_suffix(".svg"))
     return output_path
 
 

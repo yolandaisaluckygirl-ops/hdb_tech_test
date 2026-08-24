@@ -135,8 +135,6 @@ using SHA-256. This produces a 64-character irreversible hash in `hashed_resale_
 ```text
 architecture/data_ingestion_architecture.png
 architecture/data_exploitation_architecture.png
-architecture/data_ingestion_architecture.svg
-architecture/data_exploitation_architecture.svg
 architecture/architecture_notes.md
 src/hdb_resale_etl/architecture_diagrams.py
 ```
