@@ -143,11 +143,12 @@ src/hdb_resale_etl/architecture_diagrams.py
 
 The architecture covers:
 
-- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet.
-- Batch ingestion from public data.gov.sg with NAT Gateway in a public subnet only for controlled outbound source access.
-- Raw and curated storage on S3.
-- S3 Gateway Endpoint, Secrets Manager Interface Endpoint ENI, Glue Catalog, Athena, Lake Formation, CloudWatch, retry, and DLQ patterns.
-- Tableau on AWS using an Athena Interface Endpoint and Athena driver.
+- EventBridge Scheduler triggering ECS/Fargate RunTask in a private subnet, with Scheduler retry/DLQ for invocation failures.
+- ECS task runtime failure handling through ECS task state change events and an EventBridge alert or failure-handler rule.
+- Batch ingestion from public data.gov.sg with NAT Gateway in a public subnet for public internet traffic to data.gov.sg and AWS services without configured VPC endpoints.
+- Raw, curated, and Athena query-result storage on S3.
+- S3 Gateway Endpoint and Secrets Manager Interface Endpoint ENI for the ingestion runtime, with optional production endpoints for ECR, CloudWatch Logs, Glue, KMS, and STS.
+- Tableau on AWS using an Athena Interface Endpoint and Athena driver; Athena reads Glue Catalog metadata, scans curated S3 data directly, writes S3 query results, emits CloudWatch query metrics, and records API activity through CloudTrail.
 - Security, scalability, performance considerations, and AWS Architecture Icons in the final diagrams.
 
 ## Future Improvements

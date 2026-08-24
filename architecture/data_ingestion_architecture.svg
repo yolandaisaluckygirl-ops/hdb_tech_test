@@ -51,8 +51,11 @@
 <text x="1675.0" y="621" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">CloudWatch Logs</text>
 <text x="1675.0" y="641" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">and metrics</text>
 <rect x="1570" y="710" width="210" height="126" rx="12" fill="#fff1f2" stroke="#475569" stroke-width="2"/>
-<text x="1675.0" y="784" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Retry policy</text>
+<text x="1675.0" y="784" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">Scheduler retry</text>
 <text x="1675.0" y="804" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">and DLQ</text>
+<rect x="1570" y="810" width="210" height="126" rx="12" fill="#fff1f2" stroke="#475569" stroke-width="2"/>
+<text x="1675.0" y="884" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">ECS task failed</text>
+<text x="1675.0" y="904" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">EventBridge rule</text>
 <rect x="1570" y="360" width="210" height="126" rx="12" fill="#ffffff" stroke="#475569" stroke-width="2"/>
 <image href="aws-icons/aws-secrets-manager.png" x="1648.0" y="376" width="54" height="54"/>
 <text x="1675.0" y="446" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#172033">AWS Secrets Manager</text>
@@ -68,7 +71,8 @@
 <path d="M 1128 636 L 1310 636 L 1310 773 L 1337 773" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <path d="M 1278 793 L 1285 793 L 1285 330 L 1675 330 L 1675 352" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="9 8"/>
 <path d="M 1128 580 L 1280 580 L 1280 510 L 1675 510 L 1675 527" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="9 8"/>
-<path d="M 1128 646 L 1280 646 L 1280 900 L 1675 900 L 1675 844" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="9 8"/>
-<text x="70" y="946" text-anchor="start" font-family="Arial" font-size="19" font-weight="700" fill="#172033">EventBridge Scheduler starts ECS/Fargate RunTask; only outbound data.gov.sg traffic uses NAT Gateway -&gt; Internet Gateway.</text>
-<text x="70" y="980" text-anchor="start" font-family="Arial" font-size="17" font-weight="400" fill="#334155">AWS managed services sit outside subnets; Fargate reaches S3 through a Gateway Endpoint and Secrets Manager through an Interface Endpoint ENI.</text>
+<path d="M 910 296 L 910 320 L 1790 320 L 1790 773 L 1788 773" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="9 8"/>
+<path d="M 1128 646 L 1280 646 L 1280 930 L 1562 873" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="9 8"/>
+<text x="70" y="946" text-anchor="start" font-family="Arial" font-size="19" font-weight="700" fill="#172033">EventBridge Scheduler starts ECS/Fargate RunTask; scheduler invocation failures use Scheduler retry/DLQ.</text>
+<text x="70" y="980" text-anchor="start" font-family="Arial" font-size="17" font-weight="400" fill="#334155">Public internet traffic to data.gov.sg and AWS services without VPC endpoints uses NAT Gateway; ECS task STOPPED failures are handled through EventBridge task-state events.</text>
 </svg>

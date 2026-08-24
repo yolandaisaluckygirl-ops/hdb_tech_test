@@ -14,14 +14,17 @@ The ingestion design supports scheduled batch pulls from data.gov.sg, including 
 
 - EventBridge Scheduler triggers ECS/Fargate `RunTask` monthly or on demand.
 - ECS Fargate runs the Python pipeline in a private subnet using a task ENI.
-- The runtime reaches data.gov.sg through controlled outbound egress: private Fargate task -> private route table -> NAT Gateway in a public subnet -> Internet Gateway -> data.gov.sg.
+- Public internet traffic to data.gov.sg and AWS services without configured VPC endpoints uses controlled outbound egress: private Fargate task -> private route table -> NAT Gateway in a public subnet -> Internet Gateway.
 - S3 traffic uses an S3 Gateway Endpoint where applicable, avoiding NAT for S3 access.
 - Secrets Manager access uses an Interface Endpoint ENI in the private subnet.
+- In a production private-subnet setup, additional interface endpoints can be added for ECR API, ECR DKR, CloudWatch Logs, Glue, KMS, and STS to reduce NAT dependency.
 - Raw files are written to an immutable S3 raw zone.
 - Cleaned, transformed, failed, and hashed outputs are written to curated S3 prefixes.
 - Glue Data Catalog stores schemas and partitions for downstream Athena queries.
 - CloudWatch and CloudTrail provide operational logs and audit records.
-- Failed task attempts are retried through scheduler/task retry policy and routed to a DLQ or failure-handling target for operations follow-up.
+- EventBridge Scheduler retry and DLQ handle failures to invoke the ECS `RunTask` target.
+- ECS task runtime failures are handled separately through ECS task state change events, for example a STOPPED non-zero-exit task triggering an EventBridge rule and SNS/SQS alert or failure handler.
+- A production task-level retry design can route Scheduler -> Step Functions -> ECS Fargate so Step Functions can wait for completion and apply `Retry` and `Catch`.
 
 ## Data Exploitation
 
@@ -29,10 +32,12 @@ The exploitation design supports Tableau on AWS using the Athena driver.
 
 - Tableau runs inside private AWS network segments.
 - Tableau reaches Athena privately through an Athena Interface VPC Endpoint ENI; Athena itself remains an AWS managed service outside the VPC.
-- Athena queries curated S3 data through Glue Catalog metadata.
-- S3 access uses a Gateway Endpoint where applicable so S3 traffic does not require NAT.
+- Athena reads schema and partition metadata from AWS Glue Data Catalog.
+- Athena scans actual curated data directly in Amazon S3; this access is performed by the Athena managed service, not by Tableau through the VPC S3 Gateway Endpoint.
+- Athena writes query results to a controlled Amazon S3 result bucket or prefix. The Athena workgroup should enforce the result location, encryption, and lifecycle policy.
 - Lake Formation and IAM govern table, column, and S3 permissions.
-- Query results and logs are stored in controlled S3 buckets.
+- Athena emits query metrics to CloudWatch.
+- CloudTrail is treated as a cross-cutting audit capability for Athena, Glue, S3, and Lake Formation API activity.
 
 ## Security, Scalability, and Performance
 
