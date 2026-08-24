@@ -154,8 +154,7 @@ The architecture covers:
 
 Recommended enhancements for a production version:
 
-- Develop a target dimensional model consisting of governed `dim_property` and `dim_owner` tables and a `fact_resale_transaction` table at a one-row-per-transaction grain. Use `property_id` and `owner_id` as the dimension business keys, and use a unique `transaction_id` as the primary key of the transaction fact table, with foreign keys linking each transaction to the relevant property, buyer, and seller records.
-- Implement the DQC review decision loop described in `docs/data_quality_notes.md`.
-- Store curated outputs as partitioned Parquet files for Athena performance.
-- For production-scale files, stream directly to S3 with multipart upload and process with Glue/Spark or PyArrow rather than returning one combined in-memory DataFrame.
-- Add CI checks to run unit tests automatically on GitHub.
+- Develop a governed dimensional model consisting of `dim_property`, `dim_owner`, and `fact_resale_transaction`, where authoritative internal source data is available. Maintain one row per transaction in the fact table, use stable `property_id` and `owner_id` values as dimension business keys, and use a unique `transaction_id` as the fact table's primary key, with foreign keys linking each transaction to the relevant property, buyer, and seller records.
+- Implement the DQC review and master-data maintenance workflow described in `docs/data_quality_notes.md`, including approval and rejection decisions, audit history, and controlled updates to governed property and owner records.
+- Publish curated datasets to Amazon S3 as year/month-partitioned Parquet files and extend the current chunked ingestion process to support direct S3 multipart uploads and scalable processing with Glue/Spark or PyArrow without materialising the complete dataset in a single in-memory DataFrame.
+- Introduce a CI workflow to run unit tests, schema validation, and critical data-quality assertions automatically for every code change.
